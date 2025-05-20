@@ -87,7 +87,7 @@ const codingProjects = [
   },
 ];
 
-const techIcons: Record<string, JSX.Element> = {
+const techIcons: Record<string, React.ReactNode> = {
   "Next.js": <Layers className="text-white w-4 h-4" />,
   "Tailwind CSS": <Palette className="text-sky-400 w-4 h-4" />,
   TypeScript: <BadgeCheck className="text-blue-500 w-4 h-4" />,
