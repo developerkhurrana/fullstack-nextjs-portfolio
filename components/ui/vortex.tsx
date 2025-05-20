@@ -59,7 +59,7 @@ export const Vortex = (props: VortexProps) => {
       const ctx = canvas.getContext("2d");
 
       if (ctx) {
-        resize(canvas, ctx);
+        resize(canvas);
         initParticles();
         draw(canvas, ctx);
       }
@@ -181,10 +181,7 @@ export const Vortex = (props: VortexProps) => {
     return x > canvas.width || x < 0 || y > canvas.height || y < 0;
   };
 
-  const resize = (
-    canvas: HTMLCanvasElement,
-    ctx?: CanvasRenderingContext2D
-  ) => {
+  const resize = (canvas: HTMLCanvasElement) => {
     const { innerWidth, innerHeight } = window;
 
     canvas.width = innerWidth;
@@ -224,12 +221,19 @@ export const Vortex = (props: VortexProps) => {
     setup();
     window.addEventListener("resize", () => {
       const canvas = canvasRef.current;
-      const ctx = canvas?.getContext("2d");
-      if (canvas && ctx) {
-        resize(canvas, ctx);
+      if (canvas) {
+        resize(canvas);
       }
     });
-  }, []);
+    return () => {
+      window.removeEventListener("resize", () => {
+        const canvas = canvasRef.current;
+        if (canvas) {
+          resize(canvas);
+        }
+      });
+    };
+  }, [setup, resize]);
 
   return (
     <div className={cn("relative h-full w-full", props.containerClassName)}>

@@ -10,12 +10,6 @@ interface CloudinaryResource {
   url: string;
 }
 
-interface CloudinaryResponse {
-  resources: CloudinaryResource[];
-  error?: string;
-  details?: string;
-}
-
 export async function getAllImages() {
   try {
     const response = await fetch("/api/cloudinary");

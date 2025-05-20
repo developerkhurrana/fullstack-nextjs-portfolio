@@ -60,8 +60,8 @@ export function ContactSection() {
               <CardContent className="space-y-6">
                 <p className="text-muted-foreground">
                   Feel free to reach out to me for any questions or
-                  opportunities. I'm always open to discussing new projects and
-                  ideas.
+                  opportunities. I&apos;m always open to discussing new projects
+                  and ideas.
                 </p>
 
                 <div className="space-y-4">
