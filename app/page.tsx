@@ -9,8 +9,8 @@ import { Spotlight } from "@/components/ui/spotlight-new";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black relative">
-      <section className="w-full h-screen flex flex-col justify-center items-center text-center relative">
+    <main className="h-screen bg-black relative overflow-hidden">
+      <section className="w-full h-full flex flex-col justify-center items-center text-center relative">
         <Spotlight />
         <div className="absolute inset-0 w-full h-full z-0">
           <Widgets />
@@ -82,7 +82,7 @@ export default function Home() {
             <HoverBorderGradient
               containerClassName="rounded-full"
               as="a"
-              href="https://drive.google.com/file/d/1HdpZxsvd9hZuo8WWZRPy8aVYZmeoVfNy/view?usp=sharing"
+              href="https://drive.google.com/file/d/1qCLUSJ84Kp_oRuaNI51JJy8FD7pO3Unl/view"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-gradient-to-r from-red-500 to-orange-500 text-white"
@@ -102,7 +102,6 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </section>
-      {/* Removed all other sections */}
     </main>
   );
 }
