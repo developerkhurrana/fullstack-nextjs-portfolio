@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Kshitij Khurrana - Full Stack Developer",
+  title: "Kshitij Khurrana - Web Designer",
   description: "Portfolio website of Kshitij Khurrana, a Web Designer",
 };
 
