@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Chat } from "@/components/ui/chat";
 import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Kshitij Khurrana - Web Designer",
-  description: "Portfolio website of Kshitij Khurrana, a Web Designer",
+  title: "Kshitij Khurrana - Portfolio",
+  description: "Full-Stack Developer and UI/UX Designer",
 };
 
 export default function RootLayout({
@@ -26,11 +27,12 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
           {children}
+          <Chat />
         </ThemeProvider>
       </body>
     </html>

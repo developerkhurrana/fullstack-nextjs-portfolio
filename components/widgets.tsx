@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 export function Widgets() {
   const [datetime, setDatetime] = useState("");
   const [screenSize, setScreenSize] = useState("");
-  const [visitorCountry, setVisitorCountry] = useState("");
 
   useEffect(() => {
     // Update datetime every second
@@ -31,9 +30,6 @@ export function Widgets() {
 
     updateScreenSize();
     window.addEventListener("resize", updateScreenSize);
-
-    // Fetch visitor country (mock for now)
-    setVisitorCountry("India");
 
     return () => {
       clearInterval(interval);
@@ -68,15 +64,6 @@ export function Widgets() {
         className="absolute bottom-4 left-4 text-sm font-mono"
       >
         {screenSize}
-      </motion.div>
-
-      {/* Bottom Right - Visitor Country */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="absolute bottom-4 right-4 text-sm font-mono"
-      >
-        {visitorCountry}
       </motion.div>
     </div>
   );
