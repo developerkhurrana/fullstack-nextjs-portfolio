@@ -101,6 +101,7 @@ export default function Coding() {
   const navItems = [
     { name: "Works", link: "/projects" },
     { name: "Coding", link: "/coding" },
+    { name: "Design", link: "/design" },
     { name: "About", link: "/about" },
   ];
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

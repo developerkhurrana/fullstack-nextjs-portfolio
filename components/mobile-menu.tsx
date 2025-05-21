@@ -12,6 +12,7 @@ const navItems = [
   { name: "Experience", href: "#experience" },
   { name: "Education", href: "#education" },
   { name: "Contact", href: "#contact" },
+  { name: "Design Guidelines", href: "/design-guidelines" },
 ];
 
 export function MobileMenu() {

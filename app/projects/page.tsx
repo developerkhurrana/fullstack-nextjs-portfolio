@@ -26,6 +26,7 @@ export default function Projects() {
   const navItems = [
     { name: "Works", link: "/projects" },
     { name: "Coding", link: "/coding" },
+    { name: "Design", link: "/design" },
     { name: "About", link: "/about" },
   ];
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

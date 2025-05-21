@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import {
   Navbar,
@@ -12,9 +13,38 @@ import {
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { usePathname } from "next/navigation";
 import { Download } from "lucide-react";
-import { Timeline } from "@/components/ui/timeline";
+import { motion } from "framer-motion";
 
-export default function About() {
+const uiExperiments = [
+  {
+    title: "Design Guidelines",
+    description:
+      "A comprehensive guide for web design principles and best practices.",
+    link: "/design-guidelines",
+    icon: "📚",
+  },
+  {
+    title: "UI Experiments",
+    description:
+      "Interactive UI patterns and interactions that make you think 'what the fuck?'",
+    link: "/ui-experiments",
+    icon: "✨",
+  },
+  {
+    title: "Component Lab",
+    description: "A playground for testing and exploring new UI components.",
+    link: "/component-lab",
+    icon: "🧪",
+  },
+  {
+    title: "Jot",
+    description: "A modern jot app with a clean and minimalist design.",
+    link: "/jot",
+    icon: "✓",
+  },
+];
+
+export default function Design() {
   const navItems = [
     { name: "Works", link: "/projects" },
     { name: "Coding", link: "/coding" },
@@ -23,68 +53,6 @@ export default function About() {
   ];
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-
-  const timelineData = [
-    {
-      title: "2023",
-      content: [
-        {
-          title: "Web Designer - Team Leader",
-          description: "TSSS Infotech and Infra",
-          achievements: [
-            "Led a team of 3 designers to deliver 10+ client projects, achieving a 95% on-time delivery rate",
-            "Designed and developed an Employee Portal, streamlining internal processes and improving usability",
-            "Conducted onboarding and training sessions for new recruits, improving team productivity by 25%",
-            "Optimized project workflows to ensure high-quality, functional designs aligned with client requirements",
-          ],
-          technologies: [
-            "UI/UX Design",
-            "Team Leadership",
-            "Project Management",
-            "Training & Development",
-          ],
-        },
-      ],
-    },
-    {
-      title: "2022",
-      content: [
-        {
-          title: "Professional Certifications",
-          description: "Virtual Badge",
-          achievements: [
-            "Certified Back-End Developer - REST APIs, Node.js, MongoDB",
-            "Certified Front-End Developer - React.js, JavaScript, UI/UX",
-            "Certified Full-Stack Developer - MERN Stack, Database Management, RESTful APIs",
-          ],
-          technologies: [
-            "MERN Stack",
-            "REST APIs",
-            "Database Management",
-            "UI/UX Design",
-          ],
-        },
-      ],
-    },
-    {
-      title: "2020",
-      content: [
-        {
-          title: "B.Sc. in Media Technology",
-          description: "ICAT Design and Media College",
-          achievements: [
-            "Completed degree with focus on media technology and design",
-            "Developed strong foundation in digital media and technology",
-          ],
-          technologies: [
-            "Media Technology",
-            "Digital Design",
-            "Technology Integration",
-          ],
-        },
-      ],
-    },
-  ];
 
   return (
     <main className="min-h-screen bg-black relative overflow-hidden">
@@ -171,20 +139,33 @@ export default function About() {
           </Navbar>
         </div>
       </div>
-      <div className="pt-24 max-w-7xl mx-auto px-4">
-        {/* About Me Section */}
-        <section className="mb-16">
-          <h1 className="text-4xl font-bold mb-4 text-white">About Me</h1>
-          <p className="text-lg text-neutral-300">
-            Results-driven Full-Stack Developer with 3+ years of experience
-            building high-impact web applications. Proficient in React.js,
-            Node.js, and UI/UX design tools like Figma. Adept at solving complex
-            UI/UX challenges, optimizing application performance, and
-            streamlining project workflows.
-          </p>
-        </section>
-        {/* Timeline Section */}
-        <Timeline data={timelineData} />
+
+      <div className="max-w-7xl mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="pt-32 pb-16"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {uiExperiments.map((project, index) => (
+              <motion.a
+                key={index}
+                href={project.link}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group bg-neutral-900 rounded-lg p-6 hover:bg-neutral-800 transition-colors"
+              >
+                <div className="text-4xl mb-4">{project.icon}</div>
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-orange-400 transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-neutral-400">{project.description}</p>
+              </motion.a>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </main>
   );
