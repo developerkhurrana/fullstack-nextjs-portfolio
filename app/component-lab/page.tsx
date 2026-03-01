@@ -348,7 +348,7 @@ export default function ComponentLab() {
                   <HoverBorderGradient
                     containerClassName="rounded-full"
                     as="a"
-                    href="https://drive.google.com/file/d/1qCLUSJ84Kp_oRuaNI51JJy8FD7pO3Unl/view"
+                    href="https://drive.google.com/drive/folders/1nViRYkAWfSPEJdwygysiQA9qXE-19I7j?usp=sharing"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-gradient-to-r from-red-500 to-orange-500 text-white p-2 px-4 flex items-center"
@@ -391,7 +391,7 @@ export default function ComponentLab() {
                     <HoverBorderGradient
                       containerClassName="rounded-full w-full"
                       as="a"
-                      href="https://drive.google.com/file/d/1qCLUSJ84Kp_oRuaNI51JJy8FD7pO3Unl/view"
+                      href="https://drive.google.com/drive/folders/1nViRYkAWfSPEJdwygysiQA9qXE-19I7j?usp=sharing"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-gradient-to-r from-red-500 to-orange-500 text-white w-full text-center p-2 px-4 flex items-center justify-center"
