@@ -26,6 +26,14 @@ import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const codingProjects = [
   {
+    title: "LedgerAI",
+    description:
+      "AI-powered expense, GST, and cash flow tracker for Indian small businesses.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB", "NextAuth", "OpenAI"],
+    demo: "https://ledger-ai-kappa.vercel.app/",
+    github: "https://github.com/developerkhurrana/LedgerAi",
+  },
+  {
     title: "LinkedIn Clone",
     description:
       "A full-featured LinkedIn clone with authentication, posts, and real-time updates.",
@@ -92,6 +100,8 @@ const techIcons: Record<string, React.ReactNode> = {
   "Tailwind CSS": <Palette className="text-sky-400 w-4 h-4" />,
   TypeScript: <BadgeCheck className="text-blue-500 w-4 h-4" />,
   MongoDB: <Database className="text-green-500 w-4 h-4" />,
+  NextAuth: <BadgeCheck className="text-green-400 w-4 h-4" />,
+  OpenAI: <FileCode className="text-emerald-400 w-4 h-4" />,
   "React.js": <Globe className="text-cyan-400 w-4 h-4" />,
   "Node.js": <Server className="text-green-600 w-4 h-4" />,
   Figma: <PenTool className="text-pink-500 w-4 h-4" />,
