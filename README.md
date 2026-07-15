@@ -26,7 +26,7 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and shadc
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/portfolio.git
+git clone https://github.com/developerkhurrana/fullstack-nextjs-portfolio.git
 ```
 
 2. Install dependencies:
@@ -35,13 +35,20 @@ git clone https://github.com/yourusername/portfolio.git
 npm install
 ```
 
-3. Run the development server:
+3. Configure environment variables:
+
+```bash
+cp .env.example .env.local
+# then fill in your Cloudinary credentials
+```
+
+4. Run the development server:
 
 ```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Project Structure
 
@@ -72,6 +79,6 @@ MIT License - feel free to use this template for your own portfolio!
 
 ## Contact
 
-Kshitij Khurrana - [your.email@example.com](mailto:your.email@example.com)
+Kshitij Khurrana - [thekshitijkhurrana@gmail.com](mailto:thekshitijkhurrana@gmail.com)
 
-Project Link: [https://github.com/yourusername/portfolio](https://github.com/yourusername/portfolio)
+Project Link: [https://github.com/developerkhurrana/fullstack-nextjs-portfolio](https://github.com/developerkhurrana/fullstack-nextjs-portfolio)

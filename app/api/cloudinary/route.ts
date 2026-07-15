@@ -1,18 +1,29 @@
 import { NextResponse } from "next/server";
 
-const cloudinaryConfig = {
-  cloudName: "dayayd4lv",
-  apiKey: "376526173972156",
-  apiSecret: "7uCF6SUCRSbI4A8MdEdDnCy_wXo",
-};
+// Cloud name is public (it appears in every delivered image URL), so a
+// fallback is fine. The API key and secret must never be hardcoded or shipped
+// to the client — they are read from server-only environment variables.
+const CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME ?? "dayayd4lv";
+const API_KEY = process.env.CLOUDINARY_API_KEY;
+const API_SECRET = process.env.CLOUDINARY_API_SECRET;
 
 export async function GET() {
-  try {
-    const authString = Buffer.from(
-      `${cloudinaryConfig.apiKey}:${cloudinaryConfig.apiSecret}`
-    ).toString("base64");
+  if (!API_KEY || !API_SECRET) {
+    console.error(
+      "Cloudinary credentials are not configured (CLOUDINARY_API_KEY / CLOUDINARY_API_SECRET)."
+    );
+    return NextResponse.json(
+      { error: "Cloudinary is not configured on the server." },
+      { status: 500 }
+    );
+  }
 
-    const url = `https://api.cloudinary.com/v1_1/${cloudinaryConfig.cloudName}/resources/image?type=upload&max_results=500`;
+  try {
+    const authString = Buffer.from(`${API_KEY}:${API_SECRET}`).toString(
+      "base64"
+    );
+
+    const url = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/resources/image?type=upload&max_results=500`;
 
     const response = await fetch(url, {
       headers: {
@@ -23,39 +34,23 @@ export async function GET() {
     const data = await response.json();
 
     if (!response.ok) {
-      return new NextResponse(
-        JSON.stringify({
-          error: `Cloudinary API error: ${response.status} ${response.statusText}`,
-          details: data,
-        }),
-        {
-          status: response.status,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
+      // Avoid leaking upstream error details to the client.
+      console.error(
+        `Cloudinary API error: ${response.status} ${response.statusText}`,
+        data
+      );
+      return NextResponse.json(
+        { error: "Failed to fetch images from Cloudinary." },
+        { status: response.status }
       );
     }
 
-    return new NextResponse(JSON.stringify(data), {
-      status: 200,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    return NextResponse.json(data, { status: 200 });
   } catch (error) {
     console.error("Cloudinary API error:", error);
-    return new NextResponse(
-      JSON.stringify({
-        error: "Failed to fetch from Cloudinary",
-        details: error instanceof Error ? error.message : "Unknown error",
-      }),
-      {
-        status: 500,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
+    return NextResponse.json(
+      { error: "Failed to fetch from Cloudinary." },
+      { status: 500 }
     );
   }
 }

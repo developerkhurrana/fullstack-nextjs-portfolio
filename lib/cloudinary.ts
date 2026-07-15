@@ -1,8 +1,8 @@
-export const cloudinaryConfig = {
-  cloudName: "dayayd4lv",
-  apiKey: "376526173972156",
-  apiSecret: "7uCF6SUCRSbI4A8MdEdDnCy_wXo",
-};
+// Only the cloud name is needed on the client — it is public and already
+// appears in every delivered image URL. The API key and secret live server-side
+// only (see app/api/cloudinary/route.ts) and must never be imported here.
+const CLOUD_NAME =
+  process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME ?? "dayayd4lv";
 
 interface CloudinaryResource {
   public_id: string;
@@ -24,7 +24,7 @@ export async function getAllImages() {
     }
 
     return data.resources.map((resource: CloudinaryResource) => ({
-      url: `https://res.cloudinary.com/${cloudinaryConfig.cloudName}/image/upload/w_600,q_auto,f_auto/${resource.public_id}`,
+      url: `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/w_600,q_auto,f_auto/${resource.public_id}`,
       public_id: resource.public_id,
     }));
   } catch (error) {

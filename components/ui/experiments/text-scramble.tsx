@@ -27,9 +27,9 @@ export function TextScramble() {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // On mount, show scrambled text
+  // Intentionally run only on mount to seed the scrambled text.
   useEffect(() => {
     setDisplay(fullyScrambled(original));
-    // eslint-disable-next-line
   }, []);
 
   function handleMouseEnter() {
