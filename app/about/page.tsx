@@ -1,29 +1,11 @@
 "use client";
-import React, { useState } from "react";
-import {
-  Navbar,
-  NavBody,
-  MobileNav,
-  NavbarLogo,
-  MobileNavHeader,
-  MobileNavToggle,
-  MobileNavMenu,
-} from "@/components/ui/resizable-navbar";
-import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
-import { usePathname } from "next/navigation";
-import { Download } from "lucide-react";
+import React from "react";
+import { SiteNav } from "@/components/site-nav";
+import { SiteFooter } from "@/components/site-footer";
+import { PageHeader } from "@/components/page-header";
 import { Timeline } from "@/components/ui/timeline";
 
 export default function About() {
-  const navItems = [
-    { name: "Works", link: "/projects" },
-    { name: "Coding", link: "/coding" },
-    { name: "Design", link: "/design" },
-    { name: "About", link: "/about" },
-  ];
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const pathname = usePathname();
-
   const timelineData = [
     {
       title: "2023",
@@ -87,105 +69,19 @@ export default function About() {
   ];
 
   return (
-    <main className="min-h-screen bg-black relative overflow-hidden">
-      <div className="fixed top-0 left-0 w-full z-50">
-        <div className="max-w-7xl mx-auto">
-          <Navbar>
-            {/* Desktop Navigation */}
-            <NavBody>
-              <NavbarLogo />
-              <div className="flex gap-6 items-center">
-                {navItems.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.link}
-                    className={
-                      "rounded-full transition-colors font-medium px-4 py-2 border " +
-                      (item.link === pathname
-                        ? "text-orange-400 border-orange-400 "
-                        : "text-neutral-300 border-orange-400/0 hover:text-orange-400 hover:border-orange-400")
-                    }
-                  >
-                    {item.name}
-                  </a>
-                ))}
-                <HoverBorderGradient
-                  containerClassName="rounded-full"
-                  as="a"
-                  href="https://drive.google.com/drive/folders/1nViRYkAWfSPEJdwygysiQA9qXE-19I7j?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-red-500 to-orange-500 text-white p-2 px-4 flex items-center"
-                  aria-label="Download Resume"
-                >
-                  <Download className="h-5 w-5 mr-2" />
-                  Resume
-                </HoverBorderGradient>
-              </div>
-            </NavBody>
-            {/* Mobile Navigation */}
-            <MobileNav>
-              <MobileNavHeader>
-                <NavbarLogo />
-                <MobileNavToggle
-                  isOpen={isMobileMenuOpen}
-                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                />
-              </MobileNavHeader>
-              <MobileNavMenu
-                isOpen={isMobileMenuOpen}
-                onClose={() => setIsMobileMenuOpen(false)}
-              >
-                {navItems.map((item) => (
-                  <a
-                    key={`mobile-link-${item.name}`}
-                    href={item.link}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={
-                      "rounded-full relative block px-4 py-2 font-medium border " +
-                      (item.link === pathname
-                        ? "text-orange-400 border-orange-400 "
-                        : "text-neutral-300 dark:text-neutral-300 border-orange-400/0 hover:text-orange-400 hover:border-orange-400")
-                    }
-                  >
-                    <span className="block">{item.name}</span>
-                  </a>
-                ))}
-                <div className="flex w-full flex-col gap-4">
-                  <HoverBorderGradient
-                    containerClassName="rounded-full w-full"
-                    as="a"
-                    href="https://drive.google.com/drive/folders/1nViRYkAWfSPEJdwygysiQA9qXE-19I7j?usp=sharing"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-gradient-to-r from-red-500 to-orange-500 text-white w-full text-center p-2 px-4 flex items-center justify-center"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    aria-label="Download Resume"
-                  >
-                    <Download className="h-5 w-5 mr-2" />
-                    Resume
-                  </HoverBorderGradient>
-                </div>
-              </MobileNavMenu>
-            </MobileNav>
-          </Navbar>
+    <div className="min-h-screen bg-[#08080a] text-white">
+      <SiteNav />
+      <main className="mx-auto max-w-6xl px-5 pt-32 sm:px-8">
+        <PageHeader
+          eyebrow="About"
+          title="About me"
+          description="Results-driven full-stack developer with 3+ years of experience building high-impact web applications. Proficient in React.js, Node.js, and design tools like Figma — adept at solving complex UI/UX challenges, optimizing performance, and streamlining workflows."
+        />
+        <div className="mt-8">
+          <Timeline data={timelineData} />
         </div>
-      </div>
-      <div className="pt-24 max-w-7xl mx-auto px-4">
-        {/* About Me Section */}
-        <section className="mb-16">
-          <h1 className="text-4xl font-bold mb-4 text-white">About Me</h1>
-          <p className="text-lg text-neutral-300">
-            Results-driven Full-Stack Developer with 3+ years of experience
-            building high-impact web applications. Proficient in React.js,
-            Node.js, and UI/UX design tools like Figma. Adept at solving complex
-            UI/UX challenges, optimizing application performance, and
-            streamlining project workflows.
-          </p>
-        </section>
-        {/* Timeline Section */}
-        <Timeline data={timelineData} />
-      </div>
-    </main>
+      </main>
+      <SiteFooter />
+    </div>
   );
 }

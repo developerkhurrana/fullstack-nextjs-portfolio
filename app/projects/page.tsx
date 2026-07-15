@@ -1,58 +1,46 @@
 "use client";
 
-import {
-  Navbar,
-  NavBody,
-  MobileNav,
-  NavbarLogo,
-  MobileNavHeader,
-  MobileNavToggle,
-  MobileNavMenu,
-} from "@/components/ui/resizable-navbar";
 import { GoToTop } from "@/components/ui/go-to-top";
-import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+import { SiteNav } from "@/components/site-nav";
+import { SiteFooter } from "@/components/site-footer";
+import { PageHeader } from "@/components/page-header";
 import { getAllImages } from "@/lib/cloudinary";
 import { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { Download } from "lucide-react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface ImageData {
   url: string;
   public_id: string;
 }
 
+function Shell({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="min-h-screen bg-[#08080a] text-white">
+      <SiteNav />
+      {children}
+    </div>
+  );
+}
+
 export default function Projects() {
-  const navItems = [
-    { name: "Works", link: "/projects" },
-    { name: "Coding", link: "/coding" },
-    { name: "Design", link: "/design" },
-    { name: "About", link: "/about" },
-  ];
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [images, setImages] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [errorDetails, setErrorDetails] = useState<string | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [currentIdx, setCurrentIdx] = useState(0);
-  const pathname = usePathname();
 
   useEffect(() => {
     async function loadImages() {
       try {
         setError(null);
-        setErrorDetails(null);
         const imageData = await getAllImages();
         setImages(imageData.map((img: ImageData) => img.url));
       } catch (error) {
         console.error("Error loading images:", error);
-        if (error instanceof Error) {
-          setError(error.message);
-          setErrorDetails(error.stack || null);
-        } else {
-          setError("Failed to load images");
-        }
+        setError(
+          error instanceof Error ? error.message : "Failed to load images"
+        );
       } finally {
         setLoading(false);
       }
@@ -60,18 +48,13 @@ export default function Projects() {
     loadImages();
   }, []);
 
-  // Open modal with selected image
   const openModal = useCallback((idx: number) => {
     setCurrentIdx(idx);
     setModalOpen(true);
   }, []);
 
-  // Close modal
-  const closeModal = useCallback(() => {
-    setModalOpen(false);
-  }, []);
+  const closeModal = useCallback(() => setModalOpen(false), []);
 
-  // Navigate left/right
   const showPrev = useCallback(
     (e?: React.MouseEvent) => {
       if (e) e.stopPropagation();
@@ -87,7 +70,6 @@ export default function Projects() {
     [images.length]
   );
 
-  // Keyboard navigation
   useEffect(() => {
     if (!modalOpen) return;
     const handleKey = (e: KeyboardEvent) => {
@@ -101,221 +83,96 @@ export default function Projects() {
 
   if (loading) {
     return (
-      <main className="h-screen bg-black relative overflow-hidden flex items-center justify-center">
-        <div className="text-white text-xl">Loading images...</div>
-      </main>
+      <Shell>
+        <div className="flex min-h-[70vh] items-center justify-center">
+          <div className="flex items-center gap-3 text-neutral-400">
+            <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/20 border-t-amber-400" />
+            Loading work…
+          </div>
+        </div>
+      </Shell>
     );
   }
 
   if (error) {
     return (
-      <main className="h-screen bg-black relative overflow-hidden flex items-center justify-center">
-        <div className="text-white text-xl text-center max-w-2xl px-4">
-          <p className="mb-4">Error loading images</p>
-          <p className="text-red-400 text-sm mb-2">{error}</p>
-          {errorDetails && (
-            <p className="text-gray-400 text-xs whitespace-pre-wrap font-mono">
-              {errorDetails}
-            </p>
-          )}
+      <Shell>
+        <div className="flex min-h-[70vh] items-center justify-center px-4">
+          <div className="max-w-md text-center">
+            <p className="text-lg text-white">Couldn&apos;t load the gallery</p>
+            <p className="mt-2 text-sm text-neutral-500">{error}</p>
+          </div>
         </div>
-      </main>
-    );
-  }
-
-  if (images.length === 0) {
-    return (
-      <main className="h-screen bg-black relative overflow-hidden flex items-center justify-center">
-        <div className="text-white text-xl">No images found</div>
-      </main>
+      </Shell>
     );
   }
 
   return (
-    <main className="bg-black relative overflow-hidden">
-      <div className="fixed top-0 left-0 w-full z-50">
-        <div className="max-w-7xl mx-auto">
-          <Navbar>
-            {/* Desktop Navigation */}
-            <NavBody>
-              <NavbarLogo />
-              <div className="flex gap-6 items-center">
-                {navItems.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.link}
-                    className={
-                      "rounded-full transition-colors font-medium px-4 py-2 border " +
-                      (item.link === pathname
-                        ? "text-orange-400 border-orange-400 "
-                        : "text-neutral-300 border-orange-400/0 hover:text-orange-400 hover:border-orange-400")
-                    }
-                  >
-                    {item.name}
-                  </a>
-                ))}
-                <HoverBorderGradient
-                  containerClassName="rounded-full"
-                  as="a"
-                  href="https://drive.google.com/drive/folders/1nViRYkAWfSPEJdwygysiQA9qXE-19I7j?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-red-500 to-orange-500 text-white p-2 px-4 flex items-center"
-                  aria-label="Download Resume"
-                >
-                  <Download className="h-5 w-5 mr-2" />
-                  Resume
-                </HoverBorderGradient>
-              </div>
-            </NavBody>
-            {/* Mobile Navigation */}
-            <MobileNav>
-              <MobileNavHeader>
-                <NavbarLogo />
-                <MobileNavToggle
-                  isOpen={isMobileMenuOpen}
-                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                />
-              </MobileNavHeader>
-              <MobileNavMenu
-                isOpen={isMobileMenuOpen}
-                onClose={() => setIsMobileMenuOpen(false)}
-              >
-                {navItems.map((item) => (
-                  <a
-                    key={`mobile-link-${item.name}`}
-                    href={item.link}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={
-                      "rounded-full relative block px-4 py-2 font-medium border " +
-                      (item.link === pathname
-                        ? "text-orange-400 border-orange-400 "
-                        : "text-neutral-300 dark:text-neutral-300 border-orange-400/0 hover:text-orange-400 hover:border-orange-400")
-                    }
-                  >
-                    <span className="block">{item.name}</span>
-                  </a>
-                ))}
-                <div className="flex w-full flex-col gap-4">
-                  <HoverBorderGradient
-                    containerClassName="rounded-full w-full"
-                    as="a"
-                    href="https://drive.google.com/drive/folders/1nViRYkAWfSPEJdwygysiQA9qXE-19I7j?usp=sharing"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-gradient-to-r from-red-500 to-orange-500 text-white w-full text-center p-2 px-4 flex items-center justify-center"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    aria-label="Download Resume"
-                  >
-                    <Download className="h-5 w-5 mr-2" />
-                    Resume
-                  </HoverBorderGradient>
-                </div>
-              </MobileNavMenu>
-            </MobileNav>
-          </Navbar>
-        </div>
-      </div>
-      {/* Custom Responsive Image Grid */}
-      <div className="max-w-7xl mx-auto">
-        <div className="px-4 py-12 pt-24">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <Shell>
+      <main className="mx-auto max-w-6xl px-5 pb-24 pt-32 sm:px-8">
+        <PageHeader
+          eyebrow="Selected work"
+          title="Design & visual work"
+          description="A gallery of design work, brand pieces, and interface explorations. Click any image to view it full-size."
+        />
+
+        {images.length === 0 ? (
+          <p className="mt-16 text-center text-neutral-500">No images found.</p>
+        ) : (
+          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {images.map((url, idx) => (
               <button
                 key={idx}
-                className="w-full h-80 relative rounded-lg overflow-hidden bg-neutral-900 focus:outline-none"
+                className="group relative h-80 w-full overflow-hidden rounded-2xl border border-white/10 bg-neutral-900"
                 onClick={() => openModal(idx)}
-                tabIndex={0}
                 aria-label={`View image ${idx + 1}`}
               >
                 <Image
                   src={url}
                   alt={`Project image ${idx + 1}`}
                   fill
-                  className="object-cover object-center rounded-lg"
+                  className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   priority={idx < 3}
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
               </button>
             ))}
           </div>
-        </div>
-      </div>
-      {/* Image View Modal */}
+        )}
+      </main>
+
       {modalOpen && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 backdrop-blur-sm"
           onClick={closeModal}
         >
+          <button
+            className="absolute right-4 top-4 z-10 grid h-11 w-11 place-items-center rounded-full bg-white/10 text-white hover:bg-white/20"
+            onClick={closeModal}
+            aria-label="Close"
+          >
+            <X className="h-5 w-5" />
+          </button>
+          <button
+            className="absolute left-3 top-1/2 z-10 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white/10 text-white hover:bg-white/20"
+            onClick={showPrev}
+            aria-label="Previous image"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+          <button
+            className="absolute right-3 top-1/2 z-10 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white/10 text-white hover:bg-white/20"
+            onClick={showNext}
+            aria-label="Next image"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
           <div
-            className="relative max-w-3xl w-full mx-4 rounded-lg overflow-hidden shadow-2xl bg-neutral-900"
+            className="relative mx-4 w-full max-w-4xl"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
-            <button
-              className="absolute top-4 right-4 z-10 text-white bg-black/60 rounded-full p-2 hover:bg-black/80 focus:outline-none"
-              onClick={closeModal}
-              aria-label="Close"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-            {/* Left Arrow */}
-            <button
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 text-white bg-black/60 rounded-full p-2 hover:bg-black/80 focus:outline-none"
-              onClick={showPrev}
-              aria-label="Previous image"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15.75 19.5L8.25 12l7.5-7.5"
-                />
-              </svg>
-            </button>
-            {/* Right Arrow */}
-            <button
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 text-white bg-black/60 rounded-full p-2 hover:bg-black/80 focus:outline-none"
-              onClick={showNext}
-              aria-label="Next image"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                />
-              </svg>
-            </button>
-            {/* Large Image */}
-            <div className="w-full h-[60vw] max-h-[80vh] relative bg-black">
+            <div className="relative h-[80vh] w-full">
               <Image
                 src={images[currentIdx]}
                 alt={`Large project image ${currentIdx + 1}`}
@@ -329,6 +186,7 @@ export default function Projects() {
         </div>
       )}
       <GoToTop />
-    </main>
+      <SiteFooter />
+    </Shell>
   );
 }

@@ -1,20 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  Navbar,
-  NavBody,
-  MobileNav,
-  NavbarLogo,
-  MobileNavHeader,
-  MobileNavToggle,
-  MobileNavMenu,
-} from "@/components/ui/resizable-navbar";
-import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
-import { usePathname } from "next/navigation";
 import { Download, Search, Code, Package, Layers } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
+import { SiteNav } from "@/components/site-nav";
+import { SiteFooter } from "@/components/site-footer";
+import { PageHeader } from "@/components/page-header";
 
 const components = [
   {
@@ -23,27 +14,27 @@ const components = [
     description: "A versatile button component with various styles and states",
     status: "ready",
     preview: (
-      <div className="flex flex-col gap-4 w-full">
+      <div className="flex w-full flex-col gap-4">
         <div className="flex flex-wrap gap-4">
-          <button className="px-4 py-2 bg-orange-400 text-black rounded-lg hover:bg-orange-500 transition-colors">
+          <button className="rounded-lg bg-amber-400 px-4 py-2 text-black transition-colors hover:bg-amber-300">
             Primary
           </button>
-          <button className="px-4 py-2 bg-neutral-800 text-white rounded-lg hover:bg-neutral-700 transition-colors">
+          <button className="rounded-lg bg-neutral-800 px-4 py-2 text-white transition-colors hover:bg-neutral-700">
             Secondary
           </button>
-          <button className="px-4 py-2 border border-orange-400 text-orange-400 rounded-lg hover:bg-orange-400/10 transition-colors">
+          <button className="rounded-lg border border-amber-400 px-4 py-2 text-amber-400 transition-colors hover:bg-amber-400/10">
             Outline
           </button>
         </div>
         <div className="flex flex-wrap gap-4">
-          <button className="px-4 py-2 bg-gradient-to-r from-red-500 to-orange-500 text-white rounded-lg hover:opacity-90 transition-opacity">
+          <button className="rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 px-4 py-2 text-white transition-opacity hover:opacity-90">
             Gradient
           </button>
-          <button className="px-4 py-2 bg-neutral-800 text-white rounded-lg opacity-50 cursor-not-allowed">
+          <button className="cursor-not-allowed rounded-lg bg-neutral-800 px-4 py-2 text-white opacity-50">
             Disabled
           </button>
-          <button className="px-4 py-2 bg-orange-400 text-black rounded-lg flex items-center gap-2">
-            <Download className="w-4 h-4" />
+          <button className="flex items-center gap-2 rounded-lg bg-amber-400 px-4 py-2 text-black">
+            <Download className="h-4 w-4" />
             With Icon
           </button>
         </div>
@@ -58,10 +49,10 @@ const components = [
     preview: (
       <div className="flex items-center justify-center gap-4">
         <div className="group relative">
-          <button className="px-4 py-2 bg-neutral-800 text-white rounded-lg">
+          <button className="rounded-lg bg-neutral-800 px-4 py-2 text-white">
             Hover me
           </button>
-          <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-neutral-800 text-white px-3 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+          <div className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-neutral-800 px-3 py-1 text-sm text-white opacity-0 transition-opacity group-hover:opacity-100">
             This is a tooltip
           </div>
         </div>
@@ -74,13 +65,13 @@ const components = [
     description: "Input field with label and validation states",
     status: "ready",
     preview: (
-      <div className="flex flex-col gap-4 w-full">
+      <div className="flex w-full flex-col gap-4">
         <div className="flex flex-col gap-2">
           <label className="text-sm text-neutral-400">Email</label>
           <input
             type="email"
             placeholder="Enter your email"
-            className="px-4 py-2 bg-neutral-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
+            className="rounded-lg bg-neutral-800 px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-amber-400"
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -88,7 +79,7 @@ const components = [
           <input
             type="password"
             placeholder="Enter your password"
-            className="px-4 py-2 bg-neutral-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
+            className="rounded-lg bg-neutral-800 px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-amber-400"
           />
         </div>
       </div>
@@ -101,10 +92,10 @@ const components = [
       "Dropdown selection component with search and multi-select options",
     status: "ready",
     preview: (
-      <div className="flex flex-col gap-4 w-full">
+      <div className="flex w-full flex-col gap-4">
         <div className="flex flex-col gap-2">
           <label className="text-sm text-neutral-400">Select an option</label>
-          <select className="px-4 py-2 bg-neutral-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400">
+          <select className="rounded-lg bg-neutral-800 px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-amber-400">
             <option value="">Choose an option</option>
             <option value="1">Option 1</option>
             <option value="2">Option 2</option>
@@ -120,14 +111,14 @@ const components = [
     description: "Alert messages for success, error, and information states",
     status: "ready",
     preview: (
-      <div className="flex flex-col gap-4 w-full">
-        <div className="px-4 py-3 bg-green-500/20 text-green-400 rounded-lg">
+      <div className="flex w-full flex-col gap-4">
+        <div className="rounded-lg bg-green-500/20 px-4 py-3 text-green-400">
           Success: Your changes have been saved
         </div>
-        <div className="px-4 py-3 bg-red-500/20 text-red-400 rounded-lg">
+        <div className="rounded-lg bg-red-500/20 px-4 py-3 text-red-400">
           Error: Something went wrong
         </div>
-        <div className="px-4 py-3 bg-blue-500/20 text-blue-400 rounded-lg">
+        <div className="rounded-lg bg-blue-500/20 px-4 py-3 text-blue-400">
           Info: New features are available
         </div>
       </div>
@@ -141,15 +132,15 @@ const components = [
     preview: (
       <div className="flex items-center gap-4">
         <div className="relative">
-          <div className="w-12 h-12 rounded-full bg-orange-400 flex items-center justify-center text-black font-semibold">
+          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-400 font-semibold text-black">
             JD
           </div>
-          <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-neutral-900"></div>
+          <div className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-neutral-900 bg-green-400" />
         </div>
         <div className="relative">
-          <div className="w-12 h-12 rounded-full bg-neutral-800 flex items-center justify-center text-white">
+          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-neutral-800 text-white">
             <svg
-              className="w-6 h-6"
+              className="h-6 w-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -162,7 +153,7 @@ const components = [
               />
             </svg>
           </div>
-          <div className="absolute bottom-0 right-0 w-3 h-3 bg-yellow-400 rounded-full border-2 border-neutral-900"></div>
+          <div className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-neutral-900 bg-yellow-400" />
         </div>
       </div>
     ),
@@ -173,27 +164,27 @@ const components = [
     description: "Toggle selection with custom styling and states",
     status: "ready",
     preview: (
-      <div className="flex flex-col gap-4 w-full">
-        <label className="flex items-center gap-2 cursor-pointer">
+      <div className="flex w-full flex-col gap-4">
+        <label className="flex cursor-pointer items-center gap-2">
           <input
             type="checkbox"
-            className="w-4 h-4 rounded border-neutral-600 text-orange-400 focus:ring-orange-400"
+            className="h-4 w-4 rounded border-neutral-600 accent-amber-400 focus:ring-amber-400"
           />
           <span className="text-sm">Default checkbox</span>
         </label>
-        <label className="flex items-center gap-2 cursor-pointer">
+        <label className="flex cursor-pointer items-center gap-2">
           <input
             type="checkbox"
-            checked
-            className="w-4 h-4 rounded border-neutral-600 text-orange-400 focus:ring-orange-400"
+            defaultChecked
+            className="h-4 w-4 rounded border-neutral-600 accent-amber-400 focus:ring-amber-400"
           />
           <span className="text-sm">Checked checkbox</span>
         </label>
-        <label className="flex items-center gap-2 cursor-not-allowed opacity-50">
+        <label className="flex cursor-not-allowed items-center gap-2 opacity-50">
           <input
             type="checkbox"
             disabled
-            className="w-4 h-4 rounded border-neutral-600 text-orange-400 focus:ring-orange-400"
+            className="h-4 w-4 rounded border-neutral-600 accent-amber-400 focus:ring-amber-400"
           />
           <span className="text-sm">Disabled checkbox</span>
         </label>
@@ -208,16 +199,9 @@ const components = [
     preview: (
       <div className="flex items-center justify-center">
         <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 90, 0],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="w-12 h-12 bg-orange-400 rounded-lg"
+          animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="h-12 w-12 rounded-lg bg-amber-400"
         />
       </div>
     ),
@@ -230,11 +214,11 @@ const components = [
     preview: (
       <div className="flex items-center justify-center">
         <div className="group relative">
-          <button className="px-4 py-2 bg-neutral-800 text-white rounded-lg">
+          <button className="rounded-lg bg-neutral-800 px-4 py-2 text-white">
             Click me
           </button>
-          <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-neutral-800 text-white p-4 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-            <div className="w-3 h-3 bg-neutral-800 absolute -top-1.5 left-1/2 -translate-x-1/2 rotate-45"></div>
+          <div className="pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 rounded-lg bg-neutral-800 p-4 text-white opacity-0 shadow-lg transition-opacity group-hover:opacity-100">
+            <div className="absolute -top-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 bg-neutral-800" />
             <p className="text-sm">Popover content goes here</p>
           </div>
         </div>
@@ -247,30 +231,30 @@ const components = [
     description: "Single selection from a group of options",
     status: "upcoming",
     preview: (
-      <div className="flex flex-col gap-4 w-full">
-        <label className="flex items-center gap-2 cursor-pointer">
+      <div className="flex w-full flex-col gap-4">
+        <label className="flex cursor-pointer items-center gap-2">
           <input
             type="radio"
             name="radio-demo"
-            className="w-4 h-4 border-neutral-600 text-orange-400 focus:ring-orange-400"
+            className="h-4 w-4 border-neutral-600 accent-amber-400 focus:ring-amber-400"
           />
           <span className="text-sm">Option 1</span>
         </label>
-        <label className="flex items-center gap-2 cursor-pointer">
+        <label className="flex cursor-pointer items-center gap-2">
           <input
             type="radio"
             name="radio-demo"
-            checked
-            className="w-4 h-4 border-neutral-600 text-orange-400 focus:ring-orange-400"
+            defaultChecked
+            className="h-4 w-4 border-neutral-600 accent-amber-400 focus:ring-amber-400"
           />
           <span className="text-sm">Option 2</span>
         </label>
-        <label className="flex items-center gap-2 cursor-not-allowed opacity-50">
+        <label className="flex cursor-not-allowed items-center gap-2 opacity-50">
           <input
             type="radio"
             name="radio-demo"
             disabled
-            className="w-4 h-4 border-neutral-600 text-orange-400 focus:ring-orange-400"
+            className="h-4 w-4 border-neutral-600 accent-amber-400 focus:ring-amber-400"
           />
           <span className="text-sm">Option 3 (Disabled)</span>
         </label>
@@ -280,23 +264,15 @@ const components = [
 ];
 
 const categories = [
-  { id: "all", name: "All", icon: <Layers className="w-4 h-4" /> },
-  { id: "basic", name: "Basic", icon: <Package className="w-4 h-4" /> },
-  { id: "form", name: "Form", icon: <Code className="w-4 h-4" /> },
-  { id: "feedback", name: "Feedback", icon: <Code className="w-4 h-4" /> },
-  { id: "animation", name: "Animation", icon: <Code className="w-4 h-4" /> },
-  { id: "overlay", name: "Overlay", icon: <Code className="w-4 h-4" /> },
+  { id: "all", name: "All", icon: <Layers className="h-4 w-4" /> },
+  { id: "basic", name: "Basic", icon: <Package className="h-4 w-4" /> },
+  { id: "form", name: "Form", icon: <Code className="h-4 w-4" /> },
+  { id: "feedback", name: "Feedback", icon: <Code className="h-4 w-4" /> },
+  { id: "animation", name: "Animation", icon: <Code className="h-4 w-4" /> },
+  { id: "overlay", name: "Overlay", icon: <Code className="h-4 w-4" /> },
 ];
 
 export default function ComponentLab() {
-  const navItems = [
-    { name: "Works", link: "/projects" },
-    { name: "Coding", link: "/coding" },
-    { name: "Design", link: "/design" },
-    { name: "About", link: "/about" },
-  ];
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const pathname = usePathname();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedComponent, setSelectedComponent] = useState<string | null>(
@@ -314,244 +290,136 @@ export default function ComponentLab() {
   });
 
   return (
-    <BackgroundGradientAnimation
-      gradientBackgroundStart="#000000"
-      gradientBackgroundEnd="#000000"
-      firstColor="255, 0, 128"
-      secondColor="0, 255, 255"
-      thirdColor="255, 255, 0"
-      fourthColor="128, 0, 255"
-      fifthColor="255, 128, 0"
-    >
-      <main className="min-h-screen bg-transparent relative overflow-hidden">
-        <div className="fixed top-0 left-0 w-full z-50">
-          <div className="max-w-7xl mx-auto">
-            <Navbar>
-              {/* Desktop Navigation */}
-              <NavBody>
-                <NavbarLogo />
-                <div className="flex gap-6 items-center">
-                  {navItems.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.link}
-                      className={
-                        "rounded-full transition-colors font-medium px-4 py-2 border " +
-                        (item.link === pathname
-                          ? "text-orange-400 border-orange-400 "
-                          : "text-neutral-300 border-orange-400/0 hover:text-orange-400 hover:border-orange-400")
-                      }
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                  <HoverBorderGradient
-                    containerClassName="rounded-full"
-                    as="a"
-                    href="https://drive.google.com/drive/folders/1nViRYkAWfSPEJdwygysiQA9qXE-19I7j?usp=sharing"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-gradient-to-r from-red-500 to-orange-500 text-white p-2 px-4 flex items-center"
-                    aria-label="Download Resume"
-                  >
-                    <Download className="h-5 w-5 mr-2" />
-                    Resume
-                  </HoverBorderGradient>
-                </div>
-              </NavBody>
-              {/* Mobile Navigation */}
-              <MobileNav>
-                <MobileNavHeader>
-                  <NavbarLogo />
-                  <MobileNavToggle
-                    isOpen={isMobileMenuOpen}
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  />
-                </MobileNavHeader>
-                <MobileNavMenu
-                  isOpen={isMobileMenuOpen}
-                  onClose={() => setIsMobileMenuOpen(false)}
-                >
-                  {navItems.map((item) => (
-                    <a
-                      key={`mobile-link-${item.name}`}
-                      href={item.link}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={
-                        "rounded-full relative block px-4 py-2 font-medium border " +
-                        (item.link === pathname
-                          ? "text-orange-400 border-orange-400 "
-                          : "text-neutral-300 dark:text-neutral-300 border-orange-400/0 hover:text-orange-400 hover:border-orange-400")
-                      }
-                    >
-                      <span className="block">{item.name}</span>
-                    </a>
-                  ))}
-                  <div className="flex w-full flex-col gap-4">
-                    <HoverBorderGradient
-                      containerClassName="rounded-full w-full"
-                      as="a"
-                      href="https://drive.google.com/drive/folders/1nViRYkAWfSPEJdwygysiQA9qXE-19I7j?usp=sharing"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-gradient-to-r from-red-500 to-orange-500 text-white w-full text-center p-2 px-4 flex items-center justify-center"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      aria-label="Download Resume"
-                    >
-                      <Download className="h-5 w-5 mr-2" />
-                      Resume
-                    </HoverBorderGradient>
-                  </div>
-                </MobileNavMenu>
-              </MobileNav>
-            </Navbar>
+    <div className="min-h-screen bg-[#08080a] text-white">
+      <SiteNav />
+      <main className="mx-auto max-w-4xl px-5 pb-24 pt-32 sm:px-8">
+        <PageHeader
+          eyebrow="Lab"
+          title="Component lab"
+          description="A playground for testing and exploring reusable UI components."
+        />
+
+        <div className="mt-10 flex flex-col gap-4">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search components..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 pl-12 text-white placeholder:text-neutral-500 focus:border-amber-400/50 focus:outline-none focus:ring-2 focus:ring-amber-400/30"
+            />
+            <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-neutral-500" />
           </div>
+          <div className="flex gap-2 overflow-x-auto pb-1">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setSelectedCategory(category.id)}
+                className={`flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                  selectedCategory === category.id
+                    ? "bg-amber-400 text-black"
+                    : "border border-white/10 bg-white/5 text-neutral-300 hover:bg-white/10"
+                }`}
+              >
+                {category.icon}
+                {category.name}
+              </button>
+            ))}
+          </div>
+          <p className="text-sm text-neutral-500">
+            {filteredComponents.length} components found
+          </p>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="pt-32 pb-16"
-          >
-            <div className="flex flex-col gap-8">
-              {/* Search and Filters */}
-              <div className="flex flex-col gap-4">
-                <div className="relative">
-                  <input
-                    type="text"
-                    placeholder="Search components..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full bg-neutral-900/50 backdrop-blur-sm text-white rounded-lg px-4 py-3 pl-12 focus:outline-none focus:ring-2 focus:ring-orange-400"
-                  />
-                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-neutral-400 h-5 w-5" />
-                </div>
-                <div className="flex gap-2 overflow-x-auto pb-2">
-                  {categories.map((category) => (
-                    <button
-                      key={category.id}
-                      onClick={() => setSelectedCategory(category.id)}
-                      className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                        selectedCategory === category.id
-                          ? "bg-orange-400 text-black"
-                          : "bg-neutral-900/50 backdrop-blur-sm text-neutral-300 hover:bg-neutral-800"
-                      }`}
-                    >
-                      {category.icon}
-                      {category.name}
-                    </button>
-                  ))}
-                </div>
-                <p className="text-neutral-400 text-sm">
-                  {filteredComponents.length} components found
-                </p>
+        <div className="mt-6 grid grid-cols-1 gap-4">
+          {filteredComponents.map((component, index) => (
+            <motion.div
+              key={component.name}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.45, delay: (index % 4) * 0.05 }}
+              className="group cursor-pointer rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-colors hover:border-white/20"
+              onClick={() => setSelectedComponent(component.name)}
+            >
+              <div className="mb-2 flex items-start justify-between">
+                <h3 className="text-lg font-semibold transition-colors group-hover:text-amber-400">
+                  {component.name}
+                </h3>
+                <span
+                  className={`rounded-full px-2 py-1 text-xs ${
+                    component.status === "ready"
+                      ? "bg-green-500/20 text-green-400"
+                      : "bg-yellow-500/20 text-yellow-400"
+                  }`}
+                >
+                  {component.status}
+                </span>
               </div>
+              <p className="text-xs uppercase tracking-wide text-neutral-500">
+                {component.category}
+              </p>
+              <p className="mb-4 mt-2 text-sm text-neutral-400">
+                {component.description}
+              </p>
+              <div className="rounded-xl border border-white/5 bg-black/30 p-6">
+                {component.preview}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </main>
 
-              {/* Component Grid */}
-              <div className="grid grid-cols-1 gap-4 max-w-4xl mx-auto">
-                {filteredComponents.map((component, index) => (
-                  <motion.div
-                    key={component.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="group bg-neutral-900/50 backdrop-blur-sm rounded-lg p-6 hover:bg-neutral-800/50 transition-colors cursor-pointer"
-                    onClick={() => setSelectedComponent(component.name)}
-                  >
-                    <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-xl font-semibold group-hover:text-orange-400 transition-colors">
-                        {component.name}
-                      </h3>
+      <AnimatePresence>
+        {selectedComponent && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+            onClick={() => setSelectedComponent(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="w-full max-w-2xl rounded-2xl border border-white/10 bg-neutral-900 p-6"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {(() => {
+                const c = components.find((c) => c.name === selectedComponent);
+                if (!c) return null;
+                return (
+                  <>
+                    <div className="mb-4 flex items-start justify-between">
+                      <div>
+                        <h2 className="text-2xl font-bold">{c.name}</h2>
+                        <p className="mt-1 text-sm text-neutral-400">
+                          {c.category}
+                        </p>
+                      </div>
                       <span
-                        className={`text-xs px-2 py-1 rounded-full ${
-                          component.status === "ready"
+                        className={`rounded-full px-2 py-1 text-xs ${
+                          c.status === "ready"
                             ? "bg-green-500/20 text-green-400"
                             : "bg-yellow-500/20 text-yellow-400"
                         }`}
                       >
-                        {component.status}
+                        {c.status}
                       </span>
                     </div>
-                    <p className="text-neutral-400 text-sm mb-2">
-                      {component.category}
-                    </p>
-                    <p className="text-neutral-400 text-sm mb-4">
-                      {component.description}
-                    </p>
-                    <div className="bg-neutral-800/50 rounded-lg p-6">
-                      {component.preview}
+                    <p className="mb-6 text-neutral-400">{c.description}</p>
+                    <div className="rounded-xl border border-white/5 bg-black/30 p-6">
+                      {c.preview}
                     </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        <AnimatePresence>
-          {selectedComponent && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-              onClick={() => setSelectedComponent(null)}
-            >
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
-                className="bg-neutral-900/90 backdrop-blur-sm rounded-lg p-6 max-w-4xl w-full"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h2 className="text-2xl font-bold">
-                      {
-                        components.find((c) => c.name === selectedComponent)
-                          ?.name
-                      }
-                    </h2>
-                    <p className="text-neutral-400 text-sm mt-1">
-                      {
-                        components.find((c) => c.name === selectedComponent)
-                          ?.category
-                      }
-                    </p>
-                  </div>
-                  <span
-                    className={`text-xs px-2 py-1 rounded-full ${
-                      components.find((c) => c.name === selectedComponent)
-                        ?.status === "ready"
-                        ? "bg-green-500/20 text-green-400"
-                        : "bg-yellow-500/20 text-yellow-400"
-                    }`}
-                  >
-                    {
-                      components.find((c) => c.name === selectedComponent)
-                        ?.status
-                    }
-                  </span>
-                </div>
-                <p className="text-neutral-400 mb-6">
-                  {
-                    components.find((c) => c.name === selectedComponent)
-                      ?.description
-                  }
-                </p>
-                <div className="bg-neutral-800/50 rounded-lg p-6">
-                  {
-                    components.find((c) => c.name === selectedComponent)
-                      ?.preview
-                  }
-                </div>
-              </motion.div>
+                  </>
+                );
+              })()}
             </motion.div>
-          )}
-        </AnimatePresence>
-      </main>
-    </BackgroundGradientAnimation>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <SiteFooter />
+    </div>
   );
 }

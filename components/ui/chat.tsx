@@ -154,7 +154,7 @@ export function Chat() {
           setIsOpen(true);
           setHasNotification(false);
         }}
-        className={`fixed right-8 bg-gradient-to-r from-red-500 to-orange-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 ${
+        className={`fixed right-6 sm:right-8 grid place-items-center h-14 w-14 bg-amber-400 text-black rounded-full shadow-lg shadow-amber-400/20 hover:shadow-xl transition-all duration-300 z-50 ${
           isScrolled ? "bottom-20" : "bottom-6"
         } ${pathname === "/projects" && isScrolled ? "mb-4" : ""}`}
         aria-label="Open chat"
@@ -165,9 +165,9 @@ export function Chat() {
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              className="absolute -top-2 -right-2 bg-white rounded-full p-1 shadow-lg border-2 border-red-500"
+              className="absolute -top-2 -right-2 bg-neutral-900 rounded-full p-1 shadow-lg border border-amber-400"
             >
-              <Bell className="w-3 h-3 text-red-500" />
+              <Bell className="w-3 h-3 text-amber-400" />
             </motion.div>
           )}
         </div>
@@ -179,12 +179,13 @@ export function Chat() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
-            className={`fixed right-8 w-96 h-[600px] bg-neutral-900 rounded-lg shadow-2xl border border-neutral-800 flex flex-col z-50 ${
+            className={`fixed right-4 sm:right-8 w-[calc(100vw-2rem)] sm:w-96 h-[600px] max-h-[80vh] bg-neutral-900 rounded-2xl shadow-2xl border border-white/10 flex flex-col z-50 ${
               isScrolled ? "bottom-24" : "bottom-10"
             }`}
           >
-            <div className="p-4 border-b border-neutral-800 flex justify-between items-center">
-              <h3 className="text-white font-semibold">
+            <div className="p-4 border-b border-white/10 flex justify-between items-center">
+              <h3 className="text-white font-semibold flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-amber-400" />
                 Chat with Kshitij&apos;s AI
               </h3>
               <button
@@ -205,9 +206,9 @@ export function Chat() {
                   }`}
                 >
                   <div
-                    className={`max-w-[80%] rounded-lg p-3 ${
+                    className={`max-w-[80%] rounded-2xl p-3 text-sm leading-relaxed ${
                       message.role === "user"
-                        ? "bg-gradient-to-r from-red-500 to-orange-500 text-white"
+                        ? "bg-amber-400 text-black"
                         : "bg-neutral-800 text-neutral-200"
                     }`}
                   >
@@ -220,7 +221,7 @@ export function Chat() {
 
             <form
               onSubmit={handleSubmit}
-              className="p-4 border-t border-neutral-800"
+              className="p-4 border-t border-white/10"
             >
               <div className="flex gap-2">
                 <input
@@ -228,11 +229,11 @@ export function Chat() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ask me anything..."
-                  className="flex-1 bg-neutral-800 text-white rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="flex-1 bg-neutral-800 text-white rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-amber-400"
                 />
                 <button
                   type="submit"
-                  className="bg-gradient-to-r from-red-500 to-orange-500 text-white p-2 rounded-lg hover:opacity-90 transition-opacity"
+                  className="grid place-items-center bg-amber-400 text-black px-3 rounded-xl hover:bg-amber-300 transition-colors"
                   aria-label="Send message"
                 >
                   <Send className="w-5 h-5" />

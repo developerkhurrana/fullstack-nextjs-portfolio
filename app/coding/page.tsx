@@ -1,18 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
+import { motion } from "framer-motion";
+import { ArrowUpRight, Github } from "lucide-react";
 import {
-  Navbar,
-  NavBody,
-  MobileNav,
-  NavbarLogo,
-  MobileNavHeader,
-  MobileNavToggle,
-  MobileNavMenu,
-} from "@/components/ui/resizable-navbar";
-import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
-import { usePathname } from "next/navigation";
-import {
-  Download,
   FileCode,
   Database,
   Palette,
@@ -22,6 +12,9 @@ import {
   Globe,
   Layers,
 } from "lucide-react";
+import { SiteNav } from "@/components/site-nav";
+import { SiteFooter } from "@/components/site-footer";
+import { PageHeader } from "@/components/page-header";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const codingProjects = [
@@ -96,168 +89,92 @@ const codingProjects = [
 ];
 
 const techIcons: Record<string, React.ReactNode> = {
-  "Next.js": <Layers className="text-white w-4 h-4" />,
-  "Tailwind CSS": <Palette className="text-sky-400 w-4 h-4" />,
-  TypeScript: <BadgeCheck className="text-blue-500 w-4 h-4" />,
-  MongoDB: <Database className="text-green-500 w-4 h-4" />,
-  NextAuth: <BadgeCheck className="text-green-400 w-4 h-4" />,
-  OpenAI: <FileCode className="text-emerald-400 w-4 h-4" />,
-  "React.js": <Globe className="text-cyan-400 w-4 h-4" />,
-  "Node.js": <Server className="text-green-600 w-4 h-4" />,
-  Figma: <PenTool className="text-pink-500 w-4 h-4" />,
+  "Next.js": <Layers className="text-white w-3.5 h-3.5" />,
+  "Tailwind CSS": <Palette className="text-sky-400 w-3.5 h-3.5" />,
+  TypeScript: <BadgeCheck className="text-blue-500 w-3.5 h-3.5" />,
+  MongoDB: <Database className="text-green-500 w-3.5 h-3.5" />,
+  NextAuth: <BadgeCheck className="text-green-400 w-3.5 h-3.5" />,
+  OpenAI: <FileCode className="text-emerald-400 w-3.5 h-3.5" />,
+  "React.js": <Globe className="text-cyan-400 w-3.5 h-3.5" />,
+  "Node.js": <Server className="text-green-600 w-3.5 h-3.5" />,
+  Figma: <PenTool className="text-pink-500 w-3.5 h-3.5" />,
 };
 
 export default function Coding() {
-  const navItems = [
-    { name: "Works", link: "/projects" },
-    { name: "Coding", link: "/coding" },
-    { name: "Design", link: "/design" },
-    { name: "About", link: "/about" },
-  ];
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const pathname = usePathname();
-
   return (
-    <main className="min-h-screen bg-black relative overflow-hidden">
-      <div className="fixed top-0 left-0 w-full z-50">
-        <div className="max-w-7xl mx-auto">
-          <Navbar>
-            {/* Desktop Navigation */}
-            <NavBody>
-              <NavbarLogo />
-              <div className="flex gap-6 items-center">
-                {navItems.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.link}
-                    className={
-                      "rounded-full transition-colors font-medium px-4 py-2 border " +
-                      (item.link === pathname
-                        ? "text-orange-400 border-orange-400 "
-                        : "text-neutral-300 border-orange-400/0 hover:text-orange-400 hover:border-orange-400")
-                    }
-                  >
-                    {item.name}
-                  </a>
-                ))}
-                <HoverBorderGradient
-                  containerClassName="rounded-full"
-                  as="a"
-                  href="https://drive.google.com/drive/folders/1nViRYkAWfSPEJdwygysiQA9qXE-19I7j?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-red-500 to-orange-500 text-white p-2 px-4 flex items-center"
-                  aria-label="Download Resume"
-                >
-                  <Download className="h-5 w-5 mr-2" />
-                  Resume
-                </HoverBorderGradient>
-              </div>
-            </NavBody>
-            {/* Mobile Navigation */}
-            <MobileNav>
-              <MobileNavHeader>
-                <NavbarLogo />
-                <MobileNavToggle
-                  isOpen={isMobileMenuOpen}
-                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                />
-              </MobileNavHeader>
-              <MobileNavMenu
-                isOpen={isMobileMenuOpen}
-                onClose={() => setIsMobileMenuOpen(false)}
-              >
-                {navItems.map((item) => (
-                  <a
-                    key={`mobile-link-${item.name}`}
-                    href={item.link}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={
-                      "rounded-full relative block px-4 py-2 font-medium border " +
-                      (item.link === pathname
-                        ? "text-orange-400 border-orange-400 "
-                        : "text-neutral-300 dark:text-neutral-300 border-orange-400/0 hover:text-orange-400 hover:border-orange-400")
-                    }
-                  >
-                    <span className="block">{item.name}</span>
-                  </a>
-                ))}
-                <div className="flex w-full flex-col gap-4">
-                  <HoverBorderGradient
-                    containerClassName="rounded-full w-full"
-                    as="a"
-                    href="https://drive.google.com/drive/folders/1nViRYkAWfSPEJdwygysiQA9qXE-19I7j?usp=sharing"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-gradient-to-r from-red-500 to-orange-500 text-white w-full text-center p-2 px-4 flex items-center justify-center"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    aria-label="Download Resume"
-                  >
-                    <Download className="h-5 w-5 mr-2" />
-                    Resume
-                  </HoverBorderGradient>
-                </div>
-              </MobileNavMenu>
-            </MobileNav>
-          </Navbar>
-        </div>
-      </div>
-      <div className="max-w-7xl mx-auto pt-24 px-4 pb-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="min-h-screen bg-[#08080a] text-white">
+      <SiteNav />
+      <main className="mx-auto max-w-6xl px-5 pb-24 pt-32 sm:px-8">
+        <PageHeader
+          eyebrow="Engineering"
+          title="Code & builds"
+          description="Full-stack applications spanning the MERN stack, Next.js, and AI — from production tools to polished clones."
+        />
+
+        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {codingProjects.map((project, idx) => (
-            <div
+            <motion.article
               key={idx}
-              className="relative bg-neutral-900 rounded-xl p-6 shadow hover:shadow-lg transition border border-neutral-800"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: (idx % 3) * 0.06 }}
+              className="group relative flex flex-col rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-colors hover:border-white/20"
             >
               <GlowingEffect
                 blur={0}
-                borderWidth={3}
-                spread={80}
-                glow={true}
+                borderWidth={2}
+                spread={70}
+                glow
                 disabled={false}
                 proximity={64}
                 inactiveZone={0.01}
               />
-              <h3 className="text-xl font-semibold text-white mb-2">
+              <h3 className="text-lg font-semibold text-white">
                 {project.title}
               </h3>
-              <p className="text-neutral-300 mb-4">{project.description}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-neutral-400">
+                {project.description}
+              </p>
+              <div className="mt-4 flex flex-wrap gap-1.5">
                 {project.tech.map((t, i) => (
                   <span
                     key={i}
-                    className="bg-neutral-800 text-xs px-2 py-1 rounded text-orange-400 flex items-center gap-1"
+                    className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-neutral-300"
                   >
-                    {techIcons[t] || <FileCode className="w-4 h-4" />} {t}
+                    {techIcons[t] || <FileCode className="h-3.5 w-3.5" />} {t}
                   </span>
                 ))}
               </div>
-              <div className="flex gap-4 mt-2">
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-400 hover:underline text-sm"
-                  >
-                    GitHub
-                  </a>
-                )}
+              <div className="mt-5 flex items-center gap-4 border-t border-white/5 pt-4">
                 {project.demo && (
                   <a
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-green-400 hover:underline text-sm"
+                    className="inline-flex items-center gap-1 text-sm font-medium text-amber-400 hover:text-amber-300"
                   >
-                    Live Demo
+                    Live demo
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </a>
+                )}
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-sm text-neutral-400 hover:text-white"
+                  >
+                    <Github className="h-3.5 w-3.5" />
+                    Code
                   </a>
                 )}
               </div>
-            </div>
+            </motion.article>
           ))}
         </div>
-      </div>
-    </main>
+      </main>
+      <SiteFooter />
+    </div>
   );
 }
