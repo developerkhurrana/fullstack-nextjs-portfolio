@@ -182,11 +182,6 @@ export default function AravalliCaseStudy() {
               </li>
             ))}
           </ul>
-          <p className="rounded-xl border border-amber-400/20 bg-amber-400/[0.06] p-4 text-sm text-amber-100/80">
-            Add the numbers that make this land — social growth, traffic lift,
-            conversion rate, orders/revenue, or page-speed gains — and this
-            section becomes the strongest part of the whole portfolio.
-          </p>
         </Section>
 
         <Section eyebrow="Stack & services" title="Tools behind the work">
