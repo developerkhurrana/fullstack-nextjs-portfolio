@@ -1,107 +1,188 @@
 "use client";
 
-import { Widgets } from "@/components/widgets";
-import { Download } from "lucide-react";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+import { Download, ArrowUpRight } from "lucide-react";
+import { SiteNav } from "@/components/site-nav";
+import { SiteFooter } from "@/components/site-footer";
 import { FlipWords } from "@/components/ui/flip-words";
-import { Spotlight } from "@/components/ui/spotlight-new";
+
+const RESUME_URL =
+  "https://drive.google.com/drive/folders/1nViRYkAWfSPEJdwygysiQA9qXE-19I7j?usp=sharing";
+
+const STATS = [
+  { value: "3+", label: "Years experience" },
+  { value: "10+", label: "Projects delivered" },
+  { value: "95%", label: "On-time delivery" },
+];
+
+const MARQUEE = [
+  "React",
+  "Next.js",
+  "TypeScript",
+  "Node.js",
+  "Figma",
+  "UI/UX",
+  "Design Systems",
+  "MongoDB",
+  "Tailwind CSS",
+  "REST APIs",
+];
+
+const fade = {
+  hidden: { opacity: 0, y: 16 },
+  show: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
+  }),
+};
 
 export default function Home() {
   return (
-    <main className="h-screen bg-black relative overflow-hidden">
-      <section className="w-full h-full flex flex-col justify-center items-center text-center relative">
-        <Spotlight />
-        <div className="absolute inset-0 w-full h-full z-0">
-          <Widgets />
-        </div>
-        {/* Hero Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="space-y-8 relative z-30 px-4 max-w-4xl mx-auto"
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="space-y-4"
+    <div className="min-h-screen bg-[#08080a] text-white">
+      <SiteNav />
+
+      <main className="relative overflow-hidden">
+        {/* Ambient glow — a single, restrained light source */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-[-10%] h-[520px] w-[820px] max-w-[110vw] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(251,146,60,0.16),transparent)] blur-2xl"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,transparent,#08080a)]"
+        />
+
+        <section className="relative mx-auto flex min-h-[92vh] max-w-6xl flex-col justify-center px-5 pb-24 pt-28 sm:px-8">
+          <motion.p
+            custom={0}
+            initial="hidden"
+            animate="show"
+            variants={fade}
+            className="mb-6 inline-flex items-center gap-2 self-start rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-sm text-neutral-300"
           >
-            <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight">
-              Kshitij Khurrana
-            </h1>
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+            </span>
+            Available for new projects
+          </motion.p>
+
+          <motion.h1
+            custom={1}
+            initial="hidden"
+            animate="show"
+            variants={fade}
+            className="max-w-4xl text-balance text-5xl font-semibold leading-[0.98] tracking-tight sm:text-7xl lg:text-8xl"
+          >
+            Kshitij Khurrana
+          </motion.h1>
+
+          <motion.div
+            custom={2}
+            initial="hidden"
+            animate="show"
+            variants={fade}
+            className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-2xl font-light tracking-tight text-neutral-400 sm:text-4xl"
+          >
+            <span>Full-stack developer crafting</span>
+            <FlipWords
+              words={[
+                "web design",
+                "UI/UX",
+                "design systems",
+                "front-end",
+                "interfaces",
+                "brand identity",
+              ]}
+              className="!px-0 font-medium text-amber-400 dark:text-amber-400"
+            />
           </motion.div>
 
           <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-xl md:text-2xl text-neutral-300 font-light tracking-wide"
+            custom={3}
+            initial="hidden"
+            animate="show"
+            variants={fade}
+            className="mt-8 max-w-xl text-pretty text-base leading-relaxed text-neutral-400 sm:text-lg"
           >
-            Crafting Digital Experiences Through
+            I design and build high-impact web applications end to end —
+            blending React and Node.js engineering with a designer&apos;s eye
+            for interface, motion, and detail.
           </motion.p>
-          <div className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400 font-semibold text-3xl md:text-5xl">
-            <FlipWords
-              words={[
-                "Web Design",
-                "UI/UX",
-                "Graphic Design",
-                "Branding",
-                "Wireframes",
-                "Prototypes",
-                "Design Systems",
-                "User Research",
-                "Interaction Design",
-                "Visual Identity",
-                "Responsive Design",
-                "Figma",
-                "Adobe XD",
-                "Photoshop",
-                "Illustrator",
-                "Front-End",
-                "Creative Direction",
-              ]}
-            />
-          </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="flex flex-wrap gap-4 justify-center mt-12"
+            custom={4}
+            initial="hidden"
+            animate="show"
+            variants={fade}
+            className="mt-10 flex flex-wrap items-center gap-3"
           >
-            <HoverBorderGradient
-              containerClassName="rounded-full"
-              as="a"
+            <Link
               href="/projects"
-              className="backdrop-blur-md bg-white/10 text-white"
+              className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-transform hover:-translate-y-0.5"
             >
-              View Works
-            </HoverBorderGradient>
-            <HoverBorderGradient
-              containerClassName="rounded-full"
-              as="a"
-              href="https://drive.google.com/drive/folders/1nViRYkAWfSPEJdwygysiQA9qXE-19I7j?usp=sharing"
+              View work
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
+            <a
+              href={RESUME_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gradient-to-r from-red-500 to-orange-500 text-white"
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-white/30 hover:bg-white/5"
             >
-              <Download className="mr-2 h-4 w-4 inline" />
-              Download Resume
-            </HoverBorderGradient>
+              <Download className="h-4 w-4" />
+              Download resume
+            </a>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-            className="flex justify-center gap-6 mt-12"
+          {/* Stats */}
+          <motion.dl
+            custom={5}
+            initial="hidden"
+            animate="show"
+            variants={fade}
+            className="mt-16 grid max-w-xl grid-cols-3 gap-6 border-t border-white/10 pt-8"
           >
-            {/* Social buttons removed as requested */}
-          </motion.div>
-        </motion.div>
-      </section>
-    </main>
+            {STATS.map((s) => (
+              <div key={s.label}>
+                <dt className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                  {s.value}
+                </dt>
+                <dd className="mt-1 text-sm text-neutral-500">{s.label}</dd>
+              </div>
+            ))}
+          </motion.dl>
+        </section>
+
+        {/* Skills marquee */}
+        <section
+          aria-label="Tools and technologies"
+          className="relative border-y border-white/10 py-6"
+        >
+          <div className="group flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
+            {[0, 1].map((dup) => (
+              <div
+                key={dup}
+                aria-hidden={dup === 1}
+                className="flex shrink-0 animate-[marquee_28s_linear_infinite] items-center gap-10 pr-10"
+              >
+                {MARQUEE.map((item) => (
+                  <span
+                    key={`${dup}-${item}`}
+                    className="whitespace-nowrap text-lg font-medium text-neutral-500"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </section>
+      </main>
+
+      <SiteFooter />
+    </div>
   );
 }
