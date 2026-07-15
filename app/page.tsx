@@ -90,15 +90,14 @@ export default function Home() {
             variants={fade}
             className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-2xl font-light tracking-tight text-neutral-400 sm:text-4xl"
           >
-            <span>Full-stack developer crafting</span>
+            <span>I design, build &amp; grow</span>
             <FlipWords
               words={[
-                "web design",
-                "UI/UX",
-                "design systems",
-                "front-end",
-                "interfaces",
+                "Shopify stores",
+                "e-commerce brands",
+                "storefronts",
                 "brand identity",
+                "web apps",
               ]}
               className="!px-0 font-medium text-amber-400 dark:text-amber-400"
             />
@@ -111,9 +110,10 @@ export default function Home() {
             variants={fade}
             className="mt-8 max-w-xl text-pretty text-base leading-relaxed text-neutral-400 sm:text-lg"
           >
-            I design and build high-impact web applications end to end —
-            blending React and Node.js engineering with a designer&apos;s eye
-            for interface, motion, and detail.
+            I take e-commerce brands end to end — designing the storefront,
+            building it on Shopify (with custom React and Node.js when it&apos;s
+            needed), and growing it through social media marketing. It&apos;s the
+            studio model behind Aravalli Designs.
           </motion.p>
 
           <motion.div
@@ -139,6 +139,13 @@ export default function Home() {
               <Download className="h-4 w-4" />
               Download resume
             </a>
+            <Link
+              href="/work/aravalli"
+              className="group inline-flex items-center gap-1.5 px-2 py-3 text-sm text-neutral-400 transition-colors hover:text-white"
+            >
+              Featured case study
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
           </motion.div>
 
           {/* Stats */}

@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Github } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Github } from "lucide-react";
 import {
   FileCode,
   Database,
@@ -27,6 +28,7 @@ type Project = {
   tech: string[];
   demo?: string;
   github?: string;
+  caseStudy?: string;
   sites?: { label: string; url: string }[];
 };
 
@@ -36,6 +38,7 @@ const codingProjects: Project[] = [
     description:
       "End-to-end Shopify storefronts and social media marketing for a family of ethnic-wear brands — Ekohum and Ethnics by Aravalli. Store design, development, and growth.",
     tech: ["Shopify", "Liquid", "Social Media Marketing", "Meta Ads", "SEO"],
+    caseStudy: "/work/aravalli",
     sites: [
       { label: "ekohum.com", url: "https://ekohum.com" },
       { label: "ekohum.in", url: "https://ekohum.in" },
@@ -178,7 +181,16 @@ export default function Coding() {
                   </span>
                 ))}
               </div>
-              <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-white/5 pt-4">
+              {project.caseStudy && (
+                <Link
+                  href={project.caseStudy}
+                  className="mt-5 inline-flex w-fit items-center gap-1.5 rounded-full bg-white/10 px-3.5 py-2 text-sm font-medium text-white transition-colors hover:bg-white/15"
+                >
+                  Read case study
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              )}
+              <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-white/5 pt-4">
                 {project.sites
                   ? project.sites.map((site) => (
                       <a

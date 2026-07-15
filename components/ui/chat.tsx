@@ -14,7 +14,7 @@ const initialMessages: Message[] = [
   {
     role: "assistant",
     content:
-      "Hi! I'm Kshitij's AI assistant. How can I help you learn more about him?",
+      "Hi! Ask me anything about Kshitij's work, skills, and experience — projects, e-commerce, or how to get in touch.",
   },
 ];
 
@@ -186,7 +186,7 @@ export function Chat() {
             <div className="p-4 border-b border-white/10 flex justify-between items-center">
               <h3 className="text-white font-semibold flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-amber-400" />
-                Chat with Kshitij&apos;s AI
+                Ask about Kshitij
               </h3>
               <button
                 onClick={() => setIsOpen(false)}
