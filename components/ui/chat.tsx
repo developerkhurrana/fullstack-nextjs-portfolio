@@ -25,13 +25,13 @@ const knowledgeBase = {
     education:
       "He holds a B.Sc. in Media Technology from ICAT Design and Media College, completed in 2020.",
     skills:
-      "His key skills include UI/UX Design, Team Leadership, Project Management, MERN Stack, REST APIs, and Database Management.",
+      "His key skills include UI/UX Design, Shopify store development, Social Media Marketing (SMM), Team Leadership, Project Management, MERN Stack, REST APIs, and Database Management.",
   },
   work: {
     current:
-      "Currently, he works as a Web Designer and Team Leader at TSSS Infotech and Infra, where he leads a team of 3 designers and has delivered 10+ client projects with a 95% on-time delivery rate.",
+      "Currently, he works as a Web Designer and Team Leader at TSSS Infotech and Infra, where he leads a team of 3 designers and has delivered 10+ client projects with a 95% on-time delivery rate. He also runs Aravalli Designs — building and marketing Shopify-based ethnic-wear brands.",
     projects:
-      "He has worked on various projects including LinkedIn Clone, Travel App, Nike Web, Amazon Deploy, Netflix Clone, and several MERN stack applications.",
+      "He builds and grows Shopify storefronts and runs social media marketing for ethnic-wear brands Ekohum (ekohum.com) and Ethnics by Aravalli (ethnicsbyaravalli.com) under Aravalli Designs. He has also built LinkedIn Clone, Travel App, Nike Web, Amazon Deploy, Netflix Clone, and several MERN stack applications.",
     achievements:
       "He has achieved multiple professional certifications in Back-End Development, Front-End Development, and Full-Stack Development.",
   },

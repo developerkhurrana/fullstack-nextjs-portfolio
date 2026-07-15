@@ -11,13 +11,38 @@ import {
   BadgeCheck,
   Globe,
   Layers,
+  ShoppingBag,
+  Megaphone,
+  Search,
+  Droplets,
 } from "lucide-react";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { PageHeader } from "@/components/page-header";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 
-const codingProjects = [
+type Project = {
+  title: string;
+  description: string;
+  tech: string[];
+  demo?: string;
+  github?: string;
+  sites?: { label: string; url: string }[];
+};
+
+const codingProjects: Project[] = [
+  {
+    title: "Aravalli Designs",
+    description:
+      "End-to-end Shopify storefronts and social media marketing for a family of ethnic-wear brands — Ekohum and Ethnics by Aravalli. Store design, development, and growth.",
+    tech: ["Shopify", "Liquid", "Social Media Marketing", "Meta Ads", "SEO"],
+    sites: [
+      { label: "ekohum.com", url: "https://ekohum.com" },
+      { label: "ekohum.in", url: "https://ekohum.in" },
+      { label: "ethnicsbyaravalli.com", url: "https://ethnicsbyaravalli.com" },
+      { label: "aravallidesigns.com", url: "https://aravallidesigns.com" },
+    ],
+  },
   {
     title: "LedgerAI",
     description:
@@ -98,6 +123,13 @@ const techIcons: Record<string, React.ReactNode> = {
   "React.js": <Globe className="text-cyan-400 w-3.5 h-3.5" />,
   "Node.js": <Server className="text-green-600 w-3.5 h-3.5" />,
   Figma: <PenTool className="text-pink-500 w-3.5 h-3.5" />,
+  Shopify: <ShoppingBag className="text-green-500 w-3.5 h-3.5" />,
+  Liquid: <Droplets className="text-sky-400 w-3.5 h-3.5" />,
+  "Social Media Marketing": (
+    <Megaphone className="text-pink-400 w-3.5 h-3.5" />
+  ),
+  "Meta Ads": <Megaphone className="text-blue-400 w-3.5 h-3.5" />,
+  SEO: <Search className="text-amber-400 w-3.5 h-3.5" />,
 };
 
 export default function Coding() {
@@ -146,7 +178,21 @@ export default function Coding() {
                   </span>
                 ))}
               </div>
-              <div className="mt-5 flex items-center gap-4 border-t border-white/5 pt-4">
+              <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-white/5 pt-4">
+                {project.sites
+                  ? project.sites.map((site) => (
+                      <a
+                        key={site.url}
+                        href={site.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-sm font-medium text-amber-400 hover:text-amber-300"
+                      >
+                        {site.label}
+                        <ArrowUpRight className="h-3.5 w-3.5" />
+                      </a>
+                    ))
+                  : null}
                 {project.demo && (
                   <a
                     href={project.demo}
