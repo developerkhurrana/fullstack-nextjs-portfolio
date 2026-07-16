@@ -16,6 +16,8 @@ import {
   Megaphone,
   Search,
   Droplets,
+  Table,
+  FileText,
 } from "lucide-react";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
@@ -34,16 +36,30 @@ type Project = {
 
 const codingProjects: Project[] = [
   {
-    title: "Aravalli Designs",
+    title: "Ethnics by Aravalli",
     description:
-      "End-to-end Shopify storefronts and social media marketing for a family of ethnic-wear brands — Ekohum and Ethnics by Aravalli. Store design, development, and growth.",
+      "Custom full-stack B2B e-commerce platform serving 50+ retail partners — automated order processing, real-time inventory, and PDF invoicing via a Google Sheets pipeline. Cut order processing time by 70% (20+ hrs/week).",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "MongoDB",
+      "Google Sheets API",
+      "PDF Generation",
+    ],
+    caseStudy: "/work/aravalli",
+    sites: [
+      { label: "ethnicsbyaravalli.com", url: "https://ethnicsbyaravalli.com" },
+    ],
+  },
+  {
+    title: "Ekohum",
+    description:
+      "D2C ethnic-wear brand on Shopify — storefront design and build, plus the social media marketing that grows it (+45% Instagram engagement, +200 followers).",
     tech: ["Shopify", "Liquid", "Social Media Marketing", "Meta Ads", "SEO"],
     caseStudy: "/work/aravalli",
     sites: [
       { label: "ekohum.com", url: "https://ekohum.com" },
       { label: "ekohum.in", url: "https://ekohum.in" },
-      { label: "ethnicsbyaravalli.com", url: "https://ethnicsbyaravalli.com" },
-      { label: "aravallidesigns.com", url: "https://aravallidesigns.com" },
     ],
   },
   {
@@ -133,6 +149,8 @@ const techIcons: Record<string, React.ReactNode> = {
   ),
   "Meta Ads": <Megaphone className="text-blue-400 w-3.5 h-3.5" />,
   SEO: <Search className="text-amber-400 w-3.5 h-3.5" />,
+  "Google Sheets API": <Table className="text-green-500 w-3.5 h-3.5" />,
+  "PDF Generation": <FileText className="text-red-400 w-3.5 h-3.5" />,
 };
 
 export default function Coding() {
@@ -143,7 +161,7 @@ export default function Coding() {
         <PageHeader
           eyebrow="Engineering"
           title="Code & builds"
-          description="Full-stack applications spanning the MERN stack, Next.js, and AI — from production tools to polished clones."
+          description="Custom e-commerce platforms, Shopify storefronts, and full-stack apps — from live client work to polished builds."
         />
 
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

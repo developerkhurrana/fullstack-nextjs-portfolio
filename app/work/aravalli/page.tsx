@@ -9,29 +9,41 @@ import { SiteFooter } from "@/components/site-footer";
 const facts = [
   { label: "Role", value: "Founder — design, dev & marketing" },
   { label: "Studio", value: "Aravalli Designs" },
-  { label: "Platform", value: "Shopify (Liquid)" },
+  { label: "Build", value: "Custom Next.js + Shopify" },
   { label: "Services", value: "Design · Development · SMM" },
 ];
 
-// Countable, verifiable facts — no invented numbers.
+// Real figures from the work — no invented numbers.
 const stats = [
-  { value: "2", label: "Brands launched" },
-  { value: "4", label: "Live storefronts" },
-  { value: "3", label: "Disciplines, one owner" },
+  { value: "50+", label: "Retail partners served" },
+  { value: "70%", label: "Faster order processing" },
+  { value: "20+ hrs", label: "Saved every week" },
+];
+
+const results = [
+  "50+ retail partners onboarded to the B2B platform, with automated order processing and real-time inventory.",
+  "80% of manual paperwork eliminated through a Google Sheets → PDF invoicing pipeline.",
+  "70% faster order processing — roughly 20+ hours saved every week.",
+  "95% mobile responsiveness and 40% faster load times via code splitting, lazy loading, and image optimization.",
+  "Ekohum grew +45% Instagram engagement and +200 followers through data-driven social marketing.",
+  "SEO and structured data improved organic search rankings and user acquisition.",
 ];
 
 const sites = [
+  { label: "ethnicsbyaravalli.com", url: "https://ethnicsbyaravalli.com" },
   { label: "ekohum.com", url: "https://ekohum.com" },
   { label: "ekohum.in", url: "https://ekohum.in" },
-  { label: "ethnicsbyaravalli.com", url: "https://ethnicsbyaravalli.com" },
   { label: "aravallidesigns.com", url: "https://aravallidesigns.com" },
 ];
 
 const stack = [
+  "Next.js 14",
+  "TypeScript",
+  "MongoDB",
+  "Google Sheets API",
   "Shopify",
   "Liquid",
   "Meta Ads",
-  "Instagram",
   "SEO",
   "Figma",
 ];
@@ -85,9 +97,9 @@ export default function AravalliCaseStudy() {
             Aravalli Designs
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-neutral-400">
-            Building and growing a family of ethnic-wear e-commerce brands
-            end to end — from brand identity and Shopify storefronts to the
-            social media marketing that drives them.
+            My studio for ethnic-wear e-commerce — a custom-built B2B platform
+            (Ethnics by Aravalli) and a Shopify D2C brand (Ekohum), each designed,
+            built, and marketed end to end.
           </p>
         </div>
 
@@ -112,7 +124,7 @@ export default function AravalliCaseStudy() {
               key={s.label}
               className="rounded-2xl border border-white/10 bg-white/[0.02] p-5"
             >
-              <div className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              <div className="text-2xl font-semibold tracking-tight text-white sm:text-4xl">
                 {s.value}
               </div>
               <div className="mt-1 text-sm text-neutral-500">{s.label}</div>
@@ -120,43 +132,48 @@ export default function AravalliCaseStudy() {
           ))}
         </div>
 
-        <Section eyebrow="Overview" title="One studio, the whole funnel">
+        <Section eyebrow="Overview" title="One studio, two commerce models">
           <p>
             Aravalli Designs is my studio for building and growing ethnic-wear
-            e-commerce brands. Under it, <strong>Ekohum</strong> and{" "}
-            <strong>Ethnics by Aravalli</strong> run as full Shopify storefronts
-            across <span className="whitespace-nowrap">.com</span> and{" "}
-            <span className="whitespace-nowrap">.in</span> domains — each one
-            designed, built, and marketed by the same hands.
+            e-commerce. It runs two very different products:{" "}
+            <strong>Ethnics by Aravalli</strong>, a custom-coded{" "}
+            <span className="whitespace-nowrap">B2B</span> wholesale platform for
+            retailers, and <strong>Ekohum</strong>, a{" "}
+            <span className="whitespace-nowrap">D2C</span> brand on Shopify sold
+            directly to shoppers.
           </p>
           <p>
-            That end-to-end ownership is the point: the brand system, the
-            storefront experience, and the marketing all stay coherent because
-            they&apos;re not handed off between a designer, a developer, and an
-            agency.
+            Both are designed, built, and marketed by the same hands — so the
+            brand system, the storefront experience, and the marketing stay
+            coherent instead of being handed off between a designer, a developer,
+            and an agency.
           </p>
         </Section>
 
-        <Section eyebrow="The challenge" title="A fashion brand is more than a store">
+        <Section
+          eyebrow="The challenge"
+          title="Two audiences, two very different builds"
+        >
           <p>
-            Launching an apparel brand online means solving three problems at
-            once: a distinct visual identity people trust, a fast and frictionless
-            shopping experience, and a dependable stream of qualified traffic.
-            Miss any one and the store stalls.
+            Retailers and end-shoppers need opposite things. Wholesale buyers
+            need bulk ordering, inventory visibility, and paperwork that
+            doesn&apos;t eat the day. Retail shoppers need a fast, trustworthy
+            storefront and a reason to come back.
           </p>
           <p>
-            The brands needed all three delivered together, and kept consistent
-            as the catalog and the audience grew.
+            One person had to deliver both — a bespoke platform for the B2B side
+            and a polished, well-marketed Shopify store for the D2C side — and
+            keep them both moving.
           </p>
         </Section>
 
         <Section eyebrow="What I did" title="Design, build, and grow">
           <ul className="space-y-4">
             {[
-              ["Brand & design", "Defined the visual identity and product presentation, then designed storefront layouts and the shopping journey in Figma."],
-              ["Shopify development", "Built and customized the Shopify themes in Liquid — product pages, collections, cart, and checkout — tuned for mobile and page speed."],
-              ["Social media marketing", "Run ongoing SMM across Instagram and Meta ads: content, campaigns, and creative that send qualified traffic to the stores."],
-              ["Operations", "Manage multiple domains (.com/.in) per brand and keep the storefronts and brand system consistent as the catalog expands."],
+              ["B2B platform (Ethnics by Aravalli)", "Architected and shipped a full-stack e-commerce platform on Next.js 14, TypeScript, and MongoDB for 50+ retail partners, with automated order processing and real-time inventory."],
+              ["Order automation", "Built a Google Sheets → PDF invoicing pipeline that removed 80% of manual paperwork and cut order processing time 70% — about 20+ hours saved a week."],
+              ["Shopify D2C (Ekohum)", "Designed and built the Ekohum storefront on Shopify (Liquid), then ran the social media marketing that grew it (+45% engagement, +200 followers)."],
+              ["Performance & SEO", "Tuned to a 95% mobile score and 40% faster loads with code splitting, lazy loading, and image optimization, plus structured data for organic search."],
             ].map(([h, b]) => (
               <li key={h} className="flex gap-3">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-400/70" />
@@ -169,13 +186,9 @@ export default function AravalliCaseStudy() {
           </ul>
         </Section>
 
-        <Section eyebrow="Results" title="Live, and growing">
+        <Section eyebrow="Results" title="The numbers">
           <ul className="space-y-4">
-            {[
-              "Four live storefronts across two brands, owned and maintained end to end.",
-              "A single brand system that stays consistent across design, storefront, and social.",
-              "An ongoing marketing pipeline feeding the stores rather than one-off launches.",
-            ].map((r) => (
+            {results.map((r) => (
               <li key={r} className="flex gap-3">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-400/70" />
                 <span className="text-neutral-300">{r}</span>

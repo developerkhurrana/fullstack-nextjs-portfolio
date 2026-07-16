@@ -11,9 +11,9 @@ const RESUME_URL =
   "https://drive.google.com/drive/folders/1nViRYkAWfSPEJdwygysiQA9qXE-19I7j?usp=sharing";
 
 const STATS = [
-  { value: "3+", label: "Years experience" },
-  { value: "10+", label: "Projects delivered" },
-  { value: "95%", label: "On-time delivery" },
+  { value: "4+", label: "Years experience" },
+  { value: "50+", label: "Retail partners served" },
+  { value: "70%", label: "Faster order processing" },
 ];
 
 const MARQUEE = [
@@ -93,11 +93,11 @@ export default function Home() {
             <span>I design, build &amp; grow</span>
             <FlipWords
               words={[
-                "Shopify stores",
                 "e-commerce brands",
+                "B2B platforms",
+                "Shopify stores",
                 "storefronts",
                 "brand identity",
-                "web apps",
               ]}
               className="!px-0 font-medium text-amber-400 dark:text-amber-400"
             />
@@ -110,10 +110,10 @@ export default function Home() {
             variants={fade}
             className="mt-8 max-w-xl text-pretty text-base leading-relaxed text-neutral-400 sm:text-lg"
           >
-            I take e-commerce brands end to end — designing the storefront,
-            building it on Shopify (with custom React and Node.js when it&apos;s
-            needed), and growing it through social media marketing. It&apos;s the
-            studio model behind Aravalli Designs.
+            I take e-commerce brands end to end — from a custom-built B2B
+            platform serving 50+ retailers to Shopify D2C storefronts, plus the
+            marketing that grows them. It&apos;s the studio model behind Aravalli
+            Designs.
           </motion.p>
 
           <motion.div
