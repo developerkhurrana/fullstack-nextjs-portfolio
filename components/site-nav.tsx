@@ -15,7 +15,7 @@ const NAV_ITEMS = [
 ];
 
 const RESUME_URL =
-  "https://drive.google.com/drive/folders/1nViRYkAWfSPEJdwygysiQA9qXE-19I7j?usp=sharing";
+  "https://drive.google.com/file/d/1vmCuI47_-lKs4Geh5EcAK8BfWG8B3bw2/view?usp=sharing";
 
 export function SiteNav() {
   const pathname = usePathname();

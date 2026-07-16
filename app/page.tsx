@@ -8,7 +8,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { FlipWords } from "@/components/ui/flip-words";
 
 const RESUME_URL =
-  "https://drive.google.com/drive/folders/1nViRYkAWfSPEJdwygysiQA9qXE-19I7j?usp=sharing";
+  "https://drive.google.com/file/d/1vmCuI47_-lKs4Geh5EcAK8BfWG8B3bw2/view?usp=sharing";
 
 const STATS = [
   { value: "4+", label: "Years experience" },
