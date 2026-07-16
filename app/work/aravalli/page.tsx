@@ -7,8 +7,8 @@ import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 
 const facts = [
-  { label: "Role", value: "Founder — design, dev & marketing" },
-  { label: "Studio", value: "Aravalli Designs" },
+  { label: "Role", value: "Full-Stack Developer & UI/UX Designer" },
+  { label: "Company", value: "Aravalli Designs" },
   { label: "Build", value: "Custom Next.js + Shopify" },
   { label: "Services", value: "Design · Development · SMM" },
 ];
@@ -97,9 +97,9 @@ export default function AravalliCaseStudy() {
             Aravalli Designs
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-neutral-400">
-            My studio for ethnic-wear e-commerce — a custom-built B2B platform
-            (Ethnics by Aravalli) and a Shopify D2C brand (Ekohum), each designed,
-            built, and marketed end to end.
+            The ethnic-wear e-commerce company I build for — a custom B2B
+            platform (Ethnics by Aravalli) and a Shopify D2C brand (Ekohum),
+            which I design, build, and market end to end.
           </p>
         </div>
 
@@ -132,10 +132,10 @@ export default function AravalliCaseStudy() {
           ))}
         </div>
 
-        <Section eyebrow="Overview" title="One studio, two commerce models">
+        <Section eyebrow="Overview" title="One company, two commerce models">
           <p>
-            Aravalli Designs is my studio for building and growing ethnic-wear
-            e-commerce. It runs two very different products:{" "}
+            Aravalli Designs is an ethnic-wear e-commerce company. It runs two
+            very different products:{" "}
             <strong>Ethnics by Aravalli</strong>, a custom-coded{" "}
             <span className="whitespace-nowrap">B2B</span> wholesale platform for
             retailers, and <strong>Ekohum</strong>, a{" "}
@@ -143,10 +143,10 @@ export default function AravalliCaseStudy() {
             directly to shoppers.
           </p>
           <p>
-            Both are designed, built, and marketed by the same hands — so the
-            brand system, the storefront experience, and the marketing stay
-            coherent instead of being handed off between a designer, a developer,
-            and an agency.
+            As the developer and designer behind both, I build every side — the
+            brand system, the storefront experience, and the marketing — so they
+            stay coherent instead of being handed off between a designer, a
+            developer, and an agency.
           </p>
         </Section>
 

@@ -25,11 +25,11 @@ const knowledgeBase = {
     education:
       "He holds a B.Sc. in Media Technology from ICAT Design and Media College (2018–2021), where he won 1st Prize in the Indywood Poster Design Competition.",
     skills:
-      "His skills span UI/UX design, full-stack development (Next.js, React, Node.js, MongoDB), Shopify store development, and social media marketing (SMM).",
+      "His skills span UI/UX design (Figma, Adobe XD), full-stack development (Next.js, React, TypeScript, Node.js, Express, MongoDB, REST APIs, Google Sheets API), Shopify, SEO, and social media marketing.",
   },
   work: {
     current:
-      "He runs Aravalli Designs, his ethnic-wear e-commerce studio. There he built Ethnics by Aravalli — a custom Next.js/MongoDB B2B platform for 50+ retailers with automated order processing and PDF invoicing — and Ekohum, a Shopify D2C brand he designs, builds, and markets.",
+      "He works at Aravalli Designs, an ethnic-wear e-commerce company, as a Full-Stack Developer & UI/UX Designer. There he built Ethnics by Aravalli — a custom Next.js/MongoDB B2B platform for 50+ retailers with automated order processing and PDF invoicing — and designs, builds, and markets Ekohum, its Shopify D2C brand.",
     projects:
       "Highlights: Ethnics by Aravalli — a custom Next.js 14 / TypeScript / MongoDB B2B platform for 50+ retailers with a Google Sheets automation pipeline that cut order processing time 70% (20+ hrs/week); Ekohum — a Shopify D2C storefront he designs, builds, and markets (+45% Instagram engagement, +200 followers); plus a TSSS real estate platform (+80% traffic, +30% leads) and various React apps.",
     achievements:

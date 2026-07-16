@@ -21,16 +21,17 @@ const MARQUEE = [
   "Next.js",
   "TypeScript",
   "Node.js",
+  "Express",
+  "MongoDB",
+  "REST APIs",
+  "Google Sheets API",
   "Shopify",
-  "Liquid",
   "Figma",
+  "Adobe XD",
   "UI/UX",
   "Social Media Marketing",
   "SEO",
-  "Design Systems",
-  "MongoDB",
-  "Tailwind CSS",
-  "REST APIs",
+  "AI Workflows",
 ];
 
 const fade = {
@@ -110,10 +111,10 @@ export default function Home() {
             variants={fade}
             className="mt-8 max-w-xl text-pretty text-base leading-relaxed text-neutral-400 sm:text-lg"
           >
-            I take e-commerce brands end to end — from a custom-built B2B
-            platform serving 50+ retailers to Shopify D2C storefronts, plus the
-            marketing that grows them. It&apos;s the studio model behind Aravalli
-            Designs.
+            As a full-stack developer &amp; UI/UX designer at Aravalli Designs, I
+            take e-commerce end to end — a custom-built B2B platform serving 50+
+            retailers, Shopify D2C storefronts, and the marketing that grows
+            them.
           </motion.p>
 
           <motion.div

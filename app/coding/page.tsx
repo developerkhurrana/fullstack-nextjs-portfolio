@@ -71,6 +71,12 @@ const codingProjects: Project[] = [
     github: "https://github.com/developerkhurrana/LedgerAi",
   },
   {
+    title: "TSSS Real Estate Platform",
+    description:
+      "Full-stack real estate website with property listings, search, and a lead-generation system. Increased web traffic by 80% and qualified leads by 30%.",
+    tech: ["Next.js", "React", "UI/UX", "SEO"],
+  },
+  {
     title: "LinkedIn Clone",
     description:
       "A full-featured LinkedIn clone with authentication, posts, and real-time updates.",
@@ -208,44 +214,46 @@ export default function Coding() {
                   <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               )}
-              <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-white/5 pt-4">
-                {project.sites
-                  ? project.sites.map((site) => (
-                      <a
-                        key={site.url}
-                        href={site.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-sm font-medium text-amber-400 hover:text-amber-300"
-                      >
-                        {site.label}
-                        <ArrowUpRight className="h-3.5 w-3.5" />
-                      </a>
-                    ))
-                  : null}
-                {project.demo && (
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm font-medium text-amber-400 hover:text-amber-300"
-                  >
-                    Live demo
-                    <ArrowUpRight className="h-3.5 w-3.5" />
-                  </a>
-                )}
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm text-neutral-400 hover:text-white"
-                  >
-                    <Github className="h-3.5 w-3.5" />
-                    Code
-                  </a>
-                )}
-              </div>
+              {(project.sites || project.demo || project.github) && (
+                <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-white/5 pt-4">
+                  {project.sites
+                    ? project.sites.map((site) => (
+                        <a
+                          key={site.url}
+                          href={site.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-sm font-medium text-amber-400 hover:text-amber-300"
+                        >
+                          {site.label}
+                          <ArrowUpRight className="h-3.5 w-3.5" />
+                        </a>
+                      ))
+                    : null}
+                  {project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sm font-medium text-amber-400 hover:text-amber-300"
+                    >
+                      Live demo
+                      <ArrowUpRight className="h-3.5 w-3.5" />
+                    </a>
+                  )}
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sm text-neutral-400 hover:text-white"
+                    >
+                      <Github className="h-3.5 w-3.5" />
+                      Code
+                    </a>
+                  )}
+                </div>
+              )}
             </motion.article>
           ))}
         </div>
