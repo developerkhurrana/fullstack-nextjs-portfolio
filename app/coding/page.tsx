@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowRight, Github } from "lucide-react";
 import {
@@ -31,6 +32,7 @@ type Project = {
   demo?: string;
   github?: string;
   caseStudy?: string;
+  thumbnail?: string;
   sites?: { label: string; url: string }[];
 };
 
@@ -56,7 +58,7 @@ const codingProjects: Project[] = [
     description:
       "D2C ethnic-wear brand on Shopify — storefront design and build, plus the social media marketing that grows it (+45% Instagram engagement, +200 followers).",
     tech: ["Shopify", "Liquid", "Social Media Marketing", "Meta Ads", "SEO"],
-    caseStudy: "/work/aravalli",
+    caseStudy: "/work/ekohum",
     sites: [
       { label: "ekohum.com", url: "https://ekohum.com" },
       { label: "ekohum.in", url: "https://ekohum.in" },
@@ -179,7 +181,7 @@ export default function Coding() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: (idx % 3) * 0.06 }}
-              className="group relative flex flex-col rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-colors hover:border-white/20"
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] transition-colors hover:border-white/20"
             >
               <GlowingEffect
                 blur={0}
@@ -190,6 +192,18 @@ export default function Coding() {
                 proximity={64}
                 inactiveZone={0.01}
               />
+              {project.thumbnail && (
+                <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-white/10 bg-neutral-900">
+                  <Image
+                    src={project.thumbnail}
+                    alt={`${project.title} preview`}
+                    fill
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
+              )}
+              <div className="flex flex-1 flex-col p-6">
               <h3 className="text-lg font-semibold text-white">
                 {project.title}
               </h3>
@@ -255,6 +269,7 @@ export default function Coding() {
                   )}
                 </div>
               )}
+              </div>
             </motion.article>
           ))}
         </div>
