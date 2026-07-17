@@ -75,6 +75,7 @@ const codingProjects: Project[] = [
     description:
       "Full-stack real estate website with property listings, search, and a lead-generation system. Increased web traffic by 80% and qualified leads by 30%.",
     tech: ["Next.js", "React", "UI/UX", "SEO"],
+    demo: "https://tsss-realestate.vercel.app/",
   },
   {
     title: "LinkedIn Clone",
