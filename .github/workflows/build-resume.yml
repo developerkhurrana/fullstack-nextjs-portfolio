@@ -6,9 +6,10 @@ name: Build résumé PDF
 
 on:
   push:
+    branches:
+      - main
     paths:
       - "resume/resume.tex"
-      - ".github/workflows/build-resume.yml"
   workflow_dispatch:
 
 permissions:
