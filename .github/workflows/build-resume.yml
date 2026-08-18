@@ -1,0 +1,44 @@
+name: Build résumé PDF
+
+# Recompiles resume/resume.tex to public/resume.pdf whenever the source
+# changes, then commits the rendered PDF back so the site always serves the
+# latest version. No LaTeX toolchain is needed at Vercel build time.
+
+on:
+  push:
+    paths:
+      - "resume/resume.tex"
+      - ".github/workflows/build-resume.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile resume.tex
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: resume
+          root_file: resume.tex
+
+      - name: Move PDF into public/
+        run: |
+          mkdir -p public
+          mv resume/resume.pdf public/resume.pdf
+
+      - name: Commit rendered PDF
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/resume.pdf
+          if git diff --staged --quiet; then
+            echo "resume.pdf unchanged — nothing to commit."
+          else
+            git commit -m "chore: auto-render resume.pdf from resume.tex"
+            git push
+          fi

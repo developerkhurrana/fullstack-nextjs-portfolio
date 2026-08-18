@@ -7,8 +7,7 @@ import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { FlipWords } from "@/components/ui/flip-words";
 
-const RESUME_URL =
-  "https://drive.google.com/file/d/1vmCuI47_-lKs4Geh5EcAK8BfWG8B3bw2/view?usp=sharing";
+const RESUME_URL = "/resume.pdf";
 
 const STATS = [
   { value: "4+", label: "Years experience" },
@@ -135,6 +134,7 @@ export default function Home() {
               href={RESUME_URL}
               target="_blank"
               rel="noopener noreferrer"
+              download="Kshitij-Khurrana-Resume.pdf"
               className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-white/30 hover:bg-white/5"
             >
               <Download className="h-4 w-4" />
