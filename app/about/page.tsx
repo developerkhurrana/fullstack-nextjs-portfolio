@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
@@ -8,22 +9,32 @@ import { Timeline } from "@/components/ui/timeline";
 
 const certifications = [
   {
+    name: "Full-Stack Development",
+    issuer: "Mimo",
+    date: "Dec 2024",
+    image: "/certificates/fullstack.jpg",
+    url: "https://www.virtualbadge.io/certificate-validator?credential=cdf80377-92f4-4b32-8971-c8d76a689758",
+  },
+  {
     name: "Front-End Development",
     issuer: "Mimo",
     date: "Dec 2024",
-    url: "https://app.virtualbadge.io/mimo/fhoc9qrt/",
+    image: "/certificates/frontend.jpg",
+    url: "https://www.virtualbadge.io/certificate-validator?credential=dc2d7a69-bed9-42f9-a311-e88253bec94f",
   },
   {
     name: "Back-End Development",
     issuer: "Mimo",
     date: "Dec 2024",
-    url: "https://app.virtualbadge.io/mimo/obbu3wyg/",
+    image: "/certificates/backend.jpg",
+    url: "https://www.virtualbadge.io/certificate-validator?credential=f1ac96bf-114a-420f-8b9c-a06ce73ef51e",
   },
   {
     name: "Python Development",
     issuer: "Mimo",
     date: "Aug 2025",
-    url: "https://app.virtualbadge.io/mimo/i6ey82j0/",
+    image: "/certificates/python.jpg",
+    url: "https://www.virtualbadge.io/certificate-validator?credential=5c9f1f58-a842-490d-8f10-b07ebfb95469",
   },
 ];
 
@@ -126,27 +137,38 @@ export default function About() {
           <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
             Verified credentials
           </h2>
-          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {certifications.map((c) => (
               <a
                 key={c.url}
                 href={c.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group rounded-2xl border border-white/10 bg-white/[0.02] p-5 transition-colors hover:border-white/20 hover:bg-white/[0.04]"
+                className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] transition-colors hover:border-white/20 hover:bg-white/[0.04]"
               >
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <h3 className="font-semibold text-white">{c.name}</h3>
-                    <p className="mt-1 text-sm text-neutral-500">
-                      {c.issuer} · {c.date}
-                    </p>
-                  </div>
-                  <ArrowUpRight className="h-4 w-4 shrink-0 text-neutral-500 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-amber-400" />
+                <div className="relative aspect-[792/612] w-full overflow-hidden border-b border-white/10 bg-white">
+                  <Image
+                    src={c.image}
+                    alt={`${c.name} certificate from Mimo`}
+                    fill
+                    className="object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
                 </div>
-                <span className="mt-4 inline-block text-xs font-medium uppercase tracking-wide text-amber-400/80">
-                  Verify credential
-                </span>
+                <div className="p-5">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <h3 className="font-semibold text-white">{c.name}</h3>
+                      <p className="mt-1 text-sm text-neutral-500">
+                        {c.issuer} · {c.date}
+                      </p>
+                    </div>
+                    <ArrowUpRight className="h-4 w-4 shrink-0 text-neutral-500 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-amber-400" />
+                  </div>
+                  <span className="mt-4 inline-block text-xs font-medium uppercase tracking-wide text-amber-400/80">
+                    Verify credential
+                  </span>
+                </div>
               </a>
             ))}
           </div>
