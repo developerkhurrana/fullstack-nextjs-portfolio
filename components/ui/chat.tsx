@@ -21,7 +21,7 @@ const initialMessages: Message[] = [
 const knowledgeBase = {
   about: {
     experience:
-      "Kshitij is a UI/UX & Full-Stack Developer with 4+ years of experience building scalable web applications and high-impact interfaces with Next.js, React, TypeScript, and Figma.",
+      "Kshitij is a Full-Stack Developer who designs and ships production e-commerce end to end, building with Next.js, React, TypeScript, Node.js, and MongoDB — owning both the design and the build so projects ship without a handoff.",
     education:
       "He holds a B.Sc. in Media Technology from ICAT Design and Media College (2018–2021), where he won 1st Prize in the Indywood Poster Design Competition.",
     skills:

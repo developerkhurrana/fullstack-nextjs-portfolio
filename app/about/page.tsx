@@ -64,6 +64,21 @@ export default function About() {
       ],
     },
     {
+      title: "2023–25",
+      content: [
+        {
+          title: "Full-Stack Development — Self-Directed Study",
+          description: "Independent · Jaipur, India",
+          achievements: [
+            "Transitioned from design into full-stack engineering through focused self-study",
+            "Earned Mimo Professional Certificates in Full-Stack, Front-End, Back-End, and Python Development",
+            "Built a portfolio of deployed React/Next.js apps that led directly into the Aravalli Designs role",
+          ],
+          technologies: ["Next.js", "React", "TypeScript", "Node.js", "MongoDB"],
+        },
+      ],
+    },
+    {
       title: "2022–23",
       content: [
         {
@@ -124,7 +139,7 @@ export default function About() {
         <PageHeader
           eyebrow="About"
           title="About me"
-          description="UI/UX & full-stack developer with 4+ years crafting user-centred digital products — scalable web apps and high-impact interfaces in Next.js, React, TypeScript, and Figma. I've shipped B2B e-commerce platforms, real estate portals, and D2C brands with measurable results, from 80% traffic growth to 70% less operational overhead."
+          description="Full-Stack Developer who designs and ships production e-commerce end to end. I solo-built a B2B platform on Next.js, TypeScript, and MongoDB serving 50+ retailers, plus Shopify D2C storefronts and the marketing behind them — owning both the design and the build, so projects ship without the usual designer-to-developer handoff."
         />
         <div className="mt-8">
           <Timeline data={timelineData} />

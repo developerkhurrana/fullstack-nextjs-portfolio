@@ -10,9 +10,9 @@ import { FlipWords } from "@/components/ui/flip-words";
 const RESUME_URL = "/resume.pdf";
 
 const STATS = [
-  { value: "4+", label: "Years experience" },
   { value: "50+", label: "Retail partners served" },
-  { value: "70%", label: "Faster order processing" },
+  { value: "4", label: "Live products shipped" },
+  { value: "0", label: "Handoffs — I design & build" },
 ];
 
 const MARQUEE = [
