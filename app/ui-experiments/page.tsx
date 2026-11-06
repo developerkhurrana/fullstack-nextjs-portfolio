@@ -57,7 +57,7 @@ export default function UIExperiments() {
         <PageHeader
           eyebrow="Playground"
           title="UI experiments"
-          description="Interactive patterns and micro-interactions — hover, move, and click to play with each one."
+          description="Interactive patterns and micro-interactions, hover, move, and click to play with each one."
         />
 
         <div className="mt-14 flex flex-col gap-5">

@@ -12,7 +12,7 @@ const RESUME_URL = "/resume.pdf";
 const STATS = [
   { value: "50+", label: "Retail partners served" },
   { value: "4", label: "Live products shipped" },
-  { value: "0", label: "Handoffs — I design & build" },
+  { value: "0", label: "Handoffs, I design & build" },
 ];
 
 const MARQUEE = [
@@ -48,7 +48,7 @@ export default function Home() {
       <SiteNav />
 
       <main className="relative overflow-hidden">
-        {/* Ambient glow — a single, restrained light source */}
+        {/* Ambient glow, a single, restrained light source */}
         <div
           aria-hidden
           className="pointer-events-none absolute left-1/2 top-[-10%] h-[520px] w-[820px] max-w-[110vw] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(251,146,60,0.16),transparent)] blur-2xl"
@@ -111,7 +111,7 @@ export default function Home() {
             className="mt-8 max-w-xl text-pretty text-base leading-relaxed text-neutral-400 sm:text-lg"
           >
             As a full-stack developer &amp; UI/UX designer at Aravalli Designs, I
-            take e-commerce end to end — a custom-built B2B platform serving 50+
+            take e-commerce end to end, a custom-built B2B platform serving 50+
             retailers, Shopify D2C storefronts, and the marketing that grows
             them.
           </motion.p>
@@ -125,7 +125,7 @@ export default function Home() {
           >
             <Link
               href="/projects"
-              className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-transform hover:-translate-y-0.5"
+              className="tactile group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-black"
             >
               View work
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -135,7 +135,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               download="Kshitij-Khurrana-Resume.pdf"
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-white/30 hover:bg-white/5"
+              className="tactile inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-white/30 hover:bg-white/5"
             >
               <Download className="h-4 w-4" />
               Download resume
@@ -159,7 +159,7 @@ export default function Home() {
           >
             {STATS.map((s) => (
               <div key={s.label}>
-                <dt className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                <dt className="font-mono text-3xl font-semibold tabular-nums tracking-tight text-white sm:text-4xl">
                   {s.value}
                 </dt>
                 <dd className="mt-1 text-sm text-neutral-500">{s.label}</dd>

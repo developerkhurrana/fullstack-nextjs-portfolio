@@ -83,7 +83,7 @@ export default function EkohumCaseStudy() {
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-neutral-400">
             A D2C ethnic-wear brand on Shopify (under Aravalli Designs) that I
-            design, build, and grow — storefront and brand on one side, social
+            design, build, and grow, storefront and brand on one side, social
             media marketing on the other.
           </p>
         </div>
@@ -109,7 +109,7 @@ export default function EkohumCaseStudy() {
               key={s.label}
               className="rounded-2xl border border-white/10 bg-white/[0.02] p-5"
             >
-              <div className="text-2xl font-semibold tracking-tight text-white sm:text-4xl">
+              <div className="font-mono text-2xl font-semibold tabular-nums tracking-tight text-white sm:text-4xl">
                 {s.value}
               </div>
               <div className="mt-1 text-sm text-neutral-500">{s.label}</div>
@@ -121,7 +121,7 @@ export default function EkohumCaseStudy() {
           <p>
             Ekohum is a direct-to-consumer ethnic-wear brand built on Shopify.
             Unlike the wholesale side of the business, it sells straight to
-            shoppers — so success depends as much on how the brand shows up on
+            shoppers, so success depends as much on how the brand shows up on
             social as on how the storefront converts.
           </p>
           <p>
@@ -139,7 +139,7 @@ export default function EkohumCaseStudy() {
             traffic that doesn&apos;t depend on a single viral moment.
           </p>
           <p>
-            Ekohum needed all three built and kept running — not a launch, but a
+            Ekohum needed all three built and kept running, not a launch, but a
             growing channel.
           </p>
         </Section>
@@ -147,7 +147,7 @@ export default function EkohumCaseStudy() {
         <Section eyebrow="What I did" title="Storefront, brand, and marketing">
           <ul className="space-y-4">
             {[
-              ["Storefront", "Designed and built the Ekohum store on Shopify (Liquid) — product pages, collections, and checkout — tuned for mobile and speed."],
+              ["Storefront", "Designed and built the Ekohum store on Shopify (Liquid), product pages, collections, and checkout, tuned for mobile and speed."],
               ["Brand & content", "Shaped the visual identity and product presentation, then carried it into a consistent social content system."],
               ["Social media marketing", "Ran organic Instagram plus Meta ad campaigns, growing engagement 45% and followers by 200+."],
               ["SEO", "Added structured product data and on-store SEO to improve organic discovery and acquisition."],

@@ -1,4 +1,4 @@
-// Only the cloud name is needed on the client — it is public and already
+// Only the cloud name is needed on the client, it is public and already
 // appears in every delivered image URL. The API key and secret live server-side
 // only (see app/api/cloudinary/route.ts) and must never be imported here.
 const CLOUD_NAME =

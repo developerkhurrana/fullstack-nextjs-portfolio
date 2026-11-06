@@ -40,7 +40,7 @@ const codingProjects: Project[] = [
   {
     title: "Ethnics by Aravalli",
     description:
-      "Custom full-stack B2B e-commerce platform serving 50+ retail partners — automated order processing, real-time inventory, and PDF invoicing via a Google Sheets pipeline. Cut order processing time by 70% (20+ hrs/week).",
+      "Custom full-stack B2B e-commerce platform serving 50+ retail partners, automated order processing, real-time inventory, and PDF invoicing via a Google Sheets pipeline. Cut order processing time by 70% (20+ hrs/week).",
     tech: [
       "Next.js",
       "TypeScript",
@@ -56,7 +56,7 @@ const codingProjects: Project[] = [
   {
     title: "Ekohum",
     description:
-      "D2C ethnic-wear brand on Shopify — storefront design and build, plus the social media marketing that grows it (+45% Instagram engagement, +200 followers).",
+      "D2C ethnic-wear brand on Shopify, storefront design and build, plus the social media marketing that grows it (+45% Instagram engagement, +200 followers).",
     tech: ["Shopify", "Liquid", "Social Media Marketing", "Meta Ads", "SEO"],
     caseStudy: "/work/ekohum",
     sites: [
@@ -170,7 +170,7 @@ export default function Coding() {
         <PageHeader
           eyebrow="Engineering"
           title="Code & builds"
-          description="Custom e-commerce platforms, Shopify storefronts, and full-stack apps — from live client work to polished builds."
+          description="Custom e-commerce platforms, Shopify storefronts, and full-stack apps, from live client work to polished builds."
         />
 
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

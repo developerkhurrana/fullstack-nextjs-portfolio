@@ -79,7 +79,7 @@ export function SiteNav() {
             href={RESUME_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-2 inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-medium text-black transition-transform hover:-translate-y-0.5"
+            className="ml-2 inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-medium text-black tactile"
           >
             Resume
             <ArrowUpRight className="h-4 w-4" />

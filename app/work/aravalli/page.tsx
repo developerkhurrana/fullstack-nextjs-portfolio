@@ -13,7 +13,7 @@ const facts = [
   { label: "Services", value: "Design · Development · SMM" },
 ];
 
-// Real figures from the work — no invented numbers.
+// Real figures from the work, no invented numbers.
 const stats = [
   { value: "50+", label: "Retail partners served" },
   { value: "70%", label: "Faster order processing" },
@@ -23,7 +23,7 @@ const stats = [
 const results = [
   "50+ retail partners onboarded to the B2B platform, with automated order processing and real-time inventory.",
   "80% of manual paperwork eliminated through a Google Sheets → PDF invoicing pipeline.",
-  "70% faster order processing — roughly 20+ hours saved every week.",
+  "70% faster order processing, roughly 20+ hours saved every week.",
   "95% mobile responsiveness and 40% faster load times via code splitting, lazy loading, and image optimization.",
   "Ekohum grew +45% Instagram engagement and +200 followers through data-driven social marketing.",
   "SEO and structured data improved organic search rankings and user acquisition.",
@@ -97,7 +97,7 @@ export default function AravalliCaseStudy() {
             Aravalli Designs
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-neutral-400">
-            The ethnic-wear e-commerce company I build for — a custom B2B
+            The ethnic-wear e-commerce company I build for, a custom B2B
             platform (Ethnics by Aravalli) and a Shopify D2C brand (Ekohum),
             which I design, build, and market end to end.
           </p>
@@ -124,7 +124,7 @@ export default function AravalliCaseStudy() {
               key={s.label}
               className="rounded-2xl border border-white/10 bg-white/[0.02] p-5"
             >
-              <div className="text-2xl font-semibold tracking-tight text-white sm:text-4xl">
+              <div className="font-mono text-2xl font-semibold tabular-nums tracking-tight text-white sm:text-4xl">
                 {s.value}
               </div>
               <div className="mt-1 text-sm text-neutral-500">{s.label}</div>
@@ -143,8 +143,8 @@ export default function AravalliCaseStudy() {
             directly to shoppers.
           </p>
           <p>
-            As the developer and designer behind both, I build every side — the
-            brand system, the storefront experience, and the marketing — so they
+            As the developer and designer behind both, I build every side, the
+            brand system, the storefront experience, and the marketing, so they
             stay coherent instead of being handed off between a designer, a
             developer, and an agency.
           </p>
@@ -161,8 +161,8 @@ export default function AravalliCaseStudy() {
             storefront and a reason to come back.
           </p>
           <p>
-            One person had to deliver both — a bespoke platform for the B2B side
-            and a polished, well-marketed Shopify store for the D2C side — and
+            One person had to deliver both, a bespoke platform for the B2B side
+            and a polished, well-marketed Shopify store for the D2C side, and
             keep them both moving.
           </p>
         </Section>
@@ -171,7 +171,7 @@ export default function AravalliCaseStudy() {
           <ul className="space-y-4">
             {[
               ["B2B platform (Ethnics by Aravalli)", "Architected and shipped a full-stack e-commerce platform on Next.js 14, TypeScript, and MongoDB for 50+ retail partners, with automated order processing and real-time inventory."],
-              ["Order automation", "Built a Google Sheets → PDF invoicing pipeline that removed 80% of manual paperwork and cut order processing time 70% — about 20+ hours saved a week."],
+              ["Order automation", "Built a Google Sheets → PDF invoicing pipeline that removed 80% of manual paperwork and cut order processing time 70%, about 20+ hours saved a week."],
               ["Shopify D2C (Ekohum)", "Designed and built the Ekohum storefront on Shopify (Liquid), then ran the social media marketing that grew it (+45% engagement, +200 followers)."],
               ["Performance & SEO", "Tuned to a 95% mobile score and 40% faster loads with code splitting, lazy loading, and image optimization, plus structured data for organic search."],
             ].map(([h, b]) => (

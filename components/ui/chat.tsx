@@ -14,14 +14,14 @@ const initialMessages: Message[] = [
   {
     role: "assistant",
     content:
-      "Hi! Ask me anything about Kshitij's work, skills, and experience — projects, e-commerce, or how to get in touch.",
+      "Hi! Ask me anything about Kshitij's work, skills, and experience, projects, e-commerce, or how to get in touch.",
   },
 ];
 
 const knowledgeBase = {
   about: {
     experience:
-      "Kshitij is a Full-Stack Developer who designs and ships production e-commerce end to end, building with Next.js, React, TypeScript, Node.js, and MongoDB — owning both the design and the build so projects ship without a handoff.",
+      "Kshitij is a Full-Stack Developer who designs and ships production e-commerce end to end, building with Next.js, React, TypeScript, Node.js, and MongoDB, owning both the design and the build so projects ship without a handoff.",
     education:
       "He holds a B.Sc. in Media Technology from ICAT Design and Media College (2018–2021), where he won 1st Prize in the Indywood Poster Design Competition.",
     skills:
@@ -29,9 +29,9 @@ const knowledgeBase = {
   },
   work: {
     current:
-      "He works at Aravalli Designs, an ethnic-wear e-commerce company, as a Full-Stack Developer & UI/UX Designer. There he built Ethnics by Aravalli — a custom Next.js/MongoDB B2B platform for 50+ retailers with automated order processing and PDF invoicing — and designs, builds, and markets Ekohum, its Shopify D2C brand.",
+      "He works at Aravalli Designs, an ethnic-wear e-commerce company, as a Full-Stack Developer & UI/UX Designer. There he built Ethnics by Aravalli, a custom Next.js/MongoDB B2B platform for 50+ retailers with automated order processing and PDF invoicing, and designs, builds, and markets Ekohum, its Shopify D2C brand.",
     projects:
-      "Highlights: Ethnics by Aravalli — a custom Next.js 14 / TypeScript / MongoDB B2B platform for 50+ retailers with a Google Sheets automation pipeline that cut order processing time 70% (20+ hrs/week); Ekohum — a Shopify D2C storefront he designs, builds, and markets (+45% Instagram engagement, +200 followers); plus a TSSS real estate platform (+80% traffic, +30% leads) and various React apps.",
+      "Highlights: Ethnics by Aravalli, a custom Next.js 14 / TypeScript / MongoDB B2B platform for 50+ retailers with a Google Sheets automation pipeline that cut order processing time 70% (20+ hrs/week); Ekohum, a Shopify D2C storefront he designs, builds, and markets (+45% Instagram engagement, +200 followers); plus a TSSS real estate platform (+80% traffic, +30% leads) and various React apps.",
     achievements:
       "He improved order processing efficiency by 70%, grew web traffic 80% on a real estate platform, and holds Front-End, Back-End, and Python developer certificates from Mimo.",
   },

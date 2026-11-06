@@ -48,9 +48,9 @@ export default function About() {
           description: "Aravalli Designs · Jaipur, India",
           achievements: [
             "Architected and deployed a full-stack B2B e-commerce platform (Ethnics by Aravalli) on Next.js 14, TypeScript, and MongoDB, serving 50+ retail partners with real-time inventory management",
-            "Engineered an automated PDF-invoicing system integrated with the Google Sheets API — eliminating 80% of manual paperwork and cutting order processing time by 70% (20+ hours/week)",
+            "Engineered an automated PDF-invoicing system integrated with the Google Sheets API, eliminating 80% of manual paperwork and cutting order processing time by 70% (20+ hours/week)",
             "Optimized performance to a 95% mobile score and 40% faster load times via code splitting, lazy loading, and image optimization",
-            "Built and grew Ekohum, a Shopify D2C brand — storefront plus social media marketing (+45% Instagram engagement, +200 followers)",
+            "Built and grew Ekohum, a Shopify D2C brand, storefront plus social media marketing (+45% Instagram engagement, +200 followers)",
           ],
           technologies: [
             "Next.js 14",
@@ -67,7 +67,7 @@ export default function About() {
       title: "2023–25",
       content: [
         {
-          title: "Full-Stack Development — Self-Directed Study",
+          title: "Full-Stack Development, Self-Directed Study",
           description: "Independent · Jaipur, India",
           achievements: [
             "Transitioned from design into full-stack engineering through focused self-study",
@@ -139,7 +139,7 @@ export default function About() {
         <PageHeader
           eyebrow="About"
           title="About me"
-          description="Full-Stack Developer who designs and ships production e-commerce end to end. I solo-built a B2B platform on Next.js, TypeScript, and MongoDB serving 50+ retailers, plus Shopify D2C storefronts and the marketing behind them — owning both the design and the build, so projects ship without the usual designer-to-developer handoff."
+          description="Full-Stack Developer who designs and ships production e-commerce end to end. I solo-built a B2B platform on Next.js, TypeScript, and MongoDB serving 50+ retailers, plus Shopify D2C storefronts and the marketing behind them, owning both the design and the build, so projects ship without the usual designer-to-developer handoff."
         />
         <div className="mt-8">
           <Timeline data={timelineData} />

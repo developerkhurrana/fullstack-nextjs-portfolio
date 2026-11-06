@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 // Cloud name is public (it appears in every delivered image URL), so a
 // fallback is fine. The API key and secret must never be hardcoded or shipped
-// to the client — they are read from server-only environment variables.
+// to the client, they are read from server-only environment variables.
 const CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME ?? "dayayd4lv";
 const API_KEY = process.env.CLOUDINARY_API_KEY;
 const API_SECRET = process.env.CLOUDINARY_API_SECRET;

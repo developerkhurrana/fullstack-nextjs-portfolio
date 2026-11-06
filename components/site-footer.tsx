@@ -57,7 +57,7 @@ export function SiteFooter() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-black transition-transform hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-black tactile"
               >
                 <WhatsAppIcon className="h-[18px] w-[18px]" />
                 Chat on WhatsApp
