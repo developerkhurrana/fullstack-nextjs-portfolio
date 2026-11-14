@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowDown, Download } from "lucide-react";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
+import { BrowserFrame } from "@/components/ui/browser-frame";
 
 const RESUME_URL = "/resume.pdf";
 
@@ -37,6 +38,8 @@ const WORK = [
     result: "70% faster orders",
     href: "/work/aravalli",
     external: false,
+    shot: "/shots/ethnics.jpg",
+    shotLabel: "ethnicsbyaravalli.com",
   },
   {
     no: "02",
@@ -48,6 +51,8 @@ const WORK = [
     result: "+45% engagement",
     href: "/work/ekohum",
     external: false,
+    shot: "/shots/ekohum.jpg",
+    shotLabel: "ekohum.com",
   },
   {
     no: "03",
@@ -59,6 +64,8 @@ const WORK = [
     result: "60+ route pages",
     href: "https://jaibhairavbaba.com",
     external: true,
+    shot: "/shots/jbb.jpg",
+    shotLabel: "jaibhairavbaba.com",
   },
   {
     no: "04",
@@ -70,6 +77,8 @@ const WORK = [
     result: "Live demo",
     href: "https://tsss-realestate.vercel.app",
     external: true,
+    shot: "/shots/tsss.jpg",
+    shotLabel: "tsss-realestate.vercel.app",
   },
 ];
 
@@ -221,32 +230,43 @@ export default function Home() {
                   whileInView="show"
                   viewport={{ once: true, margin: "-60px" }}
                   variants={fade}
-                  className="group grid grid-cols-[auto_1fr_auto] items-start gap-5 border-b border-[#1b1714]/10 py-8 transition-colors hover:bg-[#1b1714]/[0.025] sm:gap-8 sm:py-9"
+                  className="group border-b border-[#1b1714]/10 py-8 sm:py-9"
                 >
-                  <span className="font-mono text-xs tabular-nums text-[#9a9087]">
-                    {w.no}
-                  </span>
-                  <div>
-                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                      <h3 className="font-[family-name:var(--font-serif)] text-2xl font-normal tracking-tight sm:text-[1.7rem]">
-                        {w.name}
-                      </h3>
-                      <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#9a9087]">
-                        {w.kind}
+                  <div className="grid gap-5 sm:grid-cols-[1fr_280px] sm:items-center sm:gap-10">
+                    <div>
+                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                        <span className="font-mono text-xs tabular-nums text-[#9a9087]">
+                          {w.no}
+                        </span>
+                        <h3 className="font-[family-name:var(--font-serif)] text-2xl font-normal tracking-tight sm:text-[1.7rem]">
+                          {w.name}
+                        </h3>
+                        <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#9a9087]">
+                          {w.kind}
+                        </span>
+                        <span className="rounded-full bg-[#b2532e]/10 px-2.5 py-0.5 text-xs font-medium text-[#8f3f1f]">
+                          {w.result}
+                        </span>
+                      </div>
+                      <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-[#56504a]">
+                        {w.blurb}
+                      </p>
+                      <p className="mt-3 font-mono text-xs text-[#857b72]">
+                        {w.stack}
+                      </p>
+                      <span className="mt-4 inline-flex items-center gap-1 text-sm text-[#6b635a] transition-colors group-hover:text-[#1b1714]">
+                        {w.external ? "Visit site" : "Read case study"}
+                        <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                       </span>
                     </div>
-                    <p className="mt-2.5 max-w-xl text-[15px] leading-relaxed text-[#56504a]">
-                      {w.blurb}
-                    </p>
-                    <p className="mt-3 font-mono text-xs text-[#857b72]">
-                      {w.stack}
-                    </p>
-                  </div>
-                  <div className="flex flex-col items-end gap-3 text-right">
-                    <span className="hidden whitespace-nowrap rounded-full bg-[#b2532e]/10 px-3 py-1 text-xs font-medium text-[#8f3f1f] sm:inline">
-                      {w.result}
-                    </span>
-                    <ArrowUpRight className="h-5 w-5 text-[#9a9087] transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#1b1714]" />
+                    <div className="order-first sm:order-none">
+                      <BrowserFrame
+                        src={w.shot}
+                        alt={`${w.name} screenshot`}
+                        label={w.shotLabel}
+                        sizes="(max-width: 768px) 100vw, 280px"
+                      />
+                    </div>
                   </div>
                 </motion.div>
               );
