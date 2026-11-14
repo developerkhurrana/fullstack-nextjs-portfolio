@@ -51,9 +51,9 @@ const experiments = [
 
 export default function UIExperiments() {
   return (
-    <div className="min-h-screen bg-[#08080a] text-white">
+    <div className="min-h-screen bg-[#faf8f4] text-[#1b1714]">
       <SiteNav />
-      <main className="mx-auto max-w-4xl px-5 pb-24 pt-32 sm:px-8">
+      <main className="mx-auto max-w-4xl px-6 pb-24 pt-32">
         <PageHeader
           eyebrow="Playground"
           title="UI experiments"
@@ -68,11 +68,11 @@ export default function UIExperiments() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: (idx % 3) * 0.06 }}
-              className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 sm:p-8"
+              className="rounded-2xl border border-[#1b1714]/10 bg-[#1b1714]/[0.02] p-6 sm:p-8"
             >
-              <h3 className="text-lg font-semibold text-white">{exp.title}</h3>
-              <p className="mt-1 text-sm text-neutral-400">{exp.description}</p>
-              <div className="mt-6 rounded-xl border border-white/5 bg-black/30 p-6">
+              <h3 className="text-lg font-semibold text-[#1b1714]">{exp.title}</h3>
+              <p className="mt-1 text-sm text-[#6b635a]">{exp.description}</p>
+              <div className="mt-6 overflow-hidden rounded-xl border border-[#1b1714]/10 bg-[#161310] p-6 text-white">
                 {exp.preview}
               </div>
             </motion.div>

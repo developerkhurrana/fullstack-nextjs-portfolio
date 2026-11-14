@@ -51,7 +51,7 @@ const sections = [
 
 export default function DesignGuidelines() {
   return (
-    <div className="min-h-screen bg-[#08080a] text-white">
+    <div className="min-h-screen bg-[#faf8f4] text-[#1b1714]">
       <SiteNav />
       <main className="mx-auto max-w-6xl px-5 pb-24 pt-32 sm:px-8">
         <PageHeader
@@ -68,21 +68,21 @@ export default function DesignGuidelines() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: (idx % 2) * 0.06 }}
-              className="rounded-2xl border border-white/10 bg-white/[0.02] p-7"
+              className="rounded-2xl border border-[#1b1714]/10 bg-[#1b1714]/[0.02] p-7"
             >
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-amber-400/80">
+              <p className="text-sm font-medium uppercase tracking-[0.2em] text-[#b2532e]">
                 {section.title}
               </p>
-              <h2 className="mt-2 text-xl font-semibold text-white">
+              <h2 className="mt-2 text-xl font-semibold text-[#1b1714]">
                 {section.subtitle}
               </h2>
               <ul className="mt-4 space-y-3">
                 {section.points.map((point) => (
                   <li
                     key={point}
-                    className="flex gap-3 text-sm leading-relaxed text-neutral-300"
+                    className="flex gap-3 text-sm leading-relaxed text-[#56504a]"
                   >
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-400/70" />
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#b2532e]/70" />
                     {point}
                   </li>
                 ))}

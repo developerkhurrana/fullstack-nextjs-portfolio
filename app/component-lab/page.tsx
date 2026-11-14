@@ -290,9 +290,9 @@ export default function ComponentLab() {
   });
 
   return (
-    <div className="min-h-screen bg-[#08080a] text-white">
+    <div className="min-h-screen bg-[#faf8f4] text-[#1b1714]">
       <SiteNav />
-      <main className="mx-auto max-w-4xl px-5 pb-24 pt-32 sm:px-8">
+      <main className="mx-auto max-w-4xl px-6 pb-24 pt-32">
         <PageHeader
           eyebrow="Lab"
           title="Component lab"
@@ -306,9 +306,9 @@ export default function ComponentLab() {
               placeholder="Search components..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 pl-12 text-white placeholder:text-neutral-500 focus:border-amber-400/50 focus:outline-none focus:ring-2 focus:ring-amber-400/30"
+              className="w-full rounded-xl border border-[#1b1714]/10 bg-[#1b1714]/[0.04] px-4 py-3 pl-12 text-[#1b1714] placeholder:text-[#9a9087] focus:border-[#b2532e]/50 focus:outline-none focus:ring-2 focus:ring-[#b2532e]/30"
             />
-            <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-neutral-500" />
+            <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#9a9087]" />
           </div>
           <div className="flex gap-2 overflow-x-auto pb-1">
             {categories.map((category) => (
@@ -317,8 +317,8 @@ export default function ComponentLab() {
                 onClick={() => setSelectedCategory(category.id)}
                 className={`flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                   selectedCategory === category.id
-                    ? "bg-amber-400 text-black"
-                    : "border border-white/10 bg-white/5 text-neutral-300 hover:bg-white/10"
+                    ? "bg-[#1b1714] text-[#faf8f4]"
+                    : "border border-[#1b1714]/12 bg-[#1b1714]/[0.03] text-[#56504a] hover:bg-[#1b1714]/[0.07]"
                 }`}
               >
                 {category.icon}
@@ -326,7 +326,7 @@ export default function ComponentLab() {
               </button>
             ))}
           </div>
-          <p className="text-sm text-neutral-500">
+          <p className="text-sm text-[#857b72]">
             {filteredComponents.length} components found
           </p>
         </div>
@@ -339,11 +339,11 @@ export default function ComponentLab() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.45, delay: (index % 4) * 0.05 }}
-              className="group cursor-pointer rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-colors hover:border-white/20"
+              className="group cursor-pointer rounded-2xl border border-[#1b1714]/10 bg-[#1b1714]/[0.02] p-6 transition-colors hover:border-[#1b1714]/20"
               onClick={() => setSelectedComponent(component.name)}
             >
               <div className="mb-2 flex items-start justify-between">
-                <h3 className="text-lg font-semibold transition-colors group-hover:text-amber-400">
+                <h3 className="text-lg font-semibold transition-colors group-hover:text-[#b2532e]">
                   {component.name}
                 </h3>
                 <span
@@ -356,13 +356,13 @@ export default function ComponentLab() {
                   {component.status}
                 </span>
               </div>
-              <p className="text-xs uppercase tracking-wide text-neutral-500">
+              <p className="text-xs uppercase tracking-wide text-[#857b72]">
                 {component.category}
               </p>
-              <p className="mb-4 mt-2 text-sm text-neutral-400">
+              <p className="mb-4 mt-2 text-sm text-[#6b635a]">
                 {component.description}
               </p>
-              <div className="rounded-xl border border-white/5 bg-black/30 p-6">
+              <div className="rounded-xl border border-[#1b1714]/10 bg-[#161310] p-6 text-white">
                 {component.preview}
               </div>
             </motion.div>
