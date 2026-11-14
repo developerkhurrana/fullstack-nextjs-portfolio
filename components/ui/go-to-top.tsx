@@ -36,7 +36,7 @@ export const GoToTop = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.5 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-3 rounded-full bg-white/10 backdrop-blur-md text-white hover:bg-white/20 transition-colors z-50"
+          className="fixed bottom-8 right-8 p-3 rounded-full border border-[#1b1714]/15 bg-[#faf8f4]/80 backdrop-blur-md text-[#1b1714] hover:bg-[#1b1714]/[0.06] transition-colors z-50"
         >
           <ArrowUp className="h-6 w-6" />
         </motion.button>

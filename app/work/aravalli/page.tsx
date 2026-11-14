@@ -63,40 +63,40 @@ function Section({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.5 }}
-      className="border-t border-white/10 py-12"
+      className="border-t border-[#1b1714]/10 py-12"
     >
-      <p className="text-sm font-medium uppercase tracking-[0.2em] text-amber-400/80">
+      <p className="text-sm font-medium uppercase tracking-[0.2em] text-[#b2532e]">
         {eyebrow}
       </p>
       <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
         {title}
       </h2>
-      <div className="mt-6 max-w-2xl space-y-4 text-neutral-300">{children}</div>
+      <div className="mt-6 max-w-2xl space-y-4 text-[#56504a]">{children}</div>
     </motion.section>
   );
 }
 
 export default function AravalliCaseStudy() {
   return (
-    <div className="min-h-screen bg-[#08080a] text-white">
+    <div className="min-h-screen bg-[#faf8f4] text-[#1b1714]">
       <SiteNav />
       <main className="mx-auto max-w-4xl px-5 pb-24 pt-32 sm:px-8">
         <Link
           href="/coding"
-          className="inline-flex items-center gap-1.5 text-sm text-neutral-400 transition-colors hover:text-white"
+          className="inline-flex items-center gap-1.5 text-sm text-[#6b635a] transition-colors hover:text-[#1b1714]"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to work
         </Link>
 
         <div className="mt-8">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-amber-400/80">
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-[#b2532e]">
             Case study
           </p>
           <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-6xl">
             Aravalli Designs
           </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-neutral-400">
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[#6b635a]">
             The ethnic-wear e-commerce company I build for, a custom B2B
             platform (Ethnics by Aravalli) and a Shopify D2C brand (Ekohum),
             which I design, build, and market end to end.
@@ -104,13 +104,13 @@ export default function AravalliCaseStudy() {
         </div>
 
         {/* Fact strip */}
-        <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 border-y border-white/10 py-8 sm:grid-cols-4">
+        <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 border-y border-[#1b1714]/10 py-8 sm:grid-cols-4">
           {facts.map((f) => (
             <div key={f.label}>
-              <dt className="text-xs uppercase tracking-wide text-neutral-500">
+              <dt className="text-xs uppercase tracking-wide text-[#857b72]">
                 {f.label}
               </dt>
-              <dd className="mt-1.5 text-sm font-medium text-white">
+              <dd className="mt-1.5 text-sm font-medium text-[#1b1714]">
                 {f.value}
               </dd>
             </div>
@@ -122,12 +122,12 @@ export default function AravalliCaseStudy() {
           {stats.map((s) => (
             <div
               key={s.label}
-              className="rounded-2xl border border-white/10 bg-white/[0.02] p-5"
+              className="rounded-2xl border border-[#1b1714]/10 bg-[#1b1714]/[0.02] p-5"
             >
-              <div className="font-mono text-2xl font-semibold tabular-nums tracking-tight text-white sm:text-4xl">
+              <div className="font-mono text-2xl font-semibold tabular-nums tracking-tight text-[#1b1714] sm:text-4xl">
                 {s.value}
               </div>
-              <div className="mt-1 text-sm text-neutral-500">{s.label}</div>
+              <div className="mt-1 text-sm text-[#857b72]">{s.label}</div>
             </div>
           ))}
         </div>
@@ -176,10 +176,10 @@ export default function AravalliCaseStudy() {
               ["Performance & SEO", "Tuned to a 95% mobile score and 40% faster loads with code splitting, lazy loading, and image optimization, plus structured data for organic search."],
             ].map(([h, b]) => (
               <li key={h} className="flex gap-3">
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-400/70" />
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#b2532e]/70" />
                 <span>
-                  <strong className="text-white">{h}.</strong>{" "}
-                  <span className="text-neutral-300">{b}</span>
+                  <strong className="text-[#1b1714]">{h}.</strong>{" "}
+                  <span className="text-[#56504a]">{b}</span>
                 </span>
               </li>
             ))}
@@ -190,8 +190,8 @@ export default function AravalliCaseStudy() {
           <ul className="space-y-4">
             {results.map((r) => (
               <li key={r} className="flex gap-3">
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-400/70" />
-                <span className="text-neutral-300">{r}</span>
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#b2532e]/70" />
+                <span className="text-[#56504a]">{r}</span>
               </li>
             ))}
           </ul>
@@ -202,7 +202,7 @@ export default function AravalliCaseStudy() {
             {stack.map((t) => (
               <span
                 key={t}
-                className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-neutral-300"
+                className="rounded-full border border-[#1b1714]/10 bg-[#1b1714]/[0.04] px-3 py-1.5 text-sm text-[#56504a]"
               >
                 {t}
               </span>
@@ -211,8 +211,8 @@ export default function AravalliCaseStudy() {
         </Section>
 
         {/* Visit the stores */}
-        <div className="border-t border-white/10 py-12">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-amber-400/80">
+        <div className="border-t border-[#1b1714]/10 py-12">
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-[#b2532e]">
             Visit the stores
           </p>
           <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -222,10 +222,10 @@ export default function AravalliCaseStudy() {
                 href={site.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.02] px-5 py-4 transition-colors hover:border-white/20 hover:bg-white/[0.04]"
+                className="group flex items-center justify-between rounded-2xl border border-[#1b1714]/10 bg-[#1b1714]/[0.02] px-5 py-4 transition-colors hover:border-[#1b1714]/25 hover:bg-[#1b1714]/[0.03]"
               >
-                <span className="font-medium text-white">{site.label}</span>
-                <ArrowUpRight className="h-5 w-5 text-neutral-500 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-amber-400" />
+                <span className="font-medium text-[#1b1714]">{site.label}</span>
+                <ArrowUpRight className="h-5 w-5 text-[#857b72] transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#b2532e]" />
               </a>
             ))}
           </div>

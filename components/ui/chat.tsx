@@ -154,7 +154,7 @@ export function Chat() {
           setIsOpen(true);
           setHasNotification(false);
         }}
-        className={`fixed right-6 sm:right-8 grid place-items-center h-14 w-14 bg-amber-400 text-black rounded-full shadow-lg shadow-amber-400/20 hover:shadow-xl transition-all duration-300 z-50 ${
+        className={`fixed right-6 sm:right-8 grid place-items-center h-14 w-14 bg-[#1b1714] text-[#faf8f4] rounded-full shadow-lg shadow-[#1b1714]/20 hover:shadow-xl transition-all duration-300 z-50 ${
           isScrolled ? "bottom-20" : "bottom-6"
         } ${pathname === "/projects" && isScrolled ? "mb-4" : ""}`}
         aria-label="Open chat"
@@ -165,9 +165,9 @@ export function Chat() {
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              className="absolute -top-2 -right-2 bg-neutral-900 rounded-full p-1 shadow-lg border border-amber-400"
+              className="absolute -top-2 -right-2 bg-[#b2532e] rounded-full p-1 shadow-lg"
             >
-              <Bell className="w-3 h-3 text-amber-400" />
+              <Bell className="w-3 h-3 text-[#faf8f4]" />
             </motion.div>
           )}
         </div>
@@ -179,18 +179,18 @@ export function Chat() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
-            className={`fixed right-4 sm:right-8 w-[calc(100vw-2rem)] sm:w-96 h-[600px] max-h-[80vh] bg-neutral-900 rounded-2xl shadow-2xl border border-white/10 flex flex-col z-50 ${
+            className={`fixed right-4 sm:right-8 w-[calc(100vw-2rem)] sm:w-96 h-[600px] max-h-[80vh] bg-[#fdfcfa] rounded-2xl shadow-2xl shadow-[#1b1714]/10 border border-[#1b1714]/10 flex flex-col z-50 ${
               isScrolled ? "bottom-24" : "bottom-10"
             }`}
           >
-            <div className="p-4 border-b border-white/10 flex justify-between items-center">
-              <h3 className="text-white font-semibold flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-amber-400" />
+            <div className="p-4 border-b border-[#1b1714]/10 flex justify-between items-center">
+              <h3 className="text-[#1b1714] font-semibold flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-[#b2532e]" />
                 Ask about Kshitij
               </h3>
               <button
                 onClick={() => setIsOpen(false)}
-                className="text-neutral-400 hover:text-white"
+                className="text-[#6b635a] hover:text-[#1b1714]"
                 aria-label="Close chat"
               >
                 <X className="w-5 h-5" />
@@ -208,8 +208,8 @@ export function Chat() {
                   <div
                     className={`max-w-[80%] rounded-2xl p-3 text-sm leading-relaxed ${
                       message.role === "user"
-                        ? "bg-amber-400 text-black"
-                        : "bg-neutral-800 text-neutral-200"
+                        ? "bg-[#1b1714] text-[#faf8f4]"
+                        : "bg-[#1b1714]/[0.05] text-[#3a342e]"
                     }`}
                   >
                     {message.content}
@@ -221,7 +221,7 @@ export function Chat() {
 
             <form
               onSubmit={handleSubmit}
-              className="p-4 border-t border-white/10"
+              className="p-4 border-t border-[#1b1714]/10"
             >
               <div className="flex gap-2">
                 <input
@@ -229,11 +229,11 @@ export function Chat() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ask me anything..."
-                  className="flex-1 bg-neutral-800 text-white rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-amber-400"
+                  className="flex-1 bg-[#1b1714]/[0.04] text-[#1b1714] placeholder:text-[#9a9087] rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#b2532e]"
                 />
                 <button
                   type="submit"
-                  className="grid place-items-center bg-amber-400 text-black px-3 rounded-xl hover:bg-amber-300 transition-colors"
+                  className="grid place-items-center bg-[#1b1714] text-[#faf8f4] px-3 rounded-xl hover:bg-[#2a251f] transition-colors"
                   aria-label="Send message"
                 >
                   <Send className="w-5 h-5" />

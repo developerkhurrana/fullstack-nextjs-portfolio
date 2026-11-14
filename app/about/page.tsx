@@ -133,7 +133,7 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#08080a] text-white">
+    <div className="min-h-screen bg-[#faf8f4] text-[#1b1714]">
       <SiteNav />
       <main className="mx-auto max-w-6xl px-5 pt-32 sm:px-8">
         <PageHeader
@@ -145,8 +145,8 @@ export default function About() {
           <Timeline data={timelineData} />
         </div>
 
-        <section className="mt-8 border-t border-white/10 pb-6 pt-12">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-amber-400/80">
+        <section className="mt-8 border-t border-[#1b1714]/10 pb-6 pt-12">
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-[#b2532e]">
             Certifications
           </p>
           <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
@@ -159,9 +159,9 @@ export default function About() {
                 href={c.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] transition-colors hover:border-white/20 hover:bg-white/[0.04]"
+                className="group overflow-hidden rounded-2xl border border-[#1b1714]/10 bg-[#1b1714]/[0.02] transition-colors hover:border-[#1b1714]/25 hover:bg-[#1b1714]/[0.03]"
               >
-                <div className="relative aspect-[792/612] w-full overflow-hidden border-b border-white/10 bg-white">
+                <div className="relative aspect-[792/612] w-full overflow-hidden border-b border-[#1b1714]/10 bg-white">
                   <Image
                     src={c.image}
                     alt={`${c.name} certificate from Mimo`}
@@ -173,14 +173,14 @@ export default function About() {
                 <div className="p-5">
                   <div className="flex items-start justify-between gap-3">
                     <div>
-                      <h3 className="font-semibold text-white">{c.name}</h3>
-                      <p className="mt-1 text-sm text-neutral-500">
+                      <h3 className="font-semibold text-[#1b1714]">{c.name}</h3>
+                      <p className="mt-1 text-sm text-[#857b72]">
                         {c.issuer} · {c.date}
                       </p>
                     </div>
-                    <ArrowUpRight className="h-4 w-4 shrink-0 text-neutral-500 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-amber-400" />
+                    <ArrowUpRight className="h-4 w-4 shrink-0 text-[#857b72] transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#b2532e]" />
                   </div>
-                  <span className="mt-4 inline-block text-xs font-medium uppercase tracking-wide text-amber-400/80">
+                  <span className="mt-4 inline-block text-xs font-medium uppercase tracking-wide text-[#b2532e]">
                     Verify credential
                   </span>
                 </div>

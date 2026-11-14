@@ -1,131 +1,91 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowRight, Github } from "lucide-react";
-import {
-  FileCode,
-  Database,
-  Palette,
-  PenTool,
-  Server,
-  BadgeCheck,
-  Globe,
-  Layers,
-  ShoppingBag,
-  Megaphone,
-  Search,
-  Droplets,
-  Table,
-  FileText,
-} from "lucide-react";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { PageHeader } from "@/components/page-header";
-import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 type Project = {
   title: string;
+  kind?: string;
   description: string;
   tech: string[];
   demo?: string;
   github?: string;
   caseStudy?: string;
-  thumbnail?: string;
+  result?: string;
   sites?: { label: string; url: string }[];
 };
 
-const codingProjects: Project[] = [
+const featured: Project[] = [
   {
     title: "Ethnics by Aravalli",
+    kind: "B2B commerce platform",
     description:
-      "Custom full-stack B2B e-commerce platform serving 50+ retail partners, automated order processing, real-time inventory, and PDF invoicing via a Google Sheets pipeline. Cut order processing time by 70% (20+ hrs/week).",
-    tech: [
-      "Next.js",
-      "TypeScript",
-      "MongoDB",
-      "Google Sheets API",
-      "PDF Generation",
-    ],
+      "Custom full-stack B2B e-commerce platform serving 50+ retail partners, with automated order processing, real-time inventory, and PDF invoicing via a Google Sheets pipeline. Cut order processing time by 70% (20+ hrs/week).",
+    tech: ["Next.js", "TypeScript", "MongoDB", "Google Sheets API"],
     caseStudy: "/work/aravalli",
+    result: "70% faster orders",
     sites: [
       { label: "ethnicsbyaravalli.com", url: "https://ethnicsbyaravalli.com" },
     ],
   },
   {
     title: "Ekohum",
+    kind: "D2C brand on Shopify",
     description:
-      "D2C ethnic-wear brand on Shopify, storefront design and build, plus the social media marketing that grows it (+45% Instagram engagement, +200 followers).",
-    tech: ["Shopify", "Liquid", "Social Media Marketing", "Meta Ads", "SEO"],
+      "D2C ethnic-wear brand on Shopify: storefront design and build, plus the social media marketing that grows it (+45% Instagram engagement, +200 followers).",
+    tech: ["Shopify", "Liquid", "Meta Ads", "SEO"],
     caseStudy: "/work/ekohum",
+    result: "+45% engagement",
     sites: [
       { label: "ekohum.com", url: "https://ekohum.com" },
       { label: "ekohum.in", url: "https://ekohum.in" },
     ],
   },
   {
-    title: "LedgerAI",
+    title: "Jai Bhairav Baba Tour & Travels",
+    kind: "Travel booking site",
     description:
-      "AI-powered expense, GST, and cash flow tracker for Indian small businesses.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB", "NextAuth", "OpenAI"],
-    demo: "https://ledger-ai-kappa.vercel.app/",
-    github: "https://github.com/developerkhurrana/LedgerAi",
+      "Online presence for a Jaipur car-rental and tours business: 60+ programmatic 'Jaipur to X' route pages, a fleet and services catalogue, and a WhatsApp enquiry flow in place of online checkout.",
+    tech: ["Next.js", "TypeScript", "Programmatic SEO"],
+    demo: "https://jaibhairavbaba.com",
+    result: "60+ route pages",
   },
   {
     title: "TSSS Real Estate Platform",
+    kind: "Property platform",
     description:
       "Full-stack real estate website with property listings, search, and a lead-generation system. Increased web traffic by 80% and qualified leads by 30%.",
     tech: ["Next.js", "React", "UI/UX", "SEO"],
     demo: "https://tsss-realestate.vercel.app/",
+    result: "+80% traffic",
   },
+  {
+    title: "LedgerAI",
+    kind: "AI finance tool",
+    description:
+      "AI-powered expense, GST, and cash flow tracker for Indian small businesses.",
+    tech: ["Next.js", "TypeScript", "MongoDB", "OpenAI"],
+    demo: "https://ledger-ai-kappa.vercel.app/",
+    github: "https://github.com/developerkhurrana/LedgerAi",
+  },
+];
+
+const builds: Project[] = [
   {
     title: "LinkedIn Clone",
     description:
       "A full-featured LinkedIn clone with authentication, posts, and real-time updates.",
-    tech: ["Next.js", "Tailwind CSS", "TypeScript", "MongoDB"],
+    tech: ["Next.js", "TypeScript", "MongoDB"],
     demo: "https://linkedin-clone-seven-ivory.vercel.app/",
     github: "https://github.com/developerkhurrana/linkedin-clone/tree/main",
   },
   {
-    title: "Travel App",
-    description:
-      "A responsive travel application for exploring destinations and planning adventures.",
-    tech: ["Next.js", "Tailwind CSS", "TypeScript"],
-    demo: "https://travel-app-iota-eosin.vercel.app/",
-    github: "https://github.com/developerkhurrana/travel_app/tree/main",
-  },
-  {
-    title: "Nike Web",
-    description: "A responsive web application for Nike products.",
-    tech: ["Next.js", "Tailwind CSS", "TypeScript"],
-    demo: "https://nikeweb-murex.vercel.app/",
-    github: "https://github.com/developerkhurrana/nikeweb/tree/main",
-  },
-  {
-    title: "Amazon Deploy",
-    description: "A responsive web application for Amazon services.",
-    tech: ["Next.js", "Tailwind CSS", "TypeScript"],
-    demo: "https://amazon-deploy-lovat.vercel.app/",
-    github: "https://github.com/developerkhurrana/amazon-deploy/tree/main",
-  },
-  {
-    title: "Netflix Clone",
-    description: "A responsive web application for Netflix services.",
-    tech: ["Next.js", "Tailwind CSS", "TypeScript"],
-    demo: "https://netflix-clone-dk.vercel.app/auth",
-    github: "https://github.com/developerkhurrana/netflix-clone-dk/tree/main",
-  },
-  {
-    title: "Fun Elon",
-    description: "A responsive web application for Fun Elon services.",
-    tech: ["React", "Vite", "Tailwind CSS"],
-    demo: "https://fun-elon.vercel.app/",
-    github: "https://github.com/developerkhurrana/fun-elon/tree/main",
-  },
-  {
     title: "Fullstack MERN Clone X",
-    description: "A full-stack web application built with the MERN stack.",
+    description: "A full-stack social app built with the MERN stack.",
     tech: ["MongoDB", "Express", "React", "Node.js"],
     demo: "https://fullstack-mern-clone-x.onrender.com/",
     github:
@@ -133,146 +93,217 @@ const codingProjects: Project[] = [
   },
   {
     title: "Fullstack MERN Chat App",
-    description: "A full-stack chat application built with the MERN stack.",
+    description: "A full-stack realtime chat application on the MERN stack.",
     tech: ["MongoDB", "Express", "React", "Node.js"],
     demo: "https://fullstack-mern-chat-app.onrender.com/",
     github:
       "https://github.com/developerkhurrana/fullstack-mern-chat-app/tree/main",
   },
+  {
+    title: "Travel App",
+    description:
+      "A responsive travel application for exploring destinations and planning trips.",
+    tech: ["Next.js", "TypeScript", "Tailwind"],
+    demo: "https://travel-app-iota-eosin.vercel.app/",
+    github: "https://github.com/developerkhurrana/travel_app/tree/main",
+  },
+  {
+    title: "Nike Web",
+    description: "A responsive product landing experience for Nike.",
+    tech: ["Next.js", "TypeScript", "Tailwind"],
+    demo: "https://nikeweb-murex.vercel.app/",
+    github: "https://github.com/developerkhurrana/nikeweb/tree/main",
+  },
+  {
+    title: "Netflix Clone",
+    description: "A responsive streaming UI clone with auth.",
+    tech: ["Next.js", "TypeScript", "Tailwind"],
+    demo: "https://netflix-clone-dk.vercel.app/auth",
+    github: "https://github.com/developerkhurrana/netflix-clone-dk/tree/main",
+  },
+  {
+    title: "Amazon Deploy",
+    description: "A responsive storefront UI for Amazon services.",
+    tech: ["Next.js", "TypeScript", "Tailwind"],
+    demo: "https://amazon-deploy-lovat.vercel.app/",
+    github: "https://github.com/developerkhurrana/amazon-deploy/tree/main",
+  },
+  {
+    title: "Fun Elon",
+    description: "A playful interactive single-page build.",
+    tech: ["React", "Vite", "Tailwind"],
+    demo: "https://fun-elon.vercel.app/",
+    github: "https://github.com/developerkhurrana/fun-elon/tree/main",
+  },
 ];
 
-const techIcons: Record<string, React.ReactNode> = {
-  "Next.js": <Layers className="text-white w-3.5 h-3.5" />,
-  "Tailwind CSS": <Palette className="text-sky-400 w-3.5 h-3.5" />,
-  TypeScript: <BadgeCheck className="text-blue-500 w-3.5 h-3.5" />,
-  MongoDB: <Database className="text-green-500 w-3.5 h-3.5" />,
-  NextAuth: <BadgeCheck className="text-green-400 w-3.5 h-3.5" />,
-  OpenAI: <FileCode className="text-emerald-400 w-3.5 h-3.5" />,
-  "React.js": <Globe className="text-cyan-400 w-3.5 h-3.5" />,
-  "Node.js": <Server className="text-green-600 w-3.5 h-3.5" />,
-  Figma: <PenTool className="text-pink-500 w-3.5 h-3.5" />,
-  Shopify: <ShoppingBag className="text-green-500 w-3.5 h-3.5" />,
-  Liquid: <Droplets className="text-sky-400 w-3.5 h-3.5" />,
-  "Social Media Marketing": (
-    <Megaphone className="text-pink-400 w-3.5 h-3.5" />
-  ),
-  "Meta Ads": <Megaphone className="text-blue-400 w-3.5 h-3.5" />,
-  SEO: <Search className="text-amber-400 w-3.5 h-3.5" />,
-  "Google Sheets API": <Table className="text-green-500 w-3.5 h-3.5" />,
-  "PDF Generation": <FileText className="text-red-400 w-3.5 h-3.5" />,
+const fade = {
+  hidden: { opacity: 0, y: 14 },
+  show: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] },
+  }),
 };
 
 export default function Coding() {
   return (
-    <div className="min-h-screen bg-[#08080a] text-white">
+    <div className="min-h-screen bg-[#faf8f4] text-[#1b1714]">
       <SiteNav />
-      <main className="mx-auto max-w-6xl px-5 pb-24 pt-32 sm:px-8">
+      <main className="mx-auto max-w-5xl px-6 pb-24 pt-32">
         <PageHeader
           eyebrow="Engineering"
           title="Code & builds"
-          description="Custom e-commerce platforms, Shopify storefronts, and full-stack apps, from live client work to polished builds."
+          description="Custom e-commerce platforms, Shopify storefronts, and full-stack apps, from live client work to builds that sharpened the craft."
         />
 
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {codingProjects.map((project, idx) => (
+        {/* Featured / client work as editorial rows */}
+        <section className="mt-16 border-t border-[#1b1714]/10">
+          {featured.map((p, i) => (
             <motion.article
-              key={idx}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              key={p.title}
+              custom={i}
+              initial="hidden"
+              whileInView="show"
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: (idx % 3) * 0.06 }}
-              className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] transition-colors hover:border-white/20"
+              variants={fade}
+              className="grid grid-cols-[auto_1fr] gap-5 border-b border-[#1b1714]/10 py-9 sm:gap-8"
             >
-              <GlowingEffect
-                blur={0}
-                borderWidth={2}
-                spread={70}
-                glow
-                disabled={false}
-                proximity={64}
-                inactiveZone={0.01}
-              />
-              {project.thumbnail && (
-                <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-white/10 bg-neutral-900">
-                  <Image
-                    src={project.thumbnail}
-                    alt={`${project.title} preview`}
-                    fill
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
+              <span className="font-mono text-xs tabular-nums text-[#9a9087]">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div>
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                  <h3 className="font-[family-name:var(--font-serif)] text-2xl font-normal tracking-tight sm:text-[1.7rem]">
+                    {p.title}
+                  </h3>
+                  {p.kind && (
+                    <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#9a9087]">
+                      {p.kind}
+                    </span>
+                  )}
+                  {p.result && (
+                    <span className="rounded-full bg-[#b2532e]/10 px-2.5 py-0.5 text-xs font-medium text-[#8f3f1f]">
+                      {p.result}
+                    </span>
+                  )}
                 </div>
-              )}
-              <div className="flex flex-1 flex-col p-6">
-              <h3 className="text-lg font-semibold text-white">
-                {project.title}
-              </h3>
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-neutral-400">
-                {project.description}
-              </p>
-              <div className="mt-4 flex flex-wrap gap-1.5">
-                {project.tech.map((t, i) => (
-                  <span
-                    key={i}
-                    className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-neutral-300"
-                  >
-                    {techIcons[t] || <FileCode className="h-3.5 w-3.5" />} {t}
-                  </span>
-                ))}
-              </div>
-              {project.caseStudy && (
-                <Link
-                  href={project.caseStudy}
-                  className="mt-5 inline-flex w-fit items-center gap-1.5 rounded-full bg-white/10 px-3.5 py-2 text-sm font-medium text-white transition-colors hover:bg-white/15"
-                >
-                  Read case study
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              )}
-              {(project.sites || project.demo || project.github) && (
-                <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-white/5 pt-4">
-                  {project.sites
-                    ? project.sites.map((site) => (
-                        <a
-                          key={site.url}
-                          href={site.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-sm font-medium text-amber-400 hover:text-amber-300"
-                        >
-                          {site.label}
-                          <ArrowUpRight className="h-3.5 w-3.5" />
-                        </a>
-                      ))
-                    : null}
-                  {project.demo && (
+                <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-[#56504a]">
+                  {p.description}
+                </p>
+                <p className="mt-3 font-mono text-xs text-[#857b72]">
+                  {p.tech.join(" · ")}
+                </p>
+                <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
+                  {p.caseStudy && (
+                    <Link
+                      href={p.caseStudy}
+                      className="inline-flex items-center gap-1.5 text-sm font-medium text-[#1b1714] underline decoration-[#1b1714]/25 underline-offset-4 transition-colors hover:decoration-[#1b1714]"
+                    >
+                      Read case study
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                  )}
+                  {p.sites?.map((site) => (
                     <a
-                      href={project.demo}
+                      key={site.url}
+                      href={site.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-sm font-medium text-amber-400 hover:text-amber-300"
+                      className="inline-flex items-center gap-1 text-sm font-medium text-[#b2532e] transition-colors hover:text-[#8f3f1f]"
                     >
-                      Live demo
+                      {site.label}
+                      <ArrowUpRight className="h-3.5 w-3.5" />
+                    </a>
+                  ))}
+                  {p.demo && (
+                    <a
+                      href={p.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sm font-medium text-[#b2532e] transition-colors hover:text-[#8f3f1f]"
+                    >
+                      Live site
                       <ArrowUpRight className="h-3.5 w-3.5" />
                     </a>
                   )}
-                  {project.github && (
+                  {p.github && (
                     <a
-                      href={project.github}
+                      href={p.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-sm text-neutral-400 hover:text-white"
+                      className="inline-flex items-center gap-1.5 text-sm text-[#6b635a] transition-colors hover:text-[#1b1714]"
                     >
                       <Github className="h-3.5 w-3.5" />
                       Code
                     </a>
                   )}
                 </div>
-              )}
               </div>
             </motion.article>
           ))}
-        </div>
+        </section>
+
+        {/* Builds & experiments, a tighter list */}
+        <section className="mt-20">
+          <div className="flex items-baseline justify-between border-b border-[#1b1714]/10 pb-4">
+            <h2 className="text-2xl font-normal tracking-tight">
+              Builds & experiments
+            </h2>
+            <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#9a9087]">
+              Full-stack · UI clones
+            </span>
+          </div>
+          <div className="grid gap-x-10 sm:grid-cols-2">
+            {builds.map((p, i) => (
+              <motion.div
+                key={p.title}
+                custom={i}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-40px" }}
+                variants={fade}
+                className="border-b border-[#1b1714]/10 py-6"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <h3 className="text-base font-semibold text-[#1b1714]">
+                    {p.title}
+                  </h3>
+                  <div className="flex shrink-0 items-center gap-3 pt-0.5">
+                    {p.demo && (
+                      <a
+                        href={p.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${p.title} live demo`}
+                        className="text-[#9a9087] transition-colors hover:text-[#b2532e]"
+                      >
+                        <ArrowUpRight className="h-4 w-4" />
+                      </a>
+                    )}
+                    {p.github && (
+                      <a
+                        href={p.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${p.title} code`}
+                        className="text-[#9a9087] transition-colors hover:text-[#1b1714]"
+                      >
+                        <Github className="h-4 w-4" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+                <p className="mt-1.5 text-sm leading-relaxed text-[#6b635a]">
+                  {p.description}
+                </p>
+                <p className="mt-2 font-mono text-[11px] text-[#9a9087]">
+                  {p.tech.join(" · ")}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
       </main>
       <SiteFooter />
     </div>

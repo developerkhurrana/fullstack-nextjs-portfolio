@@ -3,7 +3,13 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import {
+  ArrowUpRight,
+  BookOpen,
+  Sparkles,
+  FlaskConical,
+  PenLine,
+} from "lucide-react";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { PageHeader } from "@/components/page-header";
@@ -14,32 +20,32 @@ const uiExperiments = [
     description:
       "A comprehensive guide for web design principles and best practices.",
     link: "/design-guidelines",
-    icon: "📚",
+    icon: BookOpen,
   },
   {
     title: "UI Experiments",
     description:
       "Interactive UI patterns and micro-interactions that push the browser.",
     link: "/ui-experiments",
-    icon: "✨",
+    icon: Sparkles,
   },
   {
     title: "Component Lab",
     description: "A playground for testing and exploring new UI components.",
     link: "/component-lab",
-    icon: "🧪",
+    icon: FlaskConical,
   },
   {
     title: "Jot",
     description: "A modern jotting app with a clean and minimalist design.",
     link: "/jot",
-    icon: "✓",
+    icon: PenLine,
   },
 ];
 
 export default function Design() {
   return (
-    <div className="min-h-screen bg-[#08080a] text-white">
+    <div className="min-h-screen bg-[#faf8f4] text-[#1b1714]">
       <SiteNav />
       <main className="mx-auto max-w-6xl px-5 pb-24 pt-32 sm:px-8">
         <PageHeader
@@ -59,16 +65,18 @@ export default function Design() {
             >
               <Link
                 href={project.link}
-                className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.02] p-7 transition-colors hover:border-white/20 hover:bg-white/[0.04]"
+                className="group flex h-full flex-col rounded-2xl border border-[#1b1714]/10 bg-[#1b1714]/[0.02] p-7 transition-colors hover:border-[#1b1714]/25 hover:bg-[#1b1714]/[0.03]"
               >
                 <div className="flex items-start justify-between">
-                  <div className="text-3xl">{project.icon}</div>
-                  <ArrowUpRight className="h-5 w-5 text-neutral-600 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-amber-400" />
+                  <div className="grid h-11 w-11 place-items-center rounded-full border border-[#1b1714]/12 text-[#b2532e]">
+                    <project.icon className="h-5 w-5" strokeWidth={1.6} />
+                  </div>
+                  <ArrowUpRight className="h-5 w-5 text-[#9a9087] transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#b2532e]" />
                 </div>
-                <h3 className="mt-6 text-xl font-semibold text-white">
+                <h3 className="mt-6 text-xl font-semibold text-[#1b1714]">
                   {project.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-neutral-400">
+                <p className="mt-2 text-sm leading-relaxed text-[#6b635a]">
                   {project.description}
                 </p>
               </Link>

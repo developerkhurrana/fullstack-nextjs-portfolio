@@ -16,7 +16,7 @@ interface ImageData {
 
 function Shell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-[#08080a] text-white">
+    <div className="min-h-screen bg-[#faf8f4] text-[#1b1714]">
       <SiteNav />
       {children}
     </div>
@@ -85,8 +85,8 @@ export default function Projects() {
     return (
       <Shell>
         <div className="flex min-h-[70vh] items-center justify-center">
-          <div className="flex items-center gap-3 text-neutral-400">
-            <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/20 border-t-amber-400" />
+          <div className="flex items-center gap-3 text-[#6b635a]">
+            <span className="h-4 w-4 animate-spin rounded-full border-2 border-[#1b1714]/15 border-t-[#b2532e]" />
             Loading work…
           </div>
         </div>
@@ -99,8 +99,8 @@ export default function Projects() {
       <Shell>
         <div className="flex min-h-[70vh] items-center justify-center px-4">
           <div className="max-w-md text-center">
-            <p className="text-lg text-white">Couldn&apos;t load the gallery</p>
-            <p className="mt-2 text-sm text-neutral-500">{error}</p>
+            <p className="text-lg text-[#1b1714]">Couldn&apos;t load the gallery</p>
+            <p className="mt-2 text-sm text-[#857b72]">{error}</p>
           </div>
         </div>
       </Shell>
@@ -117,13 +117,13 @@ export default function Projects() {
         />
 
         {images.length === 0 ? (
-          <p className="mt-16 text-center text-neutral-500">No images found.</p>
+          <p className="mt-16 text-center text-[#857b72]">No images found.</p>
         ) : (
           <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {images.map((url, idx) => (
               <button
                 key={idx}
-                className="group relative h-80 w-full overflow-hidden rounded-2xl border border-white/10 bg-neutral-900"
+                className="group relative h-80 w-full overflow-hidden rounded-2xl border border-[#1b1714]/10 bg-[#efece6]"
                 onClick={() => openModal(idx)}
                 aria-label={`View image ${idx + 1}`}
               >

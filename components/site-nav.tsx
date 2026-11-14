@@ -36,17 +36,17 @@ export function SiteNav() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
         scrolled
-          ? "border-b border-white/10 bg-black/60 backdrop-blur-xl"
+          ? "border-b border-[#1b1714]/10 bg-[#faf8f4]/80 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
       )}
     >
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
+      <nav className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
         <Link
           href="/"
-          className="group flex items-center gap-2 text-sm font-semibold tracking-tight text-white"
+          className="group flex items-center gap-2.5 text-sm font-medium tracking-tight text-[#1b1714]"
           aria-label="Home"
         >
-          <span className="grid h-8 w-8 place-items-center rounded-full border border-white/15 bg-white/5 text-[13px] font-bold transition-colors group-hover:border-amber-400/60">
+          <span className="grid h-8 w-8 place-items-center rounded-full border border-[#1b1714]/20 text-[12px] font-semibold transition-colors group-hover:border-[#b2532e]/60">
             KK
           </span>
           <span className="hidden sm:inline">Kshitij Khurrana</span>
@@ -61,14 +61,14 @@ export function SiteNav() {
               className={cn(
                 "relative rounded-full px-3.5 py-2 text-sm transition-colors",
                 isActive(item.link)
-                  ? "text-white"
-                  : "text-neutral-400 hover:text-white"
+                  ? "text-[#1b1714]"
+                  : "text-[#6b635a] hover:text-[#1b1714]"
               )}
             >
               {isActive(item.link) && (
                 <motion.span
                   layoutId="nav-active"
-                  className="absolute inset-0 -z-10 rounded-full bg-white/10"
+                  className="absolute inset-0 -z-10 rounded-full bg-[#1b1714]/[0.06]"
                   transition={{ type: "spring", stiffness: 350, damping: 30 }}
                 />
               )}
@@ -79,16 +79,16 @@ export function SiteNav() {
             href={RESUME_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-2 inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-medium text-black tactile"
+            className="ml-2 inline-flex items-center gap-1.5 rounded-full border border-[#1b1714]/25 px-4 py-2 text-sm font-medium text-[#1b1714] tactile transition-colors hover:border-[#1b1714] hover:bg-[#1b1714] hover:text-[#faf8f4]"
           >
-            Resume
+            Résumé
             <ArrowUpRight className="h-4 w-4" />
           </a>
         </div>
 
         {/* Mobile toggle */}
         <button
-          className="grid h-10 w-10 place-items-center rounded-full border border-white/10 text-white md:hidden"
+          className="grid h-10 w-10 place-items-center rounded-full border border-[#1b1714]/15 text-[#1b1714] md:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
@@ -104,9 +104,9 @@ export function SiteNav() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="overflow-hidden border-t border-white/10 bg-black/90 backdrop-blur-xl md:hidden"
+            className="overflow-hidden border-t border-[#1b1714]/10 bg-[#faf8f4]/95 backdrop-blur-xl md:hidden"
           >
-            <div className="flex flex-col gap-1 px-5 py-4">
+            <div className="flex flex-col gap-1 px-6 py-4">
               {NAV_ITEMS.map((item) => (
                 <Link
                   key={item.name}
@@ -115,8 +115,8 @@ export function SiteNav() {
                   className={cn(
                     "rounded-xl px-4 py-3 text-base transition-colors",
                     isActive(item.link)
-                      ? "bg-white/10 text-white"
-                      : "text-neutral-300 hover:bg-white/5 hover:text-white"
+                      ? "bg-[#1b1714]/[0.06] text-[#1b1714]"
+                      : "text-[#56504a] hover:bg-[#1b1714]/[0.04] hover:text-[#1b1714]"
                   )}
                 >
                   {item.name}
@@ -127,9 +127,9 @@ export function SiteNav() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
-                className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-xl bg-white px-4 py-3 text-base font-medium text-black"
+                className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#1b1714] px-4 py-3 text-base font-medium text-[#faf8f4]"
               >
-                Resume
+                Résumé
                 <ArrowUpRight className="h-4 w-4" />
               </a>
             </div>
