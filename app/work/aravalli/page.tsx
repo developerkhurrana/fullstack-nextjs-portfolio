@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
+import { BrowserFrame } from "@/components/ui/browser-frame";
 
 const facts = [
   { label: "Role", value: "Full-Stack Developer & UI/UX Designer" },
@@ -130,6 +131,33 @@ export default function AravalliCaseStudy() {
               <div className="mt-1 text-sm text-[#857b72]">{s.label}</div>
             </div>
           ))}
+        </div>
+
+        {/* The two products */}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2">
+          <div>
+            <BrowserFrame
+              src="/shots/ethnics.jpg"
+              alt="Ethnics by Aravalli wholesale storefront"
+              label="ethnicsbyaravalli.com"
+              priority
+              sizes="(max-width: 768px) 100vw, 400px"
+            />
+            <p className="mt-3 text-sm text-[#857b72]">
+              Ethnics by Aravalli, the custom B2B platform.
+            </p>
+          </div>
+          <div>
+            <BrowserFrame
+              src="/shots/ekohum.jpg"
+              alt="Ekohum D2C storefront on Shopify"
+              label="ekohum.com"
+              sizes="(max-width: 768px) 100vw, 400px"
+            />
+            <p className="mt-3 text-sm text-[#857b72]">
+              Ekohum, the D2C brand on Shopify.
+            </p>
+          </div>
         </div>
 
         <Section eyebrow="Overview" title="One company, two commerce models">

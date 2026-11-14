@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
+import { BrowserFrame } from "@/components/ui/browser-frame";
 
 const facts = [
   { label: "Role", value: "Full-Stack Developer & UI/UX Designer" },
@@ -115,6 +116,16 @@ export default function EkohumCaseStudy() {
               <div className="mt-1 text-sm text-[#857b72]">{s.label}</div>
             </div>
           ))}
+        </div>
+
+        {/* The storefront */}
+        <div className="mt-12">
+          <BrowserFrame
+            src="/shots/ekohum.jpg"
+            alt="Ekohum storefront home page on Shopify"
+            label="ekohum.com"
+            priority
+          />
         </div>
 
         <Section eyebrow="Overview" title="Design and growth, together">

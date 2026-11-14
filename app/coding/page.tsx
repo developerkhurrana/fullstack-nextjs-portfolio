@@ -6,6 +6,27 @@ import { ArrowUpRight, ArrowRight, Github } from "lucide-react";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { PageHeader } from "@/components/page-header";
+import { BrowserFrame } from "@/components/ui/browser-frame";
+
+const SHOTS: Record<string, { src: string; label: string }> = {
+  "Ethnics by Aravalli": {
+    src: "/shots/ethnics.jpg",
+    label: "ethnicsbyaravalli.com",
+  },
+  Ekohum: { src: "/shots/ekohum.jpg", label: "ekohum.com" },
+  "Jai Bhairav Baba Tour & Travels": {
+    src: "/shots/jbb.jpg",
+    label: "jaibhairavbaba.com",
+  },
+  "TSSS Real Estate Platform": {
+    src: "/shots/tsss.jpg",
+    label: "tsss-realestate.vercel.app",
+  },
+  LedgerAI: { src: "/shots/ledger.jpg", label: "ledger-ai-kappa.vercel.app" },
+};
+
+const primaryHref = (p: Project) =>
+  p.caseStudy || p.demo || p.sites?.[0]?.url || "#";
 
 type Project = {
   title: string;
@@ -167,16 +188,17 @@ export default function Coding() {
               whileInView="show"
               viewport={{ once: true, margin: "-60px" }}
               variants={fade}
-              className="grid grid-cols-[auto_1fr] gap-5 border-b border-[#1b1714]/10 py-9 sm:gap-8"
+              className="border-b border-[#1b1714]/10 py-9"
             >
-              <span className="font-mono text-xs tabular-nums text-[#9a9087]">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <div>
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
-                  <h3 className="font-[family-name:var(--font-serif)] text-2xl font-normal tracking-tight sm:text-[1.7rem]">
-                    {p.title}
-                  </h3>
+              <div className="grid gap-6 sm:grid-cols-[1fr_300px] sm:gap-10">
+                <div className="order-2 sm:order-1">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                    <span className="font-mono text-xs tabular-nums text-[#9a9087]">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="font-[family-name:var(--font-serif)] text-2xl font-normal tracking-tight sm:text-[1.7rem]">
+                      {p.title}
+                    </h3>
                   {p.kind && (
                     <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#9a9087]">
                       {p.kind}
@@ -239,6 +261,27 @@ export default function Coding() {
                     </a>
                   )}
                 </div>
+                </div>
+                {SHOTS[p.title] && (
+                  <a
+                    href={primaryHref(p)}
+                    target={primaryHref(p).startsWith("http") ? "_blank" : undefined}
+                    rel={
+                      primaryHref(p).startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                    aria-label={`View ${p.title}`}
+                    className="order-1 self-start transition-transform duration-150 ease-out hover:-translate-y-0.5 sm:order-2"
+                  >
+                    <BrowserFrame
+                      src={SHOTS[p.title].src}
+                      alt={`${p.title} screenshot`}
+                      label={SHOTS[p.title].label}
+                      sizes="(max-width: 768px) 100vw, 300px"
+                    />
+                  </a>
+                )}
               </div>
             </motion.article>
           ))}
