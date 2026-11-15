@@ -6,6 +6,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Chat } from "@/components/ui/chat";
 import { cn } from "@/lib/utils";
+import { SITE_URL, SITE_NAME, SITE_TITLE, SITE_DESCRIPTION } from "@/lib/seo";
 
 const display = Space_Grotesk({
   subsets: ["latin"],
@@ -22,9 +23,60 @@ const serif = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Kshitij Khurrana, Full-Stack Developer",
-  description:
-    "Full-Stack Developer who designs and ships production e-commerce end to end.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_TITLE,
+    template: "%s | Kshitij Khurrana",
+  },
+  description: SITE_DESCRIPTION,
+  keywords: [
+    "Kshitij Khurrana",
+    "Full-Stack Developer",
+    "UI/UX Designer",
+    "Next.js",
+    "TypeScript",
+    "MongoDB",
+    "Shopify",
+    "e-commerce developer",
+    "React",
+    "Node.js",
+    "Jaipur",
+  ],
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    locale: "en_US",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: SITE_TITLE,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: ["/og.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({

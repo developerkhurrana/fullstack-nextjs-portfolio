@@ -1,9 +1,10 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Design Guidelines | Kshitij Khurrana",
+  title: "Design Guidelines",
   description:
     "Web design guidelines and best practices for creating beautiful and functional interfaces.",
+  alternates: { canonical: "/design-guidelines" },
 };
 
 export default function DesignGuidelinesLayout({
