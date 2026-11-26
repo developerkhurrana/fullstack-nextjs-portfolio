@@ -134,10 +134,12 @@ export default function EkohumCaseStudy() {
             phone, where most fashion browsing happens.
           </p>
           <p>
-            My role is on the Shopify side. I customize the theme in Liquid, set
-            up and merchandise collections, build out product pages and catalog
-            data, and handle on-store SEO so the brand gets found. The sections
-            below are the parts of that work I can show on the live site today.
+            When I came on, the storefront at ekohum.com was barely developed.
+            Building it out into the live, maintained store you see here, the
+            theme in Liquid, the collections, the product pages, and the catalog,
+            is the core of my work, alongside on-store SEO so the brand gets
+            found. The sections below are the parts of that work I can show on the
+            live site today.
           </p>
         </Section>
 
@@ -253,8 +255,9 @@ export default function EkohumCaseStudy() {
             Alongside the build, I handle on-store SEO and structured product data
             so collections and products can be found in search, and I keep the
             catalog current as seasons and campaigns change. I also run the
-            brand&apos;s Instagram and content, which keeps Ekohum consistent from
-            the feed through to the product page.
+            brand&apos;s Instagram and content, an account of around 15,000
+            followers when I came on, so Ekohum stays consistent from the feed
+            through to the product page.
           </p>
         </Section>
 

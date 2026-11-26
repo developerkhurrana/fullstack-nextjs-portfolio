@@ -176,6 +176,12 @@ export default function AravalliCaseStudy() {
             stay coherent instead of being handed off between a designer, a
             developer, and an agency.
           </p>
+          <p>
+            When I joined, the company&apos;s sites, ethnicsbyaravalli.com,
+            ekohum.com, and aravallidesigns.com, were barely developed. Building
+            them out into the live stores they are today is the bulk of my work
+            here.
+          </p>
         </Section>
 
         <Section
