@@ -56,12 +56,12 @@ const featured: Project[] = [
   },
   {
     title: "Ethnics by Aravalli",
-    kind: "Full-stack B2B platform",
+    kind: "WordPress B2B site",
     description:
-      "Custom full-stack B2B e-commerce platform serving 50+ retail partners: a Next.js UI, APIs, and a MongoDB database, with automated order processing and PDF invoicing via a Google Sheets pipeline. Cut order processing time by 70% (20+ hrs/week).",
-    tech: ["Next.js", "TypeScript", "MongoDB", "Google Sheets API"],
+      "Website for a Jaipur women's ethnic-wear manufacturer, built on WordPress: a brand and catalog presence, a manufacturing showcase with workshop films and a buyer's guide, on-site SEO, and a wholesale 'Request Catalogue' enquiry flow.",
+    tech: ["WordPress", "SEO", "Responsive design"],
     caseStudy: "/work/aravalli",
-    result: "70% faster orders",
+    result: "B2B website",
     sites: [
       { label: "ethnicsbyaravalli.com", url: "https://ethnicsbyaravalli.com" },
     ],

@@ -1,53 +1,34 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight, ArrowLeft } from "lucide-react";
+import { ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { BrowserFrame } from "@/components/ui/browser-frame";
 
 const facts = [
-  { label: "Role", value: "Full-Stack Developer & UI/UX Designer" },
-  { label: "Company", value: "Aravalli Designs" },
-  { label: "Build", value: "Custom Next.js + Shopify" },
-  { label: "Services", value: "Design · Development · SMM" },
-];
-
-// Real figures from the work, no invented numbers.
-const stats = [
-  { value: "50+", label: "Retail partners served" },
-  { value: "70%", label: "Faster order processing" },
-  { value: "20+ hrs", label: "Saved every week" },
-];
-
-const results = [
-  "50+ retail partners onboarded to the B2B platform, with automated order processing and real-time inventory.",
-  "80% of manual paperwork eliminated through a Google Sheets → PDF invoicing pipeline.",
-  "70% faster order processing, roughly 20+ hours saved every week.",
-  "95% mobile responsiveness and 40% faster load times via code splitting, lazy loading, and image optimization.",
-  "Ekohum grew +45% Instagram engagement and +200 followers through data-driven social marketing.",
-  "SEO and structured data improved organic search rankings and user acquisition.",
-];
-
-const sites = [
-  { label: "ethnicsbyaravalli.com", url: "https://ethnicsbyaravalli.com" },
-  { label: "ekohum.com", url: "https://ekohum.com" },
-  { label: "ekohum.in", url: "https://ekohum.in" },
-  { label: "aravallidesigns.com", url: "https://aravallidesigns.com" },
+  { label: "Business", value: "Ethnic-wear manufacturer (B2B)" },
+  { label: "Platform", value: "WordPress" },
+  { label: "My focus", value: "Site build · Content · SEO" },
+  { label: "Audience", value: "Shops, boutiques, retailers" },
 ];
 
 const stack = [
-  "Next.js 14",
-  "TypeScript",
-  "MongoDB",
-  "Google Sheets API",
-  "Shopify",
-  "Liquid",
-  "Meta Ads",
-  "SEO",
+  "WordPress",
+  "Responsive design",
+  "On-site SEO",
+  "Content pages",
+  "Lead capture (enquiry + WhatsApp)",
   "Figma",
 ];
+
+const WHATSAPP_SITE =
+  "https://wa.me/917972816234?text=" +
+  encodeURIComponent(
+    "Hi Kshitij, I saw your Ethnics by Aravalli case study and I'd like to talk about a website for my business."
+  );
 
 function Section({
   eyebrow,
@@ -66,10 +47,10 @@ function Section({
       transition={{ duration: 0.5 }}
       className="border-t border-[#1b1714]/10 py-12"
     >
-      <p className="text-sm font-medium uppercase tracking-[0.2em] text-[#b2532e]">
+      <p className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-[#b2532e]">
         {eyebrow}
       </p>
-      <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
+      <h2 className="mt-2 text-2xl font-normal tracking-tight sm:text-3xl">
         {title}
       </h2>
       <div className="mt-6 max-w-2xl space-y-4 text-[#56504a]">{children}</div>
@@ -77,7 +58,11 @@ function Section({
   );
 }
 
-export default function AravalliCaseStudy() {
+function Caption({ children }: { children: React.ReactNode }) {
+  return <p className="mt-3 text-sm text-[#857b72]">{children}</p>;
+}
+
+export default function EthnicsCaseStudy() {
   return (
     <div className="min-h-screen bg-[#faf8f4] text-[#1b1714]">
       <SiteNav />
@@ -91,16 +76,18 @@ export default function AravalliCaseStudy() {
         </Link>
 
         <div className="mt-8">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-[#b2532e]">
-            Case study
+          <p className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-[#b2532e]">
+            WordPress B2B case study
           </p>
-          <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-6xl">
-            Aravalli Designs
+          <h1 className="mt-3 text-4xl font-normal tracking-tight sm:text-6xl">
+            Ethnics by Aravalli
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[#6b635a]">
-            The ethnic-wear e-commerce company I build for, a custom B2B
-            platform (Ethnics by Aravalli) and a Shopify D2C brand (Ekohum),
-            which I design, build, and market end to end.
+            Ethnics by Aravalli is a women&apos;s ethnic-wear manufacturer in
+            Jaipur that supplies shops, boutiques, and retailers in bulk. I built
+            its website on WordPress: a brand and catalog presence, a
+            manufacturing showcase, and a wholesale-enquiry flow that turns search
+            traffic into catalogue requests.
           </p>
         </div>
 
@@ -118,170 +105,139 @@ export default function AravalliCaseStudy() {
           ))}
         </dl>
 
-        {/* Stats */}
-        <div className="mt-10 grid grid-cols-3 gap-4">
-          {stats.map((s) => (
-            <div
-              key={s.label}
-              className="rounded-2xl border border-[#1b1714]/10 bg-[#1b1714]/[0.02] p-5"
-            >
-              <div className="font-mono text-2xl font-semibold tabular-nums tracking-tight text-[#1b1714] sm:text-4xl">
-                {s.value}
-              </div>
-              <div className="mt-1 text-sm text-[#857b72]">{s.label}</div>
-            </div>
-          ))}
+        {/* Hero */}
+        <div className="mt-12">
+          <BrowserFrame
+            src="/shots/ethnics.jpg"
+            alt="Ethnics by Aravalli home page on WordPress"
+            label="ethnicsbyaravalli.com"
+            priority
+          />
+          <Caption>
+            The home page. I built the WordPress site, the brand presentation,
+            navigation, and the &quot;Request Catalogue&quot; call to action.
+          </Caption>
         </div>
 
-        {/* The two products */}
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
-          <div>
-            <BrowserFrame
-              src="/shots/ethnics.jpg"
-              alt="Ethnics by Aravalli wholesale storefront"
-              label="ethnicsbyaravalli.com"
-              priority
-              sizes="(max-width: 768px) 100vw, 400px"
-            />
-            <p className="mt-3 text-sm text-[#857b72]">
-              Ethnics by Aravalli, the custom B2B platform.
-            </p>
-          </div>
-          <div>
-            <BrowserFrame
-              src="/shots/ekohum.jpg"
-              alt="Ekohum D2C storefront on Shopify"
-              label="ekohum.com"
-              sizes="(max-width: 768px) 100vw, 400px"
-            />
-            <p className="mt-3 text-sm text-[#857b72]">
-              Ekohum, the D2C brand on Shopify.
-            </p>
-          </div>
-        </div>
-
-        <Section eyebrow="Overview" title="One company, two commerce models">
+        <Section eyebrow="Overview" title="What it is, and my role">
           <p>
-            Aravalli Designs is an ethnic-wear e-commerce company. It runs two
-            very different products:{" "}
-            <strong>Ethnics by Aravalli</strong>, a custom-coded{" "}
-            <span className="whitespace-nowrap">B2B</span> wholesale platform for
-            retailers, and <strong>Ekohum</strong>, a{" "}
-            <span className="whitespace-nowrap">D2C</span> brand on Shopify sold
-            directly to shoppers.
+            This is a wholesale business, not a store. Ethnics by Aravalli sells
+            in bulk to retailers, so the website&apos;s job is to present the
+            manufacturer credibly, show what it can make, and make it easy for a
+            shop or boutique to start a conversation, not to take card payments.
           </p>
           <p>
-            As the developer and designer behind both, I build every side, the
-            brand system, the storefront experience, and the marketing, so they
-            stay coherent instead of being handed off between a designer, a
-            developer, and an agency.
-          </p>
-          <p>
-            When I joined, the company&apos;s sites, ethnicsbyaravalli.com,
-            ekohum.com, and aravallidesigns.com, were barely developed. Building
-            them out into the live stores they are today is the bulk of my work
-            here.
+            I built the site on WordPress: the pages, the brand presentation, the
+            manufacturing content, and the enquiry flow, and I handle the on-site
+            SEO so retailers searching for a Jaipur manufacturer actually find it.
           </p>
         </Section>
 
         <Section
-          eyebrow="The challenge"
-          title="Two audiences, two very different builds"
+          eyebrow="Selected work 01"
+          title="A manufacturing showcase that earns trust"
         >
           <p>
-            Retailers and end-shoppers need opposite things. Wholesale buyers
-            need bulk ordering, inventory visibility, and paperwork that
-            doesn&apos;t eat the day. Retail shoppers need a fast, trustworthy
-            storefront and a reason to come back.
+            <strong className="text-[#1b1714]">The problem.</strong> A retailer
+            choosing a bulk supplier is taking a risk on quality and reliability.
+            A plain catalog doesn&apos;t answer that; they want to see that the
+            manufacturer actually makes the goods.
           </p>
           <p>
-            One person had to deliver both, a bespoke platform for the B2B side
-            and a polished, well-marketed Shopify store for the D2C side, and
-            keep them both moving.
+            <strong className="text-[#1b1714]">What I did.</strong> I built a
+            Manufacturing page that walks through the process, sampling, pattern
+            grading, cutting, stitching, QC, and packing, with workshop films and
+            a practical buyer&apos;s guide (&quot;what to discuss with your garment
+            manufacturer&quot;).
+          </p>
+          <p>
+            <strong className="text-[#1b1714]">Why it mattered.</strong> It turns
+            the site from a brochure into proof of capability, and the buyer&apos;s
+            guide doubles as SEO content that brings in retailers researching
+            manufacturers.
+          </p>
+        </Section>
+        <div>
+          <BrowserFrame
+            src="/shots/ethnics-manufacturing.jpg"
+            alt="Ethnics by Aravalli manufacturing page with process, workshop films, and a buyer's guide"
+            label="ethnicsbyaravalli.com/manufacturing"
+          />
+          <Caption>
+            The Manufacturing page: process, workshop films, and a buyer&apos;s
+            guide. I built the page and wrote it to inform wholesale buyers and to
+            rank in search.
+          </Caption>
+        </div>
+
+        <Section
+          eyebrow="Selected work 02"
+          title="An enquiry flow built for how wholesale actually works"
+        >
+          <p>
+            <strong className="text-[#1b1714]">The problem.</strong> Wholesale
+            orders are negotiated, not checked out. A &quot;buy now&quot; button is
+            the wrong tool; the real conversion is getting the retailer into a
+            conversation.
+          </p>
+          <p>
+            <strong className="text-[#1b1714]">What I did.</strong> I made
+            &quot;Request Catalogue&quot; and WhatsApp the primary calls to action
+            across the site, so a retailer can go from landing on the page to
+            talking to the business in one tap, with no checkout to abandon.
+          </p>
+          <p>
+            <strong className="text-[#1b1714]">Why it mattered.</strong> It matches
+            how this business sells, and it means the site&apos;s job is simple and
+            measurable: turn a visitor into a catalogue request.
           </p>
         </Section>
 
-        <Section eyebrow="What I did" title="Design, build, and grow">
-          <ul className="space-y-4">
-            {[
-              ["B2B platform (Ethnics by Aravalli)", "Architected and shipped a full-stack e-commerce platform on Next.js 14, TypeScript, and MongoDB for 50+ retail partners, with automated order processing and real-time inventory."],
-              ["Order automation", "Built a Google Sheets → PDF invoicing pipeline that removed 80% of manual paperwork and cut order processing time 70%, about 20+ hours saved a week."],
-              ["Shopify D2C (Ekohum)", "Designed and built the Ekohum storefront on Shopify (Liquid), then ran the social media marketing that grew it (+45% engagement, +200 followers)."],
-              ["Performance & SEO", "Tuned to a 95% mobile score and 40% faster loads with code splitting, lazy loading, and image optimization, plus structured data for organic search."],
-            ].map(([h, b]) => (
-              <li key={h} className="flex gap-3">
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#b2532e]/70" />
-                <span>
-                  <strong className="text-[#1b1714]">{h}.</strong>{" "}
-                  <span className="text-[#56504a]">{b}</span>
-                </span>
-              </li>
-            ))}
-          </ul>
-        </Section>
-
-        <Section eyebrow="How it works" title="UI, API, and database, one system">
+        <Section
+          eyebrow="Selected work 03"
+          title="Found by the right retailers, on any device"
+        >
           <p>
-            Ethnics by Aravalli is one full-stack app, not a front end bolted
-            onto someone else&apos;s backend. I built all three layers so they
-            fit together:
+            <strong className="text-[#1b1714]">The problem.</strong> A manufacturer
+            site only works if the retailers searching for one can find it, and
+            many of them are browsing on a phone.
           </p>
-          <div className="space-y-3">
-            {[
-              [
-                "Interface",
-                "Next.js + TypeScript",
-                "Retailers browse the catalog, build bulk orders, and track status in a responsive React UI I designed and built.",
-              ],
-              [
-                "API",
-                "Next.js server routes",
-                "Order submission, inventory checks, and invoicing run through server-side endpoints that validate each request and orchestrate the work.",
-              ],
-              [
-                "Database",
-                "MongoDB",
-                "Products, retailers, orders, and inventory live in MongoDB; the API reads and writes here, keeping stock and order status consistent.",
-              ],
-            ].map(([layer, tech, body]) => (
-              <div
-                key={layer}
-                className="rounded-2xl border border-[#1b1714]/10 bg-[#1b1714]/[0.02] p-5"
-              >
-                <div className="flex items-baseline gap-2">
-                  <span className="text-sm font-semibold text-[#1b1714]">
-                    {layer}
-                  </span>
-                  <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-[#b2532e]">
-                    {tech}
-                  </span>
-                </div>
-                <p className="mt-1.5 text-sm leading-relaxed text-[#56504a]">
-                  {body}
-                </p>
-              </div>
-            ))}
+          <p>
+            <strong className="text-[#1b1714]">What I did.</strong> I built the
+            pages around what buyers search for, &quot;women&apos;s ethnic wear
+            manufacturer in Jaipur,&quot; bulk kurtas and suit sets, and kept the
+            site fully responsive so it reads cleanly on mobile.
+          </p>
+        </Section>
+        <div className="flex justify-center">
+          <div className="w-[240px] overflow-hidden rounded-[2rem] border border-[#1b1714]/15 bg-white shadow-[0_24px_60px_-28px_rgba(27,23,20,0.4)]">
+            <Image
+              src="/shots/ethnics-mobile.jpg"
+              alt="Ethnics by Aravalli home page on a mobile phone"
+              width={390}
+              height={844}
+              sizes="240px"
+              className="h-auto w-full"
+            />
           </div>
+        </div>
+        <Caption>
+          <span className="block text-center">
+            The site on mobile, where many retailers first find it.
+          </span>
+        </Caption>
+
+        <Section eyebrow="What it adds up to" title="A site that brings in buyers">
           <p>
-            When a retailer places a bulk order, the UI posts it to the API,
-            which writes the order to MongoDB, adjusts inventory, and triggers
-            the Google Sheets to PDF invoicing pipeline. A manual,
-            paperwork-heavy process became one automated flow.
+            The outcome is a live, maintained WordPress site that presents the
+            manufacturer, proves its capability through the workshop and process
+            content, and gives retailers a clear, low-friction way to request a
+            catalogue, built for how a wholesale business actually wins
+            customers.
           </p>
         </Section>
 
-        <Section eyebrow="Results" title="The numbers">
-          <ul className="space-y-4">
-            {results.map((r) => (
-              <li key={r} className="flex gap-3">
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#b2532e]/70" />
-                <span className="text-[#56504a]">{r}</span>
-              </li>
-            ))}
-          </ul>
-        </Section>
-
-        <Section eyebrow="Stack & services" title="Tools behind the work">
+        <Section eyebrow="Stack" title="Tools behind the work">
           <div className="flex flex-wrap gap-2">
             {stack.map((t) => (
               <span
@@ -294,24 +250,59 @@ export default function AravalliCaseStudy() {
           </div>
         </Section>
 
-        {/* Visit the stores */}
+        {/* Visit */}
         <div className="border-t border-[#1b1714]/10 py-12">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-[#b2532e]">
-            Visit the stores
+          <p className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-[#b2532e]">
+            Visit the site
           </p>
-          <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {sites.map((site) => (
-              <a
-                key={site.url}
-                href={site.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center justify-between rounded-2xl border border-[#1b1714]/10 bg-[#1b1714]/[0.02] px-5 py-4 transition-colors hover:border-[#1b1714]/25 hover:bg-[#1b1714]/[0.03]"
-              >
-                <span className="font-medium text-[#1b1714]">{site.label}</span>
-                <ArrowUpRight className="h-5 w-5 text-[#857b72] transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#b2532e]" />
-              </a>
-            ))}
+          <div className="mt-6">
+            <a
+              href="https://ethnicsbyaravalli.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-between rounded-2xl border border-[#1b1714]/10 bg-[#1b1714]/[0.02] px-5 py-4 transition-colors hover:border-[#1b1714]/25 hover:bg-[#1b1714]/[0.03]"
+            >
+              <span className="font-medium text-[#1b1714]">
+                ethnicsbyaravalli.com
+              </span>
+              <ArrowUpRight className="h-5 w-5 text-[#857b72] transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#b2532e]" />
+            </a>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="mt-6 rounded-3xl border border-[#1b1714]/12 bg-[#1b1714]/[0.02] p-8 sm:p-10">
+          <h2 className="text-2xl font-normal tracking-tight sm:text-3xl">
+            Need a website for your business?
+          </h2>
+          <p className="mt-3 max-w-xl text-[#56504a]">
+            Whether it&apos;s a brand or B2B site on WordPress, a Shopify store, or
+            a custom build, I design and build sites that are easy to run and
+            bring in enquiries. Tell me what you need.
+          </p>
+          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <a
+              href={WHATSAPP_SITE}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-[#1b1714] px-6 py-3 text-sm font-medium text-[#faf8f4] tactile"
+            >
+              Start a project
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
+            <a
+              href="mailto:thekshitijkhurrana@gmail.com?subject=Website%20enquiry"
+              className="text-sm text-[#6b635a] underline decoration-[#1b1714]/20 underline-offset-4 transition-colors hover:text-[#1b1714] hover:decoration-[#1b1714]"
+            >
+              Email me
+            </a>
+            <Link
+              href="/coding"
+              className="group inline-flex items-center gap-1.5 text-sm text-[#6b635a] transition-colors hover:text-[#1b1714]"
+            >
+              See more work
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
           </div>
         </div>
       </main>

@@ -29,11 +29,11 @@ const knowledgeBase = {
   },
   work: {
     current:
-      "He works at Aravalli Designs, an ethnic-wear e-commerce company, as a Full-Stack Developer & UI/UX Designer. There he built Ethnics by Aravalli, a custom Next.js/MongoDB B2B platform for 50+ retailers with automated order processing and PDF invoicing, and designs, builds, and markets Ekohum, its Shopify D2C brand.",
+      "He works at Aravalli Designs, an ethnic-wear e-commerce company, as a developer and UI/UX designer. He built the Ethnics by Aravalli website on WordPress (a B2B manufacturer's catalog, a manufacturing showcase, and a wholesale-enquiry flow), and he designs, builds, and markets Ekohum, its Shopify D2C brand.",
     projects:
-      "Highlights: Ethnics by Aravalli, a custom Next.js 14 / TypeScript / MongoDB B2B platform for 50+ retailers with a Google Sheets automation pipeline that cut order processing time 70% (20+ hrs/week); Ekohum, a Shopify D2C storefront he designs, builds, and markets (+45% Instagram engagement, +200 followers); plus a TSSS real estate platform (+80% traffic, +30% leads) and various React apps.",
+      "Highlights: Ekohum, a Shopify D2C storefront he builds and markets (theme, a 260+ style catalog, product pages, SEO; grew the brand's Instagram from around 15k to over 20k followers); Ethnics by Aravalli, a WordPress B2B manufacturer site; TSSS, a real-estate front end; LedgerAI, a Next.js/MongoDB app with authentication and an OpenAI workflow; and Jai Bhairav Baba Tour & Travels, a Next.js booking site.",
     achievements:
-      "He improved order processing efficiency by 70%, grew web traffic 80% on a real estate platform, and holds Front-End, Back-End, and Python developer certificates from Mimo.",
+      "He grew the Ekohum brand's Instagram following, built out the company's storefronts from near-nothing, and holds Full-Stack, Front-End, Back-End, and Python developer certificates from Mimo.",
   },
   contact: {
     resume:

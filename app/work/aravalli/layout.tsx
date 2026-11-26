@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const title = "Aravalli Designs Case Study";
+const title = "Ethnics by Aravalli Case Study";
 const description =
-  "Case study: a custom B2B commerce platform (Ethnics by Aravalli) and a Shopify D2C brand (Ekohum) for Aravalli Designs, designed, built, and grown end to end.";
+  "WordPress B2B case study: the website for Ethnics by Aravalli, a women's ethnic-wear manufacturer in Jaipur. A brand and catalog presence, a manufacturing showcase, SEO, and a wholesale-enquiry flow.";
 
 export const metadata: Metadata = {
   title,

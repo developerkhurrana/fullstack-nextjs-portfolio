@@ -45,11 +45,11 @@ const WORK = [
   {
     no: "02",
     name: "Ethnics by Aravalli",
-    kind: "Full-stack B2B platform",
+    kind: "WordPress B2B site",
     blurb:
-      "A custom wholesale platform for 50+ retailers: a Next.js UI, APIs, and a MongoDB database working together, with automated order processing and PDF invoicing.",
-    stack: "Next.js · TypeScript · MongoDB",
-    result: "70% faster orders",
+      "A women's ethnic-wear manufacturer's website on WordPress: a brand and catalog presence, a manufacturing showcase, SEO, and a wholesale-enquiry flow that reaches retailers.",
+    stack: "WordPress · SEO · Lead capture",
+    result: "B2B website",
     href: "/work/aravalli",
     external: false,
     shot: "/shots/ethnics.jpg",
