@@ -42,28 +42,28 @@ type Project = {
 
 const featured: Project[] = [
   {
-    title: "Ethnics by Aravalli",
-    kind: "B2B commerce platform",
+    title: "Ekohum",
+    kind: "Shopify storefront",
     description:
-      "Custom full-stack B2B e-commerce platform serving 50+ retail partners, with automated order processing, real-time inventory, and PDF invoicing via a Google Sheets pipeline. Cut order processing time by 70% (20+ hrs/week).",
+      "Shopify storefront for a women's ethnic-wear brand: theme in Liquid, a 260+ style catalog with collections and filters, product pages built to convert, and on-store SEO.",
+    tech: ["Shopify", "Liquid", "SEO"],
+    caseStudy: "/work/ekohum",
+    result: "260+ styles",
+    sites: [
+      { label: "ekohum.com", url: "https://ekohum.com" },
+      { label: "ekohum.in", url: "https://ekohum.in" },
+    ],
+  },
+  {
+    title: "Ethnics by Aravalli",
+    kind: "Full-stack B2B platform",
+    description:
+      "Custom full-stack B2B e-commerce platform serving 50+ retail partners: a Next.js UI, APIs, and a MongoDB database, with automated order processing and PDF invoicing via a Google Sheets pipeline. Cut order processing time by 70% (20+ hrs/week).",
     tech: ["Next.js", "TypeScript", "MongoDB", "Google Sheets API"],
     caseStudy: "/work/aravalli",
     result: "70% faster orders",
     sites: [
       { label: "ethnicsbyaravalli.com", url: "https://ethnicsbyaravalli.com" },
-    ],
-  },
-  {
-    title: "Ekohum",
-    kind: "D2C brand on Shopify",
-    description:
-      "D2C ethnic-wear brand on Shopify: storefront design and build, plus the social media marketing that grows it (+45% Instagram engagement, +200 followers).",
-    tech: ["Shopify", "Liquid", "Meta Ads", "SEO"],
-    caseStudy: "/work/ekohum",
-    result: "+45% engagement",
-    sites: [
-      { label: "ekohum.com", url: "https://ekohum.com" },
-      { label: "ekohum.in", url: "https://ekohum.in" },
     ],
   },
   {

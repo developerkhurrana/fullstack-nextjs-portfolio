@@ -16,24 +16,38 @@ const STATS = [
 ];
 
 const TOOLS = [
-  "React",
+  "Shopify",
+  "Liquid",
   "Next.js",
+  "React",
   "TypeScript",
   "Node.js",
   "MongoDB",
-  "Shopify",
   "Figma",
-  "Meta Ads",
+  "UI/UX",
   "SEO",
 ];
 
 const WORK = [
   {
     no: "01",
-    name: "Ethnics by Aravalli",
-    kind: "B2B commerce platform",
+    name: "Ekohum",
+    kind: "Shopify storefront",
     blurb:
-      "A custom wholesale platform for 50+ retailers, with automated order processing, live inventory, and a Google Sheets to PDF invoicing pipeline.",
+      "A women's ethnic-wear brand on Shopify: theme in Liquid, a 260+ style catalog with collections and filters, product pages built to convert, and on-store SEO.",
+    stack: "Shopify · Liquid · SEO",
+    result: "260+ styles",
+    href: "/work/ekohum",
+    external: false,
+    shot: "/shots/ekohum.jpg",
+    shotLabel: "ekohum.com",
+  },
+  {
+    no: "02",
+    name: "Ethnics by Aravalli",
+    kind: "Full-stack B2B platform",
+    blurb:
+      "A custom wholesale platform for 50+ retailers: a Next.js UI, APIs, and a MongoDB database working together, with automated order processing and PDF invoicing.",
     stack: "Next.js · TypeScript · MongoDB",
     result: "70% faster orders",
     href: "/work/aravalli",
@@ -42,39 +56,26 @@ const WORK = [
     shotLabel: "ethnicsbyaravalli.com",
   },
   {
-    no: "02",
-    name: "Ekohum",
-    kind: "D2C brand on Shopify",
-    blurb:
-      "Designed and built the storefront, then ran the marketing that grew it: social, SEO, and structured data working together.",
-    stack: "Shopify · Liquid · Meta Ads",
-    result: "+45% engagement",
-    href: "/work/ekohum",
-    external: false,
-    shot: "/shots/ekohum.jpg",
-    shotLabel: "ekohum.com",
-  },
-  {
     no: "03",
-    name: "Jai Bhairav Baba Tour & Travels",
-    kind: "Travel booking site",
+    name: "LedgerAI",
+    kind: "Full-stack app · backend",
     blurb:
-      "A Jaipur car-rental and tours business online: 60+ programmatic route pages, a fleet and services catalogue, and a WhatsApp enquiry flow instead of online checkout.",
-    stack: "Next.js · TypeScript · SEO",
-    result: "60+ route pages",
-    href: "https://jaibhairavbaba.com",
+      "An expense, GST, and cash-flow tracker: authentication, a MongoDB data model, and an OpenAI-assisted workflow behind a Next.js interface.",
+    stack: "Next.js · MongoDB · NextAuth · OpenAI",
+    result: "Auth · DB · AI",
+    href: "https://ledger-ai-kappa.vercel.app/",
     external: true,
-    shot: "/shots/jbb.jpg",
-    shotLabel: "jaibhairavbaba.com",
+    shot: "/shots/ledger.jpg",
+    shotLabel: "ledger-ai-kappa.vercel.app",
   },
   {
     no: "04",
     name: "TSSS Real Estate",
-    kind: "Property platform",
+    kind: "Frontend · property platform",
     blurb:
-      "A clean, fast real-estate front end with listings, filtering, and enquiry, deployed and live.",
-    stack: "Next.js · TypeScript",
-    result: "Live demo",
+      "A clean, fast real-estate front end in Next.js: listings, search and filtering, and enquiry, responsive and deployed.",
+    stack: "Next.js · TypeScript · UI/UX",
+    result: "Live",
     href: "https://tsss-realestate.vercel.app",
     external: true,
     shot: "/shots/tsss.jpg",
@@ -83,18 +84,24 @@ const WORK = [
 ];
 
 const APPROACH = [
-  [
-    "Design",
-    "Brand systems and interfaces in Figma that look considered, not templated.",
-  ],
-  [
-    "Build",
-    "Full-stack e-commerce in Next.js, TypeScript, and MongoDB, architecture to pixels.",
-  ],
-  [
-    "Grow",
-    "The marketing after launch: social, SEO, and the analytics that compound.",
-  ],
+  {
+    label: "Shopify & e-commerce",
+    body: "Shopify storefronts for apparel and lifestyle brands: themes in Liquid, collections, product pages, merchandising, and SEO.",
+    cta: "Ekohum case study",
+    href: "/work/ekohum",
+  },
+  {
+    label: "Full-stack engineering",
+    body: "End-to-end web apps in Next.js, TypeScript, and MongoDB: UI, APIs, databases, and auth that fit together.",
+    cta: "See the builds",
+    href: "/coding",
+  },
+  {
+    label: "UI/UX & graphic design",
+    body: "Brand systems, interface design, and visual work in Figma, the design behind the build.",
+    cta: "Design & visual work",
+    href: "/projects",
+  },
 ];
 
 const fade = {
@@ -133,13 +140,13 @@ export default function Home() {
             initial="hidden"
             animate="show"
             variants={fade}
-            className="mt-8 max-w-4xl text-[13vw] font-normal leading-[0.94] tracking-[-0.02em] sm:text-7xl lg:text-[5.5rem]"
+            className="mt-8 max-w-4xl text-[12.5vw] font-normal leading-[0.95] tracking-[-0.02em] sm:text-7xl lg:text-[5.25rem]"
           >
-            I design, build
+            <span className="italic text-[#b2532e]">Shopify</span> &amp;
             <br />
-            and{" "}
-            <span className="italic text-[#b2532e]">grow</span>{" "}
-            <span className="whitespace-nowrap">e-commerce.</span>
+            Full-Stack
+            <br />
+            Developer.
           </motion.h1>
 
           <motion.p
@@ -149,9 +156,9 @@ export default function Home() {
             variants={fade}
             className="mt-8 max-w-xl text-lg leading-relaxed text-[#56504a]"
           >
-            Full-stack developer and UI/UX designer at Aravalli Designs. I take
-            commerce end to end: a custom B2B platform serving 50+ retailers, a
-            Shopify D2C brand, and the marketing that grows them.
+            I build Shopify storefronts for apparel brands, end-to-end web apps
+            in Next.js and TypeScript, and the UI/UX and graphic design behind
+            them. Based in Jaipur, working with brands and teams anywhere.
           </motion.p>
 
           <motion.div
@@ -161,11 +168,18 @@ export default function Home() {
             variants={fade}
             className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3"
           >
-            <a
-              href="#work"
+            <Link
+              href="/work/ekohum"
               className="group inline-flex items-center gap-2 rounded-full bg-[#1b1714] px-6 py-3 text-sm font-medium text-[#faf8f4] tactile"
             >
-              View selected work
+              See the Ekohum Shopify case study
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </Link>
+            <a
+              href="#work"
+              className="group inline-flex items-center gap-1.5 text-sm text-[#6b635a] transition-colors hover:text-[#1b1714]"
+            >
+              All work
               <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
             </a>
             <a
@@ -176,7 +190,7 @@ export default function Home() {
               className="group inline-flex items-center gap-2 text-sm text-[#6b635a] underline decoration-[#1b1714]/20 underline-offset-4 transition-colors hover:text-[#1b1714] hover:decoration-[#1b1714]"
             >
               <Download className="h-4 w-4" />
-              Download résumé
+              Résumé
             </a>
           </motion.div>
         </section>
@@ -302,13 +316,23 @@ export default function Home() {
               </p>
             </div>
             <dl className="divide-y divide-[#1b1714]/10 border-t border-[#1b1714]/10">
-              {APPROACH.map(([k, v]) => (
-                <div key={k} className="grid grid-cols-[7rem_1fr] gap-4 py-5">
-                  <dt className="font-mono text-sm uppercase tracking-[0.1em] text-[#b2532e]">
-                    {k}
+              {APPROACH.map((d) => (
+                <div
+                  key={d.label}
+                  className="grid gap-2 py-6 sm:grid-cols-[11rem_1fr] sm:gap-6"
+                >
+                  <dt className="font-mono text-sm uppercase tracking-[0.08em] text-[#b2532e]">
+                    {d.label}
                   </dt>
                   <dd className="text-[15px] leading-relaxed text-[#56504a]">
-                    {v}
+                    {d.body}
+                    <Link
+                      href={d.href}
+                      className="group mt-2 flex w-fit items-center gap-1 text-sm font-medium text-[#1b1714] underline decoration-[#1b1714]/20 underline-offset-4 transition-colors hover:decoration-[#1b1714]"
+                    >
+                      {d.cta}
+                      <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </Link>
                   </dd>
                 </div>
               ))}

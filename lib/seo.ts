@@ -7,7 +7,7 @@ export const SITE_URL = (
 export const SITE_NAME = "Kshitij Khurrana";
 
 export const SITE_TITLE =
-  "Kshitij Khurrana, Full-Stack Developer & UI/UX Designer";
+  "Kshitij Khurrana, Shopify & Full-Stack Developer";
 
 export const SITE_DESCRIPTION =
-  "Full-stack developer and UI/UX designer in Jaipur who designs, builds, and grows e-commerce end to end: custom B2B platforms, Shopify D2C storefronts, and the marketing behind them.";
+  "Shopify and full-stack developer in Jaipur. I build Shopify storefronts for apparel brands, end-to-end web apps in Next.js and TypeScript, and the UI/UX and graphic design behind them.";

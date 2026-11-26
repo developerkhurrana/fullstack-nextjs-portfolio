@@ -214,6 +214,56 @@ export default function AravalliCaseStudy() {
           </ul>
         </Section>
 
+        <Section eyebrow="How it works" title="UI, API, and database, one system">
+          <p>
+            Ethnics by Aravalli is one full-stack app, not a front end bolted
+            onto someone else&apos;s backend. I built all three layers so they
+            fit together:
+          </p>
+          <div className="space-y-3">
+            {[
+              [
+                "Interface",
+                "Next.js + TypeScript",
+                "Retailers browse the catalog, build bulk orders, and track status in a responsive React UI I designed and built.",
+              ],
+              [
+                "API",
+                "Next.js server routes",
+                "Order submission, inventory checks, and invoicing run through server-side endpoints that validate each request and orchestrate the work.",
+              ],
+              [
+                "Database",
+                "MongoDB",
+                "Products, retailers, orders, and inventory live in MongoDB; the API reads and writes here, keeping stock and order status consistent.",
+              ],
+            ].map(([layer, tech, body]) => (
+              <div
+                key={layer}
+                className="rounded-2xl border border-[#1b1714]/10 bg-[#1b1714]/[0.02] p-5"
+              >
+                <div className="flex items-baseline gap-2">
+                  <span className="text-sm font-semibold text-[#1b1714]">
+                    {layer}
+                  </span>
+                  <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-[#b2532e]">
+                    {tech}
+                  </span>
+                </div>
+                <p className="mt-1.5 text-sm leading-relaxed text-[#56504a]">
+                  {body}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p>
+            When a retailer places a bulk order, the UI posts it to the API,
+            which writes the order to MongoDB, adjusts inventory, and triggers
+            the Google Sheets to PDF invoicing pipeline. A manual,
+            paperwork-heavy process became one automated flow.
+          </p>
+        </Section>
+
         <Section eyebrow="Results" title="The numbers">
           <ul className="space-y-4">
             {results.map((r) => (

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-const title = "Ekohum Case Study";
+const title = "Ekohum Shopify Case Study";
 const description =
-  "Case study: Ekohum, a D2C ethnic-wear brand on Shopify, storefront design and build plus the social media marketing that grew its engagement and following.";
+  "Shopify case study: Ekohum, a women's ethnic-wear brand. Theme customization in Liquid, a 260+ style catalog with collections and filters, product pages built to convert, and on-store SEO.";
 
 export const metadata: Metadata = {
   title,
