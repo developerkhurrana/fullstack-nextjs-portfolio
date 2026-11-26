@@ -255,9 +255,9 @@ export default function EkohumCaseStudy() {
             Alongside the build, I handle on-store SEO and structured product data
             so collections and products can be found in search, and I keep the
             catalog current as seasons and campaigns change. I also run the
-            brand&apos;s Instagram and content, an account of around 15,000
-            followers when I came on, so Ekohum stays consistent from the feed
-            through to the product page.
+            brand&apos;s Instagram and content; the account has grown from around
+            15,000 followers when I came on to over 20,000 today, and Ekohum
+            stays consistent from the feed through to the product page.
           </p>
         </Section>
 
