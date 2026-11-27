@@ -11,7 +11,7 @@ const RESUME_URL = "/resume.pdf";
 
 const STATS = [
   { value: "50+", label: "Retail partners served" },
-  { value: "4", label: "Live products shipped" },
+  { value: "5", label: "Live products shipped" },
   { value: "0", label: "Handoffs, I design & build" },
 ];
 
@@ -44,6 +44,19 @@ const WORK = [
   },
   {
     no: "02",
+    name: "Sparkframe",
+    kind: "AI SaaS · my product",
+    blurb:
+      "An AI product-photography tool I designed and built solo: upload a product photo and it relights it into a studio-style shot. Next.js front end, an AI image pipeline, accounts, and billing, end to end.",
+    stack: "Next.js · TypeScript · AI",
+    result: "Live product",
+    href: "/work/sparkframe",
+    external: false,
+    shot: "/shots/sparkframe.jpg",
+    shotLabel: "sparkframe.in",
+  },
+  {
+    no: "03",
     name: "Ethnics by Aravalli",
     kind: "WordPress B2B site",
     blurb:
@@ -56,7 +69,7 @@ const WORK = [
     shotLabel: "ethnicsbyaravalli.com",
   },
   {
-    no: "03",
+    no: "04",
     name: "LedgerAI",
     kind: "Full-stack app · backend",
     blurb:
@@ -69,7 +82,7 @@ const WORK = [
     shotLabel: "ledger-ai-kappa.vercel.app",
   },
   {
-    no: "04",
+    no: "05",
     name: "TSSS Real Estate",
     kind: "Frontend · property platform",
     blurb:

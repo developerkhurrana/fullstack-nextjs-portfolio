@@ -14,6 +14,7 @@ const SHOTS: Record<string, { src: string; label: string }> = {
     label: "ethnicsbyaravalli.com",
   },
   Ekohum: { src: "/shots/ekohum.jpg", label: "ekohum.com" },
+  Sparkframe: { src: "/shots/sparkframe.jpg", label: "sparkframe.in" },
   "Jai Bhairav Baba Tour & Travels": {
     src: "/shots/jbb.jpg",
     label: "jaibhairavbaba.com",
@@ -53,6 +54,16 @@ const featured: Project[] = [
       { label: "ekohum.com", url: "https://ekohum.com" },
       { label: "ekohum.in", url: "https://ekohum.in" },
     ],
+  },
+  {
+    title: "Sparkframe",
+    kind: "AI SaaS · my product",
+    description:
+      "An AI product-photography tool I designed and built solo: upload a product photo and it cuts the background, relights it like a studio shot, and places it in a scene. Next.js and TypeScript front end, an AI image pipeline, and accounts, tiered plans, and billing, all end to end.",
+    tech: ["Next.js", "TypeScript", "AI image pipeline", "Auth & billing"],
+    caseStudy: "/work/sparkframe",
+    result: "Live product",
+    sites: [{ label: "sparkframe.in", url: "https://sparkframe.in" }],
   },
   {
     title: "Ethnics by Aravalli",
